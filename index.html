@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -692,6 +692,318 @@
 
 
     
+        <article id="post-studynotes/reinforcement-learning/04-Policies-and-Value-Functions" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">
+            <time datetime="2020-03-03T01:00:03.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Policies-and-Value-Functions"><a href="#Policies-and-Value-Functions" class="headerlink" title="Policies and Value Functions"></a>Policies and Value Functions</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다.</p>
+<h3 id="Policies"><a href="#Policies" class="headerlink" title="Policies"></a>Policies</h3><p>우리말로, <strong>정책</strong>이라고 하며, 말 그대로, 주어진 현재 상황에서 agent가 어떤 action을 선택할지 결정해주는 정책을 의미한다.</p>
+<p><strong>Policy는 각 state에서 가능한 action들의 probability distribution이다.</strong></p>
+<p>Value function과 그 의미가 매우 유사해보인다. 하지만, Value function은 reward의 기댓값을 계산해주는 것일 뿐, action을 결정하는 것은 policy에게 달려 있다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/reinforcement-learning/03-Markov-Decision-Process" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">
+            <time datetime="2020-03-03T01:00:02.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>마르코드 결정 과정.</p>
+<p>이름에서 유추할수 있다시피, Markov assumption에 기반한 decision process로, $t+1$에서의 상태 $s_{t+1}$는 오직 현재 $t$에서의 상태인 $s_{t}$에 있을 때, agent의 decision인 $a_{t}$에 의해서만 결정된다는 것이다.</p>
+<h3 id="Markov-Decisoin-Process-vs-K-arm-Bandit-Problems"><a href="#Markov-Decisoin-Process-vs-K-arm-Bandit-Problems" class="headerlink" title="Markov Decisoin Process vs K-arm Bandit Problems"></a>Markov Decisoin Process vs K-arm Bandit Problems</h3><p>Markov decision process에서는 K-arm bandit에서 가정했던 여러가지 조건을 해제한 application에 적용이 가능하다.</p>
+<ul><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/reinforcement-learning/02-K-arm-Bandits-Problems" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">
+            <time datetime="2020-03-03T01:00:01.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="K-arm-Bandits-Problems"><a href="#K-arm-Bandits-Problems" class="headerlink" title="K-arm Bandits Problems"></a>K-arm Bandits Problems</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>Reinforcement learning에서 가장 기본적인 문제로, K-arm bandit problem을 들 수 있다. K개의 arm이 있고, agent는 그 arm 중 하나를 골라야 하며, 하나를 골랐다면, environment는 그 arm의 reward를 반환한다.</p>
+<h3 id="Multi-armed-Bandits-Problem"><a href="#Multi-armed-Bandits-Problem" class="headerlink" title="Multi-armed Bandits Problem"></a>Multi-armed Bandits Problem</h3><p>슬롯 머신문제, 의사의 치료법 선택 문제 등을 통칭해서 multi-armed bandits 종류의 문제라고 부른다.</p>
+<ul>
+<li><p>슬롯 머신 문제</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/reinforcement-learning/01_Introduction" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -991,318 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/APPENDIX-1-MAP" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">
-            <time datetime="2020-03-01T13:08:15.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">Appendix 1. Maximize a Posterior</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Maximize-a-Posterior"><a href="#Maximize-a-Posterior" class="headerlink" title="Maximize a Posterior"></a>Maximize a Posterior</h1><p><strong>사후확률 최대화 추정법(MAP Estimation).</strong></p>
-<p>Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이터의 정보와 합해서 파라미터를 point estimation하는 방법이다.</p>
-<p>방법은 다음과 같다.</p>
-<ol>
-<li><p>데이터에 대한 likelihood $P(D|\theta)$를 모델링한다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/14_Predictive_Simulation" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/">
-            <time datetime="2020-03-01T13:08:14.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/14_Predictive_Simulation.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/14_Predictive_Simulation.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/14_Predictive_Simulation.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/">14. Predictive Simulations</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Predictive-Simulation"><a href="#Predictive-Simulation" class="headerlink" title="Predictive Simulation"></a>Predictive Simulation</h1><p>어떤 예측해야 할 변수 $\lambda$의 분포에서 샘플링하는 시뮬레이션을 말한다. $\lambda$를 데이터를 관찰하기 전의 분포 $p(\lambda)$에서 시뮤레이션하는가, 관찰한 후의 분포 $p(\lambda|D)$에서 시뮬레이션 하는가에 따라 다음과 같이 나뉜다.</p>
-<ul>
-<li>Prior Predictive Simulation</li>
-<li>Posterior Predictive Simulation</li>
-</ul><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/13_Hierarchical_models" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">
-            <time datetime="2020-03-01T13:08:13.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/13_Hierarchical_models.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/13_Hierarchical_models.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/13_Hierarchical_models.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Hierarchical-Models"><a href="#Hierarchical-Models" class="headerlink" title="Hierarchical Models"></a>Hierarchical Models</h1><p>데이터 생성 프로세스를 계층적으로 모델링한 것을 의미한다. 즉, likelihood의 파라미터는 또 다른 파라미터를 갖는 분포를 가지는 형태. 예를들어 likelihood는 poisson 분포를 따른다고 모델링하고, 그 파라미터 $\lambda$는 또 다른 파라미터 $\alpha, \beta$를 가지는 gamma 분포를 따른다고 모델링했다고 하자. 이 경우가 계층적 모델링에 속한다.<br>$$<br>y_i|\lambda_{j} \sim \text{Pois}(\lambda_{j}) \<br>\lambda_j|\alpha,\beta \sim \text{Gamma}(\alpha, \beta) \<br>\alpha \sim p(\alpha), \beta \sim p(\beta)<br>$$<br>이때, 각 $\lambda$는 여러개가 있고, 그중 하나에서 $y$가 생성되지만, $\lambda$는 모두 같은 분포에서 나온 녀석들이라고 모델링 한 것이다. $p(\alpha),p(\beta)$는 각각 $\alpha,\beta$의 prior이다.</p>
-<p>이 경우의 장점은, 데이터가 모두 독립이지 않고 같은 성질을 갖는 놈들(같은 $\lambda$에서 나온 놈들에 해당)은 비슷하고 다른 성질은 갖는 놈들은 조금 다르다는, 약간의 correlation이 있는 데이터를 모델링할 수 있다.</p>
-<p>$\alpha,\beta$는 고정적으로 줘도 될 것인데, 왜 궂이 prior를 할당해서 샘플링하는가? 이건 $$\alpha,\beta$$에 대한 uncertainty(불확실성) 때문이다.</p>
-<p>$$\alpha,\beta$$는 독립적으로 샘플링된다. 그러나, 샘플링된 $\lambda$들 끼리는 독립이 아니다. 대신, $\alpha,\beta$가 주어진다면, 각 $\lambda$끼리는 해당 특정한 $\alpha, \beta$를 파라미터로 하는 분포에서 독립적으로 샘플링됬을 것이므로 조건부 독립이다. $y$끼리도 독립이 아니지만, $\lambda$가 주어진다면 $y$들 끼리 독립(조건부 독립)이다. $\lambda$가 주어졌다는 의미는 어느 한 그룹으로 좁혔고, 그 그룹 내에서 샘플들끼리는 독립이기 때문이다(그렇게 모델링 했으니까).</p>
-<p>이렇게 함으로써, 다른 그룹은 다른 모델로 모델링하기 보다는 계층적인 하나의 모델로 모델링할 수 있다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">

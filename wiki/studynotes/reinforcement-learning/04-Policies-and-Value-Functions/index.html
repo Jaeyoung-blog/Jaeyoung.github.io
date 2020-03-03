@@ -3,24 +3,27 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>01. Introduction | Jaeyoung&#39;s Blog</title>
+    <title>04. Policies and Value Functions | Jaeyoung&#39;s Blog</title>
     
     
         <meta name="keywords" content="StudyNotes,ReinforcementLearning">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="IntroductionReinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다. Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.  Trails &amp;amp; erros search Delayed re">
+    <meta name="description" content="Policies and Value Functions참고: Coursera Reinforcement Learning (Alberta Univ.) RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다. Policies우리말로, 정책이라고 하며, 말 그">
 <meta name="keywords" content="StudyNotes,ReinforcementLearning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="01. Introduction">
-<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/01_Introduction/index.html">
+<meta property="og:title" content="04. Policies and Value Functions">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/index.html">
 <meta property="og:site_name" content="Jaeyoung&#39;s Blog">
-<meta property="og:description" content="IntroductionReinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다. Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.  Trails &amp;amp; erros search Delayed re">
+<meta property="og:description" content="Policies and Value Functions참고: Coursera Reinforcement Learning (Alberta Univ.) RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다. Policies우리말로, 정책이라고 하며, 말 그">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-03-03T00:54:07.087Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119160231033.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119163026023.png">
+<meta property="og:updated_time" content="2020-03-03T02:11:36.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="01. Introduction">
-<meta name="twitter:description" content="IntroductionReinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다. Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.  Trails &amp;amp; erros search Delayed re">
+<meta name="twitter:title" content="04. Policies and Value Functions">
+<meta name="twitter:description" content="Policies and Value Functions참고: Coursera Reinforcement Learning (Alberta Univ.) RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다. Policies우리말로, 정책이라고 하며, 말 그">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119160231033.png">
     
 
     
@@ -201,7 +204,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file active"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,7 +279,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-studynotes/reinforcement-learning/01_Introduction" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-studynotes/reinforcement-learning/04-Policies-and-Value-Functions" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -298,8 +301,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">
-            <time datetime="2020-03-03T01:00:00.000Z" itemprop="datePublished">2020-03-03</time>
+        <a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">
+            <time datetime="2020-03-03T01:00:03.000Z" itemprop="datePublished">2020-03-03</time>
         </a>
     </div>
 
@@ -310,13 +313,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> Source </a>
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> Edit </a>
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> History </a>
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> History </a>
                             </div>
                         
                     </div>
@@ -324,7 +327,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            01. Introduction
+            04. Policies and Value Functions
         </h1>
     
 
@@ -337,77 +340,61 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">카탈로그</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview-of-Reinforcement-Learning"><span class="toc-number">1.1.</span> <span class="toc-text">Overview of Reinforcement Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unusual-amp-Unexpected-Stretagy-in-RL"><span class="toc-number">1.1.1.</span> <span class="toc-text">Unusual &amp; Unexpected Stretagy in RL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervised-Learning-as-Reinforcement-Learning"><span class="toc-number">1.1.2.</span> <span class="toc-text">Supervised Learning as Reinforcement Learning?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exploitation-Exploration-Dilema"><span class="toc-number">1.2.</span> <span class="toc-text">Exploitation-Exploration Dilema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elements-of-Reinforcement-Learning"><span class="toc-number">1.3.</span> <span class="toc-text">Elements of Reinforcement Learning</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Policies-and-Value-Functions"><span class="toc-number">1.</span> <span class="toc-text">Policies and Value Functions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Policies"><span class="toc-number">1.0.1.</span> <span class="toc-text">Policies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Valid-amp-Invalid-Policies"><span class="toc-number">1.0.2.</span> <span class="toc-text">Valid &amp; Invalid Policies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Value-Functions"><span class="toc-number">1.0.3.</span> <span class="toc-text">Value Functions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bellman-Equation"><span class="toc-number">1.1.</span> <span class="toc-text">Bellman Equation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bellman-Equation-vs-Value-Function"><span class="toc-number">1.1.1.</span> <span class="toc-text">Bellman Equation vs Value Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State-value-Bellman-Equation"><span class="toc-number">1.1.2.</span> <span class="toc-text">State-value Bellman Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action-value-Bellman-Equation"><span class="toc-number">1.1.3.</span> <span class="toc-text">Action-value Bellman Equation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compute-Value-using-Bellman-Equation"><span class="toc-number">1.1.4.</span> <span class="toc-text">Compute Value using Bellman Equation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Optimality"><span class="toc-number">1.2.</span> <span class="toc-text">Optimality</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimal-Policies"><span class="toc-number">1.2.1.</span> <span class="toc-text">Optimal Policies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimal-Values"><span class="toc-number">1.2.2.</span> <span class="toc-text">Optimal Values</span></a></li></ol></li></ol></li></ol>
                 </div>
             
         
         
-            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Reinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다.</p>
-<p>Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.</p>
+            <h1 id="Policies-and-Value-Functions"><a href="#Policies-and-Value-Functions" class="headerlink" title="Policies and Value Functions"></a>Policies and Value Functions</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다.</p>
+<h3 id="Policies"><a href="#Policies" class="headerlink" title="Policies"></a>Policies</h3><p>우리말로, <strong>정책</strong>이라고 하며, 말 그대로, 주어진 현재 상황에서 agent가 어떤 action을 선택할지 결정해주는 정책을 의미한다.</p>
+<p><strong>Policy는 각 state에서 가능한 action들의 probability distribution이다.</strong></p>
+<p>Value function과 그 의미가 매우 유사해보인다. 하지만, Value function은 reward의 기댓값을 계산해주는 것일 뿐, action을 결정하는 것은 policy에게 달려 있다.</p>
 <ul>
-<li>Trails &amp; erros search</li>
-<li>Delayed rewards</li>
-</ul>
-<p>물론 그 전에 environment를 인지할 수 있는 센서가 있어서 상황을 바탕으로 위 두 가지 특징이 발현된다.</p>
-<h2 id="Overview-of-Reinforcement-Learning"><a href="#Overview-of-Reinforcement-Learning" class="headerlink" title="Overview of Reinforcement Learning"></a>Overview of Reinforcement Learning</h2><p>Supervised learning과 unsupervised learning은 다음과 같은 특성을 지닌다.</p>
-<ul>
-<li>숫자로된 테이블 형태의 데이터가 존재한다. ($X: N × D$$, $$Y: N × 1$) 이 두가지 데이터를 모두 넣고 모델을 학습하게 된다.</li>
-<li>Static한 학습만 가능하다. 데이터를 추가하려면, 기존 데이터도 모두 넣고 fine-tuning 해야 하는 경우가 많다. 따라서, online-learning에 매우 불리하다.</li>
-<li>시간이라는 개념이 없다(Sequence라는 개념은 있어도…). 그저 $X$$를 받으면 $$Y$를 줄 뿐. </li>
-<li>Supervised learning의 경우, $Y$$가 $$X$ 동시에 주어지기에, 즉각적인 피드백이 있다.</li>
-</ul>
-<p>반면, reinforcement learning은 다음과 같은 차이점이 있다.</p>
-<ul>
-<li>데이터가 매우 비정형적이다. 로봇의 경우, environment로부터 받은 카메라 정보와 여라가지 센서 정보나 environment representation 정보 등이 있을 수 있다.</li>
-<li>Dynamic하게 학습한다. Reinforcement learning은 데이터를 모아서 데이터셋을 만들어서 학습하는 형태가 아니라, environment에서 action을 취한 결과 피드백을 얻고 학습하는 형태이다. 즉, 그 자체가 그냥 online learning이다.</li>
-<li>어떤 액션을 취하면 즉각적인 피드백이 없을 수 있고, 게임이 끝날 때 까지 피드백을 얻지 못할 수도 있다. 따라서, 상대적으로 시간이라는 개념이 존재한다. 즉, 액션과 리워드가 동시에 주어지지 않고 중간에 일정 시간이 있을 수 있다.</li>
-</ul>
-<h3 id="Unusual-amp-Unexpected-Stretagy-in-RL"><a href="#Unusual-amp-Unexpected-Stretagy-in-RL" class="headerlink" title="Unusual &amp; Unexpected Stretagy in RL"></a>Unusual &amp; Unexpected Stretagy in RL</h3><p>Reinforcement learning은 최종 value를 최대화하면서 학습한다. 그리고, 최종 value를 가장 높게 하는 방법을 알아서 찾아나가는데, 이때, 그 방법이 소위 말해서 수단과 방법을 가리지 않는 방법일 수  있다. 또한, agent가 취하는 액션은 나중에 보면 최대 reward를 받는 방법이었다는 것이 드러나지만, 액션 하나하나를 보면 인간이 전혀 이해하지 못하는 방향의 액션일 수도 있다.</p>
-<h3 id="Supervised-Learning-as-Reinforcement-Learning"><a href="#Supervised-Learning-as-Reinforcement-Learning" class="headerlink" title="Supervised Learning as Reinforcement Learning?"></a>Supervised Learning as Reinforcement Learning?</h3><p>액션을 취하고 리워드를 얻는다는 것은 어떻게 보면 supervised learning과 연관지을 수도 있을 것이다. Environment가 $X$가 되고 그에 적절한 optimal action이 $Y$가 되는 것이다.</p>
-<p>하지만, supervised learning을 쓰지 않고 reinforcement learning을 쓰는 이유가 있다.</p>
-<ul>
-<li>계산 불가능할 정도로 많은 environment/state 경우의 수</li>
-<li>Supervised learning은 $X$$와 $$Y$를 동시에 필요로 하지만, $Y$가 있긴 한데, $X$ 동시에 주지 못하는 경우가 있다. 이때는 supervised learning을 할 수 없다.</li>
-</ul>
-<h2 id="Exploitation-Exploration-Dilema"><a href="#Exploitation-Exploration-Dilema" class="headerlink" title="Exploitation-Exploration Dilema"></a>Exploitation-Exploration Dilema</h2><p>Reinforcement learning에서의 agent는 최대한 많은 reward를 얻으면서 문제를 해결해야 한다. 이미 알고 있는 문제 해결 방법중에서 가장 큰 reward를 얻을 수 있는 방법을 선택해서 문제를 해결하는 것이 합리적일 것이다(exploitation). 그러나, agent는 새로운 길을 탐색해 나가면서 더 나은 길을 찾을 필요가 있다(exploration). 하지만, exploration과정은 많은 비용이 들 수도 있고 탐험 결과가 좋은 reward를 주는 경로가 아닐 수도 있다. 그럼에도 exploration은 필요하다.</p>
-<ul>
-<li><p>Exploitation</p>
-<p>이미 찾은 문제 해결 방법중에서 가장 나은 방법을 선택하는 것. 즉, 최대 reward를 찾아가는 것.</p>
+<li><p>Deterministic Policies<br>$$<br>\pi(s)= a<br>$$<br>위 식처럼, deterministic policy란 state를 입력으로 받아서 action 1개를 반환하는 함수이다. 즉, state를 action으로 매핑하는 함수라고 볼 수 있다.</p>
 </li>
-<li><p>Exploration</p>
-<p>새로운 길을 탐색하는 것. 많은 비용이 들지만, 새로운 길이 지금까지 가지고 있었던 해결 방법들 보다 더 나은 reward를 줄 수도 있다.</p>
+<li><p>Stochastic Policies<br>$$<br>\pi(a|s) = \text{ {Probability distribution matrix} }<br>$$<br>Stochastic policy는 한 state를 주게 되면, 그 state에서의 action probability distribution을 반환하는 함수이다. 따라서, 한 state를 주면, 여러 action이 나오게 된다.</p>
+<p>이때, action probability distribution matrix는 다음을 만족해야 한다.<br>$$<br>\sum_a \pi(a|s) = 1<br>$$<br>$$<br>\pi(a|s) \geq 0<br>$$</p>
 </li>
 </ul>
-<p>Exploration은 많은 비용이 들기 때문에, 당장은 reward를 얻지 못할 수도 있다. Exploitation을 하면 당장은 많은 reward를 얻을 수 있다. 이를 exploitaiton-exploration dilema라고 부른다.</p>
-<h2 id="Elements-of-Reinforcement-Learning"><a href="#Elements-of-Reinforcement-Learning" class="headerlink" title="Elements of Reinforcement Learning"></a>Elements of Reinforcement Learning</h2><p>크게 4가지로 나눌 수 있다.</p>
+<p>  즉, 행렬의 각 row가 적법한 probability distribution이어야 한다.</p>
+<p>  action probability distribution은 각 state마다 다르다.</p>
+<h3 id="Valid-amp-Invalid-Policies"><a href="#Valid-amp-Invalid-Policies" class="headerlink" title="Valid &amp; Invalid Policies"></a>Valid &amp; Invalid Policies</h3><p>MDP에서 policies는 반드시 현재 타임에서의 상태에 존재하는 정보를 이용해서 action을 결정해야 한다. 즉, policies의 인자는 반드시 time $t$에서는 $s_t$만이 되어야 하며, 따라서 다음과 같다.<br>$$<br>\pi(s_t) \rightarrow a_t<br>$$<br>만약, policy가 이전 time의 state나 action을 이용해서 action을 결정한다면, 적법한 policy라고 부르지 않는다.</p>
+<h3 id="Value-Functions"><a href="#Value-Functions" class="headerlink" title="Value Functions"></a>Value Functions</h3><p>다음 두 가지로 나뉜다.</p>
 <ul>
-<li><p>Policy</p>
-<p>어떤 주어진 환경/상황에서 어떤 동작을 취해야 하는지에 대한 규칙 또는 정책, 또는 매핑 함수이다. RL에서 핵심 역할을 하며, 단순한 매핑 테이블일수도, 아주 복잡한 함수나 확률적인 모델일 수도 있다.</p>
+<li><p>State Value Function $v_{\pi}(s_t)$</p>
+<p>한 상태 $s_t$에서, 앞으로 어떤 policy $$\pi$$를 따른다고 했을 때, <strong>앞으로 얻을 수 있는</strong> reward 기댓값을 의미한다.<br>$$<br>v_{\pi}(s_t) = \sum_{a_{t}} \pi(a_t|s_t) \sum_{s_{t+1},r_{t+1}} p(s_{t+1},r_{t+1}|s_{t},a_t)[r_{t+1} + \gamma \cdot v_{\pi}(s_{t+1})]<br>$$</p>
 </li>
-<li><p>Reward signal</p>
-<p>액션에 대한 결과적인 상황에 따라 agent가 어떤 reward를 받을지에 대한, 즉, 시스템의 목표를 어떻게 할 것인지에 대한 것이다.</p>
-</li>
-<li><p>Value</p>
-<p>Reward는 액션마다 주어질 수 있는 것으로, 이것만 있으면 greedy하게 갈 수 있다. 이를 방지하기 위해 reward를 누적하고 시스템 전체의 reward를 바라볼 수 있게 하는 것이 value이다. 즉, 어떤 state $s_{i}$에 대한 value $value(s_i)$는 그 상태 이후, 미래의 상태들 $s_{i+1}, s_{i+2},…$로부터 얻을 수 있는 reward 기댓값이다. 즉, $\text{argmax} ~ value(s)$라 함은, 당장 greedy한 선택이 아니라, 미래에 총 reward가 높은 방향으로 액션을 선택할 수 있게 해 준다.</p>
-<p>value-function은 당장 앞에 놓인 action에 대해 value를 계산해주는 함수?</p>
-<p>Reinforcement learning의 주요 task는 이 value function을 추정하는 것이다. agent는 value function이 가장 높은 value를 리턴해주는 액션을 선택하면 되니까.</p>
-</li>
-<li><p>Model of environment</p>
-<p>Agent가 상호작용하는 환경을 정의한 것.</p>
+<li><p>Action Value Function $q_{\pi}(s_t, a_t)$</p>
+<p>한 상태 $s_t$에서, 어떤 액션 $a_t$를 취하고 난 후, 앞으로 어떤 policy $\pi$를 따른다고 했을 때, <strong>앞으로 얻을 수 있는</strong> reward의 기댓값을 의미한다.<br>$$<br>q_{\pi}(s_t, a_t) = \sum_{s_{t+1}, r_{t+1}} p(s_{t+1}, r_{t+1}|s_t, a_t) [r_{t+1} + \gamma \cdot \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1})q_{\pi}(s_{t+1}, a_{t+1})]<br>$$</p>
 </li>
 </ul>
-<p>이외에, episode라는 것이 있다. episode란, agent가 게임을 시작하고 끝날 때 까지의 기간, 즉, 한 게임을 의미한다. 다만, 게임같이 “한 게임”이라는 개념이 존재하는 episodic task가 있는 반면(바둑, 스타크래프트), “한 게임”을 정의할 수 없는, continuous task도 존재한다(로봇은 수명이 다할 때 까지 끊임없이 환경과 통신함). 이 경우에는 episode가 없다.</p>
-<p>Reinforcement learning은 궁극적으로 reward를 최대화하는 것이지만, agent는 어떤 상황에서 높은 reward를 고르는게 아니라 value가 높은 쪽을 골라야 한다.</p>
-<p>이 value function을 정의하는 방법은 두 가지가 있을 수 있다.</p>
+<p>둘 다 현재 어떤 상황에서 앞으로 얻을 수 있는 reward의 기댓값을 의미한다.</p>
+<h2 id="Bellman-Equation"><a href="#Bellman-Equation" class="headerlink" title="Bellman Equation"></a>Bellman Equation</h2><p><strong>현재 시간 $t$에서의 value와 다음 시간 $t+1$에서의 value와의 관계식</strong>을 의미한다. State-value Bellman equation과 action-value Bellman equation이 존재하며, reinforcement learning 알고리즘 구현에 있어서 가장 중요한 알고리즘 중 하나이다.</p>
+<h3 id="Bellman-Equation-vs-Value-Function"><a href="#Bellman-Equation-vs-Value-Function" class="headerlink" title="Bellman Equation vs Value Function"></a>Bellman Equation vs Value Function</h3><p>두 용어의 개념에 대한 차이는 거의 없다. Bellman equation도 value function이다. 다만,  $t$에서의 value function을 $t+1$에서의 value function에 대한 식으로 나타냈다 뿐. Recursive하게 표현한 value function을 Bellman equation이라고 부를 뿐이다.</p>
+<h3 id="State-value-Bellman-Equation"><a href="#State-value-Bellman-Equation" class="headerlink" title="State-value Bellman Equation"></a>State-value Bellman Equation</h3><p>State-value function에 대한 Bellman equation으로, state-value function입장에서, $t$​에서의 state value와 $t+1$에서의 state value와의 관계식이다.<br>$$<br>v_{\pi}(s_t) = \sum_a \pi(a|s_t) \sum_{s_{t+1},r} p(s_{t+1}, r|s_{t}, a)[r + \gamma \cdot v_{\pi}(s_{t+1})]<br>$$</p>
+<h3 id="Action-value-Bellman-Equation"><a href="#Action-value-Bellman-Equation" class="headerlink" title="Action-value Bellman Equation"></a>Action-value Bellman Equation</h3><p>Action-value function에 대한 Bellman equation으로, action-value funciton입장에서, $t$에서의 actionvalue와 $t+1$에서의 action value와의 관계식이다.<br>$$<br>q_{\pi}(s_{t}, a_{t}) = \sum_{s_{t+1}, r} p(s_{t+1}, r|s_t, a_t)[r + \gamma \cdot \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) \cdot q_{\pi}(s_{t+1}, a_{t+1})]<br>$$</p>
+<h3 id="Compute-Value-using-Bellman-Equation"><a href="#Compute-Value-using-Bellman-Equation" class="headerlink" title="Compute Value using Bellman Equation"></a>Compute Value using Bellman Equation</h3><p>Bellman equation의 가장 큰 장점은, value function을 매우 효율적으로 계산할 수 있게 해 준다는 것이다. Value function은 정의에서 보다시피, 미래의 reward의 기댓값이다. 즉, 현재 시간 $t$이후의 모든 시간에서의 reward 기댓값인데, 이 정의로는 value를 계산할 수 없다. Bellman equation은 이 무한 수열 계산문제를 단순한 linear equation으로 바꿔준다.</p>
+<p>다음 board를 생각해 보자.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119160231033.png" alt="image-20200119160231033"></p>
+<p>보드에는 $A,B,C,D$라는 4개의 공간이 있으며, 말 하나를 이 공간 내에서 움직이려 한다. 즉, 각 공간이 곧 state이며, 총 4개의 state가 있는 environment이다.</p>
+<p>Action은 상,하,좌,우 4개의 움직임이 존재한다. Policy는 총 4개의 움직임에 대해 uniform distribution이다. 말이 $B$$로 들어오거나 B$에 머무는 움직임에 대해서만 reward +5를 부여하고 나머지는 0을 부여한다. Discount factor는 0.7로 하자.</p>
+<p>State $A$에서의 value는 무한 수열식이지만, Bellman equation을 이용한다면, 다음 state의 value를 이용해서 계산이 가능하다.<br>$$<br>V(A) = \sum_{a} \pi(a|A) \sum_{s’,r} p(s’,r|a,A)[r + \gamma \cdot V(s’)]<br>$$<br>그런데, action이 정해지면, state는 확정(deterministic)이므로, 위 Bellman equation을 다음처럼 변경할 수 있다.<br>$$<br>V(A) = \sum_a \pi(a|A)[0 + 0.7 \cdot V(s’)] \<br>= \frac{1}{4} \cdot 0.7 \cdot V(C) + \frac{1}{2} \cdot 0.7 \cdot V(A) + \frac{1}{4} \cdot (5 + 0.7 \cdot V(B)))<br>$$<br>$V(B), V(C), V(D)$도 유사하게 $V(A), V(B), V(C), V(D)$에 대한 식으로 표현이 가능하며, 일차 연립방정식으롤 표현이 가능하다. 즉, 무한 수열을 푸는 문제가 일차 연립 방정식을 푸는 문제로 바뀐 것이다.</p>
+<p>하지만, 현실에서는 approximation방법을 많이 이용한다. State개수가 많아서 그런가?</p>
+<h2 id="Optimality"><a href="#Optimality" class="headerlink" title="Optimality"></a>Optimality</h2><p>Reinforcement learning의 목적은 단순히 value function과 policy를 계산하는게 아니라, optimal policy와 optimal value function, 즉, reward를 최대화하는 policy와 value function을 찾는 것이다.</p>
+<h3 id="Optimal-Policies"><a href="#Optimal-Policies" class="headerlink" title="Optimal Policies"></a>Optimal Policies</h3><p>Optimal policy란, 모든 state에서 가장 높은 value를 반환하게 하는 policy를 말한다. 즉, 다음 그림처럼 어떤 여러개의 policies들보다 항상 큰 value를 반환하게 하는 policy는 항상 존재한다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200119163026023.png" alt="image-20200119163026023"></p>
+<p>즉, $$\pi_1, \pi_2$$보다 항상 크거나 같은 value를 반환하는 policy는 항상 존재한다는 건데, 방법은 간단하다. $$\pi_1 \leq \pi_2$$인 state에서는 $$\pi_2$$의 policy를 따르고, $$\pi_1 &gt; \pi_2$$인 state에서는 policy $$\pi_1$$을 따르도록 하는 새로운 policy $$\pi_3$$를 만들면 된다.</p>
+<p>이와 같은 방법으로, 언제나 모든 policy보다 크거나 같은 value를 반환하는 policy를 만들 수 있으며, 이런 policy는  unique할 수도 있고 여러개가 될 수도 있다(모든 state에 걸쳐서 똑같은 value를 반환하는 policy가 여러개일 수 있음).</p>
+<p>어쨌든, 이런 과정을 거쳐서 가장 높은 value를 모든 state에 걸쳐서 반환하는 policy를 optimal policy라고 부른다. 방금 말했듯이, optimal policy는 반드시 존재하며, 여러개일 수 있다.</p>
+<p>또 하나 생각할 점은, 위 그림에서 $\pi_3$은 분명히, $\pi_1, \pi_2$중 하나를 선택한 policy에 불과하므로, $\pi_1, \pi_2$둘 중 value가 높은 policy의 value와 같아야 할 것이데, 어느 지점에서는 $\pi_1, \pi_2$ 모두의 value보다 높다. 이것은, future value까지 반영해서 생기는 현상으로, 미래 state에서도 최선 policy인 $\pi_3$을 따르므로, value는 재료가 된 policy들보다 커질수도 있다.</p>
+<h3 id="Optimal-Values"><a href="#Optimal-Values" class="headerlink" title="Optimal Values"></a>Optimal Values</h3><p>보통 optimal policy는 unknown으로, 바로 계산할 수 없다. 애초에 reinforcement learning의 목적은 optimal policy를 찾는 것이다. Optimal policy를 계산할때는 opimal value function를 이용하게 된다.</p>
+<p>Optimal value function이란, 현재 state에서 가능한 모든 액션과 그에 다른 다음 value를 보고, 다음 value가 가장 높은 action을 deterministic하게 선택했을 때의 value function을 의미한다.<br>$$<br>v_<em>(s) = \underset{a}{\text{max}} ~ \sum_{s’,r} p(s’,r|s,a)[r + \gamma \cdot v_</em>(s’)]<br>$$<br>보다시피, action의 분포(policy)가 사라지고, 그냥 다음 state인 $s’$의 value $v_<em>(s’)$가 가장 높은 action을 무조건(deterministically) 취하게 한다. 또한, 이 value $v_</em>(s’)$만으로 $v_*(s)$를 계산하도록 한다.</p>
+<p>앞서, value function은 두 가지가 있고, 두 가지 value function 모두 Bellman equation 형태로 바꿀 수 있었다. Optimal value function도 마찬가지이며, optimal한 value function을 Bellman equation형태로 바꾼 것을 Bellman optimality equation이라고 부른다.</p>
 <ul>
-<li><p>Tabular solution method</p>
-<p>Value function은 deterministic하다. 보통 deterministic한 함수들은 입력과 출력 매핑을 테이블 형태로 표현가능하다. 따라서, deterministic한 방법을 tabular method라고 부른다.</p>
-<ul>
-<li>Markov Decision Process</li>
-</ul>
+<li><p><strong>Bellman optimality equation for state value function</strong><br>$$<br>v_<em>(s) = \underset{a}{\text{max}} ~ \sum_{s’,r} p(s’,r|s,a) [r + \gamma \cdot v_</em>(s’)]<br>$$</p>
 </li>
-<li><p>Approximate solution method</p>
-<p>Value function은 확률적이다.</p>
+<li><p><strong>Bellman optimality equation for action value function</strong><br>$$<br>q_<em>(s,a) = \underset{a}{\text{max}} \sum_{s’,r} p(s’,r|s,a)[r + \gamma \cdot \underset{a’}{\text{max}} ~ q_</em>(s’,a’)]<br>$$</p>
 </li>
 </ul>
 
@@ -422,19 +409,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/studynotes/machine-learning/Distillation-Methods/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">다음 글</strong>
             <div class="article-nav-title">
                 
-                    02. K-arm Bandits Problems
+                    Distillation Methods
                 
             </div>
         </a>
     
     
-        <a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">이전 글</strong>
-            <div class="article-nav-title">Principal Component Analysis</div>
+            <div class="article-nav-title">03. Markov Decision Process</div>
         </a>
     
 </nav>
