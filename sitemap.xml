@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/</loc>
+    
+    <lastmod>2020-03-03T04:25:37.222Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/</loc>
+    
+    <lastmod>2020-03-03T04:25:35.573Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</loc>
     
     <lastmod>2020-03-03T02:11:36.598Z</lastmod>
