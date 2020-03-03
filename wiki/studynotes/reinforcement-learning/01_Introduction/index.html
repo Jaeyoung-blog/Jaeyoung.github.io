@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Jaeyoung&#39;s Blog">
 <meta property="og:description" content="IntroductionReinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다. Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.  Trails &amp;amp; erros search Delayed re">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-03-03T00:54:07.087Z">
+<meta property="og:updated_time" content="2020-03-03T04:27:46.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="01. Introduction">
 <meta name="twitter:description" content="IntroductionReinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다. Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.  Trails &amp;amp; erros search Delayed re">
@@ -353,7 +353,7 @@
 <ul>
 <li>숫자로된 테이블 형태의 데이터가 존재한다. ($X: N × D$$, $$Y: N × 1$) 이 두가지 데이터를 모두 넣고 모델을 학습하게 된다.</li>
 <li>Static한 학습만 가능하다. 데이터를 추가하려면, 기존 데이터도 모두 넣고 fine-tuning 해야 하는 경우가 많다. 따라서, online-learning에 매우 불리하다.</li>
-<li>시간이라는 개념이 없다(Sequence라는 개념은 있어도…). 그저 $X$$를 받으면 $$Y$를 줄 뿐. </li>
+<li>시간이라는 개념이 없다(Sequence라는 개념은 있어도…). 그저 $X$를 받으면 $Y$를 줄 뿐. </li>
 <li>Supervised learning의 경우, $Y$$가 $$X$ 동시에 주어지기에, 즉각적인 피드백이 있다.</li>
 </ul>
 <p>반면, reinforcement learning은 다음과 같은 차이점이 있다.</p>
@@ -367,7 +367,7 @@
 <p>하지만, supervised learning을 쓰지 않고 reinforcement learning을 쓰는 이유가 있다.</p>
 <ul>
 <li>계산 불가능할 정도로 많은 environment/state 경우의 수</li>
-<li>Supervised learning은 $X$$와 $$Y$를 동시에 필요로 하지만, $Y$가 있긴 한데, $X$ 동시에 주지 못하는 경우가 있다. 이때는 supervised learning을 할 수 없다.</li>
+<li>Supervised learning은 $X$와 $Y$를 동시에 필요로 하지만, $Y$가 있긴 한데, $X$ 동시에 주지 못하는 경우가 있다. 이때는 supervised learning을 할 수 없다.</li>
 </ul>
 <h2 id="Exploitation-Exploration-Dilema"><a href="#Exploitation-Exploration-Dilema" class="headerlink" title="Exploitation-Exploration Dilema"></a>Exploitation-Exploration Dilema</h2><p>Reinforcement learning에서의 agent는 최대한 많은 reward를 얻으면서 문제를 해결해야 한다. 이미 알고 있는 문제 해결 방법중에서 가장 큰 reward를 얻을 수 있는 방법을 선택해서 문제를 해결하는 것이 합리적일 것이다(exploitation). 그러나, agent는 새로운 길을 탐색해 나가면서 더 나은 길을 찾을 필요가 있다(exploration). 하지만, exploration과정은 많은 비용이 들 수도 있고 탐험 결과가 좋은 reward를 주는 경로가 아닐 수도 있다. 그럼에도 exploration은 필요하다.</p>
 <ul>
