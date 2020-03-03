@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>08. Bayesian Modeling | Jaeyoung&#39;s Blog</title>
+    
+    
+        <meta name="keywords" content="StudyNotes,BayesianStatistics">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bayesian ModelingStatistical ModelingBayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다. Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적">
+<meta name="keywords" content="StudyNotes,BayesianStatistics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08. Bayesian Modeling">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/index.html">
+<meta property="og:site_name" content="Jaeyoung&#39;s Blog">
+<meta property="og:description" content="Bayesian ModelingStatistical ModelingBayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다. Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303093449313.png">
+<meta property="og:updated_time" content="2020-03-03T00:54:07.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="08. Bayesian Modeling">
+<meta name="twitter:description" content="Bayesian ModelingStatistical ModelingBayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다. Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303093449313.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Jaeyoung&#39;s Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jaeyoung&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Main</a>
+                
+                    <a class="main-nav-link" href="/archives">TimeLine</a>
+                
+                    <a class="main-nav-link" href="/categories">Category</a>
+                
+                    <a class="main-nav-link" href="/tags">Tag</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Main</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">TimeLine</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Category</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tag</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>카테고리</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Log
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Blog-Init/">Init Blog</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Study Notes
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Bayesian Statistics
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/">03. Frequentist Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/01_Probability/">01. Probability</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">05. Credible Intervals</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/">04. Bayesian Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/07_Priors/">07. Priors</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a></li>  <li class="file active"><a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Machine Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">My Interpretation of Machine Learning</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Reinforcement Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-studynotes/bayesian-statistics/08_Bayesian_Modeling" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">
+            <time datetime="2020-03-01T13:08:00.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            08. Bayesian Modeling
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">카탈로그</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Bayesian-Modeling"><span class="toc-number">1.</span> <span class="toc-text">Bayesian Modeling</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistical-Modeling"><span class="toc-number">1.1.</span> <span class="toc-text">Statistical Modeling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-Specification-모델-구성"><span class="toc-number">1.2.</span> <span class="toc-text">Model Specification - 모델 구성</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="Bayesian-Modeling"><a href="#Bayesian-Modeling" class="headerlink" title="Bayesian Modeling"></a>Bayesian Modeling</h1><h2 id="Statistical-Modeling"><a href="#Statistical-Modeling" class="headerlink" title="Statistical Modeling"></a>Statistical Modeling</h2><p>Bayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다.</p>
+<p>Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적인 모델링 프로세스는 bayesian modeling이나 frequentist modeling이나 같다.</p>
+<ol>
+<li>문제 이해</li>
+<li>데이터 수집</li>
+<li>데이터 관찰</li>
+<li>모델 구성</li>
+<li>모델의 구현 및 fit</li>
+<li>샘플공간 분포 파라미터 추정</li>
+<li>테스트 및 예측성능 검사</li>
+<li>5~7번 반복</li>
+<li>모델의 이용.</li>
+</ol>
+<p>이때, frequentist modeling과 bayesian modeling에서의 차이는 모델의 구현과 fit, 파라미터 추정에 있다.</p>
+<h2 id="Model-Specification-모델-구성"><a href="#Model-Specification-모델-구성" class="headerlink" title="Model Specification - 모델 구성"></a>Model Specification - 모델 구성</h2><p>모델의 구성은 계층적으로 적어 내려가면서 파악하는게 어느정도 쉽다. 일단, likelihood를 적고 likelihood에 영향을 미치는 random variable 또는 parameter를 찾는다.</p>
+<p>어느 학교의 학생들의 키(height)의 분포를 예로 들자. 키의 분포는 normal distribution을 따른다고 가정하고 likelihood를 만든다.<br>$$<br>f(y|\theta) = \mathbb{N}(\mu, \sigma^2)<br>$$<br>그리고 $\mu$, $\sigma^2$의 분포가 필요한데, 이들의 prior를 정한다.<br>$$<br>\mu \approx \mathbb{N}(\mu_0, \sigma_0^2)<br>$$<br>$$<br>\sigma^2 \approx \mathbb{IG}(\nu_0, \beta_0)<br>$$</p>
+<p>여기서 $\mathbb{IG}$는 inverse-gamma distribution을 뜻한다. 그리고 각 prior는 독립이라고 가정하면, $p(\mu,\sigma^2) = p(\mu)p(\sigma^2)$일 것이다. 모델로 그려보면 다음과 같다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303093449313.png" alt="image-20200303093449313"></p>
+<p>이렇게, 우선 데이터가 어떻게 생성되었을지에 대해 그 생성 과정을 모델링하는데, likelihood부터 적고, 아래 파라미터까지 노드를 뻗어 나간다.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">다음 글</strong>
+            <div class="article-nav-title">
+                
+                    My Interpretation of Machine Learning
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">이전 글</strong>
+            <div class="article-nav-title">09. Monte Carlo Estimation</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+    <script src="https://utteranc.es/client.js"
+        repo="taeuk-gang/taeuk-gang.github.io"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lee Jaeyoung &copy; 2020 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <!-- <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a> -->
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

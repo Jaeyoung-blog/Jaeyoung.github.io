@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>05. Credible Intervals | Jaeyoung&#39;s Blog</title>
+    
+    
+        <meta name="keywords" content="StudyNotes,BayesianStatistics">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Credible IntervalsPrior로 $\theta$의 distribution $p(\theta)$를 정한 후, 데이터를 이용해서 bayesian inference과정을 거쳤다고 하자. 따라서, $p(\theta|D)$를 구했다. 그리고, 이 posterior속에서 파라미터 $\theta$가 어디쯤에 위치할지, credible interval을 계산">
+<meta name="keywords" content="StudyNotes,BayesianStatistics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05. Credible Intervals">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/index.html">
+<meta property="og:site_name" content="Jaeyoung&#39;s Blog">
+<meta property="og:description" content="Credible IntervalsPrior로 $\theta$의 distribution $p(\theta)$를 정한 후, 데이터를 이용해서 bayesian inference과정을 거쳤다고 하자. 따라서, $p(\theta|D)$를 구했다. 그리고, 이 posterior속에서 파라미터 $\theta$가 어디쯤에 위치할지, credible interval을 계산">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2020-03-03T00:54:07.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="05. Credible Intervals">
+<meta name="twitter:description" content="Credible IntervalsPrior로 $\theta$의 distribution $p(\theta)$를 정한 후, 데이터를 이용해서 bayesian inference과정을 거쳤다고 하자. 따라서, $p(\theta|D)$를 구했다. 그리고, 이 posterior속에서 파라미터 $\theta$가 어디쯤에 위치할지, credible interval을 계산">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Jaeyoung&#39;s Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jaeyoung&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Main</a>
+                
+                    <a class="main-nav-link" href="/archives">TimeLine</a>
+                
+                    <a class="main-nav-link" href="/categories">Category</a>
+                
+                    <a class="main-nav-link" href="/tags">Tag</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Main</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">TimeLine</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Category</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tag</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>카테고리</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Log
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Blog-Init/">Init Blog</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Study Notes
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Bayesian Statistics
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/">03. Frequentist Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/01_Probability/">01. Probability</a></li>  <li class="file active"><a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">05. Credible Intervals</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/">04. Bayesian Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/07_Priors/">07. Priors</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Machine Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">My Interpretation of Machine Learning</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Reinforcement Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-studynotes/bayesian-statistics/05_Credible_Intervals" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">
+            <time datetime="2020-03-01T12:08:00.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/05_Credible_Intervals.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/05_Credible_Intervals.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/05_Credible_Intervals.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            05. Credible Intervals
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">카탈로그</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Credible-Intervals"><span class="toc-number">1.</span> <span class="toc-text">Credible Intervals</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Equal-Tailed-Interval"><span class="toc-number">1.0.1.</span> <span class="toc-text">Equal-Tailed Interval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Highest-Posterior-Density"><span class="toc-number">1.0.2.</span> <span class="toc-text">Highest Posterior Density</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="Credible-Intervals"><a href="#Credible-Intervals" class="headerlink" title="Credible Intervals"></a>Credible Intervals</h1><p>Prior로 $\theta$의 distribution $p(\theta)$를 정한 후, 데이터를 이용해서 bayesian inference과정을 거쳤다고 하자. 따라서, $p(\theta|D)$를 구했다. 그리고, 이 posterior속에서 파라미터 $\theta$가 어디쯤에 위치할지, credible interval을 계산할 수 있다. 이는 frequentist statistics에서의 confidence interval과 매우 유사하지만, 다음의 차이점이 있다.</p>
+<ol>
+<li>Confidence interval은 $\theta$는 고정되어 있고 bound 경계가 random variable이다. 반면, credible interval에서는 $\theta$가 random variable이고 bound가 고정된 값이다.<ul>
+<li>confidence interval은 이 구간 사이에 모 파라미터 $\theta$가 있을 것이라는 자신감이 있을 뿐, $\theta$가 그 구간에 위치할 확률이 p-value가 되는 것이 아니다. Frequentist statistics에서는 $\theta$는 고정되어 있고 변하지 않는다. </li>
+<li>반면, credible interval은 그 구간 내에 $\theta$가 있을 확률을 의미한다.</li>
+</ul>
+</li>
+</ol>
+<p>Posterior를 충분한 데이터로 구했다면, 사전 지식과 합쳐서 credible interval을 계산하고 $\theta$가 어느 범위에 있을 확률을 구하는 것이다.</p>
+<h3 id="Equal-Tailed-Interval"><a href="#Equal-Tailed-Interval" class="headerlink" title="Equal-Tailed Interval"></a>Equal-Tailed Interval</h3><p>95%의 credible interval을 구하고 싶다면, 한쪽 끝에서 2.5%의 bound를 계산하고 다른 한 쪽 끝에서 2.5%의 bound를 계산한다. 그리고 그 사이가 equal tailed interval이 된다.</p>
+<h3 id="Highest-Posterior-Density"><a href="#Highest-Posterior-Density" class="headerlink" title="Highest Posterior Density"></a>Highest Posterior Density</h3><p>양쪽 끝을 같은 확률로 자르지말고, 확률이 높은 구간을 최대한 포함하자는 것이다. 만약, $p(\theta|D) = 2\theta$의 경우, 오른쪽 꼬리는 매우 확률이 높은 구간인데, 자르기 아깝다는 것이다. 따라서 확률이 낮은 왼쪽 꼬리만 잘라서 interval을 구한다.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/studynotes/bayesian-statistics/01_Probability/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">다음 글</strong>
+            <div class="article-nav-title">
+                
+                    01. Probability
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">이전 글</strong>
+            <div class="article-nav-title">04. Bayesian Inference</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+    <script src="https://utteranc.es/client.js"
+        repo="taeuk-gang/taeuk-gang.github.io"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lee Jaeyoung &copy; 2020 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <!-- <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a> -->
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
