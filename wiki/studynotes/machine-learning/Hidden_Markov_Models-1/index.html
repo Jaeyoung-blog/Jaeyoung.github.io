@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Hidden Markov Models 1 | Jaeyoung&#39;s Blog</title>
+    
+    
+        <meta name="keywords" content="StudyNotes,MachineLearning">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Markov AssumptionMarkov property라고도 부르며, time-series 데이터나, 상태 기반 데이터에서, 현재의 상태는">
+<meta name="keywords" content="StudyNotes,MachineLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hidden Markov Models 1">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/index.html">
+<meta property="og:site_name" content="Jaeyoung&#39;s Blog">
+<meta property="og:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Markov AssumptionMarkov property라고도 부르며, time-series 데이터나, 상태 기반 데이터에서, 현재의 상태는">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191120062127996.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201145914442.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201151728545.png">
+<meta property="og:updated_time" content="2020-03-01T13:37:56.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hidden Markov Models 1">
+<meta name="twitter:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Markov AssumptionMarkov property라고도 부르며, time-series 데이터나, 상태 기반 데이터에서, 현재의 상태는">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191120062127996.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Jaeyoung&#39;s Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jaeyoung&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Main</a>
+                
+                    <a class="main-nav-link" href="/archives">TimeLine</a>
+                
+                    <a class="main-nav-link" href="/categories">Category</a>
+                
+                    <a class="main-nav-link" href="/tags">Tag</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Main</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">TimeLine</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Category</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tag</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>카테고리</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Log
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Blog-Init/">Init Blog</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Study Notes
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bayesian Statistics
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/">03. Frequentist Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/01_Probability/">01. Probability</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">05. Credible Intervals</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/">04. Bayesian Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/07_Priors/">07. Priors</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/">14. Predictive Simulations</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">Appendix 1. Maximize a Posterior</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/">Appendix 2. Empirical Bayes</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Machine Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">My Interpretation of Machine Learning</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Reinforcement Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-studynotes/machine-learning/Hidden_Markov_Models-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Machine-Learning/">Machine Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MachineLearning/">MachineLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">
+            <time datetime="2020-03-01T13:28:55.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/machine-learning/Hidden_Markov_Models-1.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/machine-learning/Hidden_Markov_Models-1.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/machine-learning/Hidden_Markov_Models-1.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Hidden Markov Models 1
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">카탈로그</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hidden-Markov-Models"><span class="toc-number">1.</span> <span class="toc-text">Hidden Markov Models</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markov-Assumption"><span class="toc-number">1.1.</span> <span class="toc-text">Markov Assumption</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markov-Models"><span class="toc-number">1.2.</span> <span class="toc-text">Markov Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Starting-Position"><span class="toc-number">1.2.1.</span> <span class="toc-text">Starting Position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Training-of-Markov-Models"><span class="toc-number">1.2.2.</span> <span class="toc-text">Training of Markov Models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Smoothing"><span class="toc-number">1.2.3.</span> <span class="toc-text">Smoothing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markov-Chains"><span class="toc-number">1.3.</span> <span class="toc-text">Markov Chains</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stationary-Distribution"><span class="toc-number">1.3.1.</span> <span class="toc-text">Stationary Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Limiting-Distribution"><span class="toc-number">1.3.2.</span> <span class="toc-text">Limiting Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Perron-Frobenius-Theorem"><span class="toc-number">1.3.3.</span> <span class="toc-text">Perron-Frobenius Theorem</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-of-Markov-Models"><span class="toc-number">1.4.</span> <span class="toc-text">Application of Markov Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Language-Models‌"><span class="toc-number">1.4.1.</span> <span class="toc-text">Language Models‌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Google’s-PageRank-Algorithms‌"><span class="toc-number">1.4.2.</span> <span class="toc-text">Google’s PageRank Algorithms‌</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hidden-Markov-Models-1"><span class="toc-number">1.5.</span> <span class="toc-text">Hidden Markov Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Application-of-HMM"><span class="toc-number">1.5.1.</span> <span class="toc-text">Application of HMM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Parts-of-Speech-POS-Tagging-Systems"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">Parts of Speech (POS) Tagging Systems</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stock-Price-Models"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">Stock Price Models</span></a></li></ol></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="Hidden-Markov-Models"><a href="#Hidden-Markov-Models" class="headerlink" title="Hidden Markov Models"></a>Hidden Markov Models</h1><p>Udemy 강좌: <a href="https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python" target="_blank" rel="noopener">https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python</a></p>
+<h2 id="Markov-Assumption"><a href="#Markov-Assumption" class="headerlink" title="Markov Assumption"></a>Markov Assumption</h2><p>Markov property라고도 부르며, time-series 데이터나, 상태 기반 데이터에서, 현재의 상태는 오로지 바로 이전 상태만으로부터 영향을 받는다는 가정이다. 즉 다음과 같다.<br>$$<br>P(s_t|s_{t-1}s_{t-2}\cdots s_1) = P(s_t|s_{t-1})<br>$$<br>이전 상태들이 주어졌을 때, 현재 상태의 확률 분포는 오로지 바로 앞전 상태만으로부터 영향을 받는다. 즉, $s_{t-1}$이 주어진다면, $s_t$는 $s_{t-2},…,s_1$와 독립이다(Conditional independence).</p>
+<p>Markov assumption은 상당히 강력한 가정으로, 많은 분야에 응용되지만(자연어와 같은 time-series, state machine 기반 모델 등), 바로 이전 상태를 제외한 그 이전 상태들을 모두 무시하므로, 성능에 한계가 있다.</p>
+<p>보통 markov assumption하면 first-order markov assumption을 의미하며, 이전 몇 개의 데이터로부터 영향을 받게 할 것인가에 따라 second-order, third-order 등이 있다.</p>
+<p>Second-order markov assumption은 다음과 같다.<br>$$<br>P(s_t|s_{t-1}, \cdots, s_1) = P(s_t|s_{t-1}, s_{t-2})<br>$$<br>Third-order markov assumption은 다음과 같다.<br>$$<br>P(s_t|s_{t-1},\cdots,s_{1}) = P(s_t|s_{t-1},s_{t-2},s_{t-3})<br>$$<br>그런데, 예상하다시피, 마르코프 가정으로 구현한 모델은 이전 모든 상태에 영향을 받게 모델링한 모델보다 성능이 떨어질 가능성이 높다. 그럼에도 불구하고 사용하는 이유는, 우리가 관심있는것은 지금까지 지나온 상태들의 joint distribution인데, 마르코프 가정이 없다면, joint distribution계산 과정이 매우 복잡해진다. 그래서, 쉽게 모델링하기 위해 마르코프 가정을 사용하며, 성능도 쓸만한 편이다.</p>
+<h2 id="Markov-Models"><a href="#Markov-Models" class="headerlink" title="Markov Models"></a>Markov Models</h2><p>마르코프 가정(Markov assumption)을 바탕으로 모델링한 모델을 말한다. 다음과 같이 state machine도 마르코프 모델 중 하나이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191120062127996.png" alt="image-20191120062127996"></p>
+<p>State machine은 일반적으로 다음 상태의 확률은 오직 현재 상태에 의해 영향을 받고 결정된다. 위와 같은 state machine에서의 transition probabilities는 행렬로 표현이 가능하며 이러한 행렬을 <strong>state transition probability matrix</strong>라고 부른다. 마르코프 모델에서는 현재에 기반한, 다음 상태 또는 다음 무언가의 확률 분포를 matrix로 표현이 가능하며, $M$개의 노드가 있을 때, transition probability matrix는 $M$x$M$행렬로 표현한다.</p>
+<p>State transition probability matrix의 한 행 원소의 합은 1이어야 한다. $i$번째 행이 의미하는 것은 $s_i$를 기반으로 다음 state의 확률분포이기 때문이다.</p>
+<h3 id="Starting-Position"><a href="#Starting-Position" class="headerlink" title="Starting Position"></a>Starting Position</h3><p>지금까지 지나온 상태들의 joint distribution을 계산해 보면 다음과 같다.<br>$$<br>P(s_t,s_{t-1},\cdots,s_1) = P(s_1) \prod_{i=2}^{t} P(s_i|s_{i-1})<br>$$<br>State transition probability matrix를 정의했다면, $P(s_i|s_{i-1})$는 알 수 있다. 그런데, 초기 상태인 $P(s_1)$는 행렬에 없다.</p>
+<p>따라서, initial distribution을 정의해 주어야 하며, $1$x$M$ 벡터로 구성된다.</p>
+<h3 id="Training-of-Markov-Models"><a href="#Training-of-Markov-Models" class="headerlink" title="Training of Markov Models"></a>Training of Markov Models</h3><p>마르코프 모델의 학습은 MLE(Maximum Likelihood Estimation)으로 이루어진다. 즉, $s_j \rightarrow s_i$로의 확률 분포는 데이터셋에서 $s_j$ 다음으로 $s_i$가 얼만큼의 비율로 등장하느냐에 따라 결정된다.</p>
+<p>예를들어, 다음의 문장이 있다.</p>
+<p>“I like cats”</p>
+<p>“I like dogs”</p>
+<p>“I love kangaroos”</p>
+<p>그럼 상태의 집합은 ${\text{I}, \text{like}, \text{cats}, \text{dogs}, \text{love}, \text{kangaroos}}$이렇게 6개의 원소로 구성되어 있으며, initial distribution은 $P(\text{I})=1$이고, 나머지 단어의 경우, 0이다.</p>
+<p>또한, $P(\text{like}|\text{I})=0.66, P(\text{love}|\text{I})=0.33, P(else|\text{I})=0$이다.</p>
+<h3 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h3><p>그런데, 확률이 0이라는 것은 매우 위험하다. 반대로, 어떤 것의 확률이 1이라는 것 또한 매우 위험하다. MLE에 의해 트레이닝 데이터에 나오지 않은 것들은 모두 0이 되버리는데, 이는 오버피팅을 야기한다. 따라서 학습 데이터에 모든 경우의 수가 다 들어있기를 바래야 하는데, 이는 비현실적이다. 따라서 어떤 것에 1 또는 0의 확률을 할당하는 것을 피해야 하는데, 방법으로는 <strong>smoothing</strong>이라는 것이 있다.</p>
+<p>smoothing이란, 0확률을 막아주는 기법을 의미하는데, 다음의 경우가 있다.</p>
+<ul>
+<li><p>No smoothing</p>
+<p>기본적인, smoothing을 적용하지 않은 경우.<br>$$<br>P(s_i|s_j) = \frac{\text{count}(s_j \rightarrow s_i)}{\text{count}(s_j \rightarrow *)}<br>$$</p>
+</li>
+<li><p>Add-one smoothing</p>
+<p>분자에 +1, 분모에 +$M$을 해 준다.<br>$$<br>P(s_i|s_j) = \frac{\text{count}(s_j \rightarrow s_i) + 1}{\text{count}(s_j \rightarrow *) + M}<br>$$<br>이때, $M$은 상태의 개수(자연어의 경우엔, 단어 개수)이다. 이러면, 모든 확률은 1 또는 0이 되지 않으며, $\sum_i P(s_i|s_j)=1$이 유지된다.</p>
+</li>
+<li><p>Add-epsilon smoothing</p>
+<p>분자에 +1이 아니라, +$\epsilon$을 해 준다. 분모에는 +$\epsilon M$을 해 준다.<br>$$<br>P(s_i|s_j) = \frac{\text{count}(s_j \rightarrow s_i) + \epsilon}{\text{count}(s_j \rightarrow *) + \epsilon M}<br>$$<br>이때, $\epsilon$은 학습 파라미터로써, 추론해도 되고 hyper parameter로 해도 된다. Add-one 스무딩이 때로는 너무 강하거나 너무 약할때가 있다. 따라서, 스무딩의 강도를 조정하겠다는 이야기가 된다.</p>
+</li>
+</ul>
+<h2 id="Markov-Chains"><a href="#Markov-Chains" class="headerlink" title="Markov Chains"></a>Markov Chains</h2><p>마르코프 모델이면서, 확률 과정(stochastic process)을 모델링한 것을 의미한다. 보통 통계에서샘플링이라 함은 샘플 하나를 얻는 과정을 말하지만, stochastic(random) process에서의 샘플링은 sequence of random variables을 얻는 과정이고, 하나의 샘플이 time series이다. 마르코프 체인 역시 stochastic process이며, 하나의 샘플은 time-series이다.</p>
+<p>State transition probability distribution matrix를 $A$라고 하고, initial distribution을 $\pi$라고 했을 때, $t$번째 상태에서의 marginal distribution은 다음과 같다.<br>$$<br>P(s_t) = \pi A^{t}<br>$$<br>이때, $A$의 $i$번째 row는 $i$번 상태에서 다른 상태로 갈 확률분포이며, $A$는 $M$x$M$ 행렬이고, $\pi$는 1x$M$벡터이다. 따라서, 위 식은 1x$M$벡터가 나온다.</p>
+<p>Marginal distribution에 대해 잠깐 설명해보면, 예를들어, 첫번째 상태 $s_1$의 확률분포는 다음과 같다.<br>$$<br>P(s_1) = \sum_{s_0} P(s_1,s_0) = \sum_j \pi_j A_{j,i} = \pi A<br>$$</p>
+<h3 id="Stationary-Distribution"><a href="#Stationary-Distribution" class="headerlink" title="Stationary Distribution"></a>Stationary Distribution</h3><p>그런데, $A$를 반복해서 곱하다 보면(확률 과정을 반복), 어느 순간 marginal distribution의 변화가 다음과 같은 상태가 된다.<br>$$<br>P(s_t) = \pi A^t = P(s_{t-1}) = \pi A^{t-1}<br>$$<br>이때, $p(s)=p(s)A$를 만족한다. 이때, $p(s)$를 <strong>stationary distribution</strong>이라고 부른다. 이 stationary distribution $p(s)$을 보면, 행렬 $A$의 전치행렬인 $A^T$의 eigenvector($p(s)$는 벡터이다)와 같은 성질이다는 것을 알 수 있다. 다만, 그에 상응하는 eigen value는 1이다.</p>
+<h3 id="Limiting-Distribution"><a href="#Limiting-Distribution" class="headerlink" title="Limiting Distribution"></a>Limiting Distribution</h3><p>그래서, 어떤 stochastic process의 최종 distribution은 무엇일까. 이 최종 distribution은 <strong>limiting distribution</strong> 또는 <strong>equilibrium distribution</strong>이라고 부른다. 즉, 다음과 같다.<br>$$<br>p(s_\infty) = \pi A^\infty<br>$$<br>그런데, 이건 stationary distribution과 같은가?</p>
+<p>일단, <strong>limiting distribution은 stationary distribution이다. 하지만, 모든 stationary distribution이 다 limiting distribution이 되는 건 아니다.</strong> Eivenvector는 최대 $A$의 차원만큼 개수가 존재하며, 그중에서 eigen value가 1인 eigen vector는 여러개 일 수 있다. 이들 중 어느놈이 limiting distribution일까..</p>
+<p>일단, limiting distribution이 구해지면, 그 stochastic process를 통해 앞으로 나올 time series를 샘플링할 수 있다(MCMC의 원리?).</p>
+<h3 id="Perron-Frobenius-Theorem"><a href="#Perron-Frobenius-Theorem" class="headerlink" title="Perron-Frobenius Theorem"></a>Perron-Frobenius Theorem</h3><p>선형 대수학에서의 어떤 이론인데, stochastic process에 맞아떨어지는 이론이다.</p>
+<p>어떤 행렬 $A = (a_{i,j})$에 대해, $A$는 $n$-by-$n$ matrix이고, 모든 원소가 양수이면, $A$의 가장 큰 양수 eigenvalue $r$이 존재하고 그와 상응하는 eigenvector의 모든 원소는 양수이다. 그리고, 모든 원소가 양수인 eigenvector는 이 eigenvector가 유일하며, 다른 eigenvector는 반드시 음수가 하나이상 포함되어 있다.</p>
+<p>Stochastic process에서 다음 두 가지 조건을 만족시킨다면, 그 Markov chain은 반드시 유일한 stationary distribution을 가지며, 따라서, 해당 stationary distribution은 limiting distribution이라고 확신할 수 있다. Transition matrix $A$에 대해,</p>
+<ul>
+<li>$\sum_j a_{i,j} = 1$, 즉, 한 row의 모든 원소 합이 1이다. 하나의 row는 probability distribution이다.</li>
+<li>$a_{i,j} \not = 0$, 어떠한 원소도 0이 아니다.</li>
+</ul>
+<p>여기서, transition matrix $A$의 eigenvector는 distribution으로써의 역할을 해야 하므로 모두 양수여야 하는데, 그런 조건을 만족하는 eigenvector는 오직 하나밖에 없으므로, 이놈이 limiting distribution이라고 확신할 수 있다.</p>
+<h2 id="Application-of-Markov-Models"><a href="#Application-of-Markov-Models" class="headerlink" title="Application of Markov Models"></a>Application of Markov Models</h2><h3 id="Language-Models‌"><a href="#Language-Models‌" class="headerlink" title="Language Models‌"></a>Language Models‌</h3><p>Second-order language model을 예로 들자. 먼저, 문장의 첫 두 단어에 대한 initial distribution을 만들고 앞 두 단어가 주어졌을 때, 현재 단어에 대한 transition matrix를 만든다.‌</p>
+<p>학습은 실제 문장들로 학습하며, 문장에서 앞 두 단어가 주어졌을 때, 현재 자리에 오는 단어의 비율을 transition matrix로 한다. 만약, 현재 단어가 끝 단어라면, 이 단어가 끝 단어일 확률 계산에 추가해준다.‌</p>
+<p>앞 $$k$$개의 단어를 바탕으로 현재 단어를 추정하는 Markov model이다.</p>
+<h3 id="Google’s-PageRank-Algorithms‌"><a href="#Google’s-PageRank-Algorithms‌" class="headerlink" title="Google’s PageRank Algorithms‌"></a>Google’s PageRank Algorithms‌</h3><p>Google의 페이지랭크 알고리즘은 각 페이지를 방문할 확률인 stationary distribution(정확히는 limiting distribution)이 높은 순서대로 랭크를 매기는 것을 말한다. 한 페이지에서 다른 페이지로 가는 링크가 있을 것이고, $A$페이지에서 $M$개의 링크가 있고, $B$페이지로 가는 링크가 존재한다면, $A→B$ 로의 transition probability는 $\frac{1}{M}$이 된다. 이렇게 transition matrix를 정의하고, matrix에서 0인 원소들을 smoothing을 이용해서 없앤 후, stationary distribution을 계산한다.</p>
+<p>현재 페이지에서 다음 페이지로 갈 확률이 존재하는 Markov model이다.</p>
+<h2 id="Hidden-Markov-Models-1"><a href="#Hidden-Markov-Models-1" class="headerlink" title="Hidden Markov Models"></a>Hidden Markov Models</h2><p>마르코프 모델에서 hidden state상태를 추가한 형태. hidden state가 markov chain을 이루고 hidden unit에서 visible variable이 컨디셔닝 되어 나온다. 다음 그림은 markov chain과 hidden markov chain을 표현한 것인데, 노란색이 hidden unit들, 파란색이 visible unit을 표현한 것이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201145914442.png" alt="image-20191201145914442"></p>
+<p>Hidden markov model에서는 observable state $o_t$가 이전 observable state $o_{t-1}$에 영향을 받지 않는다. 대신 같은 시간의 hidden state인 $h_t$에 의해서만 영향을 받는다는 가정을 한다.</p>
+<p>Markov model은 initial distributoin $$\pi$$와 transition probability matrix $A$가 존재하지만, hidden markov model에서는 initial distribution $$\pi$$와 hidden state transition matrix $A$, hidden state로부터 visible state로의 변환을 의미하는 transition matrix $B$가 존재한다.</p>
+<h3 id="Application-of-HMM"><a href="#Application-of-HMM" class="headerlink" title="Application of HMM"></a>Application of HMM</h3><p>다음과 같은 application이 존재할 수 있다.</p>
+<ul>
+<li>Parts of Speech (POS) Tagging Systems</li>
+<li>Stock Price Models</li>
+</ul>
+<h4 id="Parts-of-Speech-POS-Tagging-Systems"><a href="#Parts-of-Speech-POS-Tagging-Systems" class="headerlink" title="Parts of Speech (POS) Tagging Systems"></a>Parts of Speech (POS) Tagging Systems</h4><p>각 단어를 visible unit으로, 명사인지 동사인지, 형용사인지 등을 hidden state로 삼아서 HMM을 모델링하는 것을 말한다.</p>
+<p>크게, 음성 시그널을 최외곽 visible variable, 단어를 hidden state로 삼아서 markov chain을 구성하는데, 이 애들이 다시 다른 HMM에 들어가는 방식이라고 생각하면 된다.</p>
+<h4 id="Stock-Price-Models"><a href="#Stock-Price-Models" class="headerlink" title="Stock Price Models"></a>Stock Price Models</h4><p>HMM이 hidden time series($$z$$들)를 캐치할 수 있다는 것에 주목해서 stock price의 hidden factor를 HMM으로 캐치하게 한 모델을 말한다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201151728545.png" alt="image-20191201151728545"></p>
+<p>이때, visible variable은 deterministic한 것이 아니라 generative하게 distribution으로 모델링할 수도 있다(위 그림처럼).</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/studynotes/machine-learning/Distillation-Methods/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">다음 글</strong>
+            <div class="article-nav-title">
+                
+                    Distillation Methods
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">이전 글</strong>
+            <div class="article-nav-title">Hidden Markov Models 2</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+    <script src="https://utteranc.es/client.js"
+        repo="taeuk-gang/taeuk-gang.github.io"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lee Jaeyoung &copy; 2020 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <!-- <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a> -->
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

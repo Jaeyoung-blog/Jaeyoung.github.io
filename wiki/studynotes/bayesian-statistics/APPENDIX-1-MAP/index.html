@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Appendix 1. Maximize a Posterior | Jaeyoung&#39;s Blog</title>
+    
+    
+        <meta name="keywords" content="StudyNotes,BayesianStatistics">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Maximize a Posterior사후확률 최대화 추정법(MAP Estimation). Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이">
+<meta name="keywords" content="StudyNotes,BayesianStatistics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Appendix 1. Maximize a Posterior">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/index.html">
+<meta property="og:site_name" content="Jaeyoung&#39;s Blog">
+<meta property="og:description" content="Maximize a Posterior사후확률 최대화 추정법(MAP Estimation). Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2020-03-01T13:51:32.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Appendix 1. Maximize a Posterior">
+<meta name="twitter:description" content="Maximize a Posterior사후확률 최대화 추정법(MAP Estimation). Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Jaeyoung&#39;s Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jaeyoung&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Main</a>
+                
+                    <a class="main-nav-link" href="/archives">TimeLine</a>
+                
+                    <a class="main-nav-link" href="/categories">Category</a>
+                
+                    <a class="main-nav-link" href="/tags">Tag</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Main</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">TimeLine</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Category</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tag</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>카테고리</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Log
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Blog-Init/">Init Blog</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Study Notes
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Bayesian Statistics
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/">03. Frequentist Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/01_Probability/">01. Probability</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">05. Credible Intervals</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/">04. Bayesian Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/07_Priors/">07. Priors</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/">14. Predictive Simulations</a></li>  <li class="file active"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">Appendix 1. Maximize a Posterior</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/">Appendix 2. Empirical Bayes</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Machine Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">My Interpretation of Machine Learning</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Reinforcement Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-studynotes/bayesian-statistics/APPENDIX-1-MAP" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">
+            <time datetime="2020-03-01T13:08:00.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-1-MAP.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Appendix 1. Maximize a Posterior
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">카탈로그</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maximize-a-Posterior"><span class="toc-number">1.</span> <span class="toc-text">Maximize a Posterior</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-MAP-a-Bayesian-Method"><span class="toc-number">1.0.1.</span> <span class="toc-text">Is MAP a Bayesian Method?</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="Maximize-a-Posterior"><a href="#Maximize-a-Posterior" class="headerlink" title="Maximize a Posterior"></a>Maximize a Posterior</h1><p><strong>사후확률 최대화 추정법(MAP Estimation).</strong></p>
+<p>Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이터의 정보와 합해서 파라미터를 point estimation하는 방법이다.</p>
+<p>방법은 다음과 같다.</p>
+<ol>
+<li><p>데이터에 대한 likelihood $P(D|\theta)$를 모델링한다.</p>
+</li>
+<li><p>Likelihood $P(D|\theta)$의 파라미터 $\theta$의 prior $P(\theta)$를 모델링한다.</p>
+</li>
+<li><p>Prior $P(\theta)$와 likelihood $P(D|\theta)$를 이용해서 posterior $P(\theta|D)$를 직접 계산할 수 있으면 계산하되, 불가능하다면, posterior와 비례하는 함수 $g(\theta|D)$를 계산한<br>$$<br>P(\theta|D) = \frac{P(D|\theta)P(\theta)}{\sum_{\theta’}P(D|\theta’)P(\theta’)}<br>$$<br>분모인 normalization constant가 계산 불가능할 수도 있다. 그럼, $g(\theta|D)$를 대신 구한다.<br>$$<br>P(\theta|D) \approx g(\theta|D) = P(D|\theta)P(\theta)<br>$$<br>보통, 파라미터의 prior $P(\theta)$가 likelihood $P(D|\theta)$와 conjugate를 이루면, posterior를 직접 계산할 수 있을 것이다. 그렇지 못하면서 가능한 $\theta$의 개수가 많다면, $g(\theta|D)$를 계산해야 하는 경우가 많다.</p>
+</li>
+<li><p>Posterior $P(\theta|D)$가 가장 커지는 $\theta$를 구한다.<br>$$<br>\hat{\theta} = \underset{\theta}{\text{argmax}} ~ P(\theta|D)<br>$$<br>또는 $g(\theta|D)$가 가장 커지는 $\theta$를 구한다.<br>$$<br>\hat{\theta} = \underset{\theta}{\text{argmax}} ~ g(\theta|D)<br>$$<br>미분을 통한 극점을 이용하자. (Gradient descent 같은)</p>
+</li>
+</ol>
+<h3 id="Is-MAP-a-Bayesian-Method"><a href="#Is-MAP-a-Bayesian-Method" class="headerlink" title="Is MAP a Bayesian Method?"></a>Is MAP a Bayesian Method?</h3><p>Bayes 통계의 특징은, 파라미터를 하나의 값이 아닌 분포로 본다는 것이다. 하지만, MAP는 파라미터의 분포를 추정하는게 최종 목표가 아니라 파라미터를 <strong>point estimation</strong>하는 것이 최종 목표이다.</p>
+<p>MAP의 계산 과정상 파라미터의 posterior를 계산하게 되지만, 결국은 point estimation으로, 파라미터를 하나의 값으로 본다는 점에서 완전한 베이지안 통계적 방법이라고 보지 않는 경우가 많다고 한다.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">다음 글</strong>
+            <div class="article-nav-title">
+                
+                    14. Predictive Simulations
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">이전 글</strong>
+            <div class="article-nav-title">Appendix 2. Empirical Bayes</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+    <script src="https://utteranc.es/client.js"
+        repo="taeuk-gang/taeuk-gang.github.io"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lee Jaeyoung &copy; 2020 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <!-- <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a> -->
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
