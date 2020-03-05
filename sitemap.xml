@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/</loc>
+    
+    <lastmod>2020-03-05T03:24:41.945Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/</loc>
     
     <lastmod>2020-03-05T03:21:52.555Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</loc>
     
     <lastmod>2020-03-03T02:11:36.598Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/</loc>
-    
-    <lastmod>2020-03-03T02:09:33.790Z</lastmod>
     
   </url>
   
