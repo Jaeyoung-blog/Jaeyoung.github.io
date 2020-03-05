@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200121183703146.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200122120728463.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200122121014540.png">
-<meta property="og:updated_time" content="2020-03-03T04:25:35.573Z">
+<meta property="og:updated_time" content="2020-03-05T03:43:04.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="05. Policy Evaluation &amp; Control">
 <meta name="twitter:description" content="Policy Evaluation &amp;amp; Control참고: Coursera Reinforcement Learning (Alberta Univ.) 현재 가지고있는 policy가 좋은지 평가하고(evaluation) 더 좋은 policy로 향상시키는 작업(control)을 의미한다. 현재 가지고 있는 policy $\pi$와 dynamics of envir">
@@ -367,8 +367,8 @@
 </ol>
 <h2 id="Policy-Control"><a href="#Policy-Control" class="headerlink" title="Policy Control"></a>Policy Control</h2><p>Policy control이란, 주어진 policy와 그것으로부터 만들어낸 value function을 가지고, optimal policy를 찾는 과정을 말한다.</p>
 <h3 id="Policy-Improvement-Theorem"><a href="#Policy-Improvement-Theorem" class="headerlink" title="Policy Improvement Theorem"></a>Policy Improvement Theorem</h3><p>Action value를 비교하는데, 현재 상태에서 액션을 원래 policy $\pi$에 따라 선택한 후, policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi(s))$라고 하자. 또, 같은 상태에서 액션을 다른 policy $\pi’$에 따라 선택한 후, 원래 policy $\pi$를 따르는 action value를 $q_{\pi}(s, \pi’(s))$라고 하자.</p>
-<p>$q_{\pi}(s, \pi’(s)) \geq q_{\pi}(s, \pi(s))$를 만족하면, 적어도 $\pi’$는 $\pi$보다는 좋다라는 이론이다. 만약, 두 action value가 같다면, 이미 optimal일 확률이 높다.</p>
-<p>위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 주어진 value function에 따라 확률적으로 action을 선택하던 현재 policy를 greedy한 deterministic한 policy로 바꾸는 것이다.<br>$$<br>\pi’ = \underset{a}{\text{argmax} } \sum_{s’,r} p(s’,r|s,a)[r + \gamma \cdot v_{\pi}(s’)] <del>~</del> \text{(for all state }s\text{)}<br>$$</p>
+<p>$q_{\pi} (s, \pi’(s)) \geq q_{\pi} (s, \pi(s))$를 만족하면, 적어도 $\pi’$는 $\pi$보다는 좋다라는 이론이다. 만약, 두 action value가 같다면, 이미 optimal일 확률이 높다.</p>
+<p>위 이론에 따라, 현재 policy보다 좀 더 좋은 policy를 찾는 방법은, 주어진 value function에 따라 확률적으로 action을 선택하던 현재 policy를 greedy한 deterministic한 policy로 바꾸는 것이다.<br>$$<br>\pi’ = \underset{a}{\text{argmax} } \sum_{s’,r} p(s’,r|s,a)[r + \gamma \cdot v_{\pi}(s’)] <del>~</del> \text{(for all state } s\text{)}<br>$$</p>
 <h2 id="Policy-Iteration-Dynamic-Programming"><a href="#Policy-Iteration-Dynamic-Programming" class="headerlink" title="Policy Iteration - Dynamic Programming"></a>Policy Iteration - Dynamic Programming</h2><p><strong>Optimal policy를 찾는 알고리즘</strong>으로, 다음과 같은 과정으로 이루어진다. 일단 어떤 state에서 어떤 액션을 취하면 어떤 immediate reward를 받는지는 이미 알고 있다고 가정한다. Immediate reward의 분포 $p(r|s)$은 exploration &amp; exploitation 으로 추정해야 하거나 개발자가 이미 정해놓거나?</p>
 <ol>
 <li>Initialize $\pi_0$. 즉, 최초의 policy를 만들고 이를 현재의 policy $\pi$로 삼는다. 최초의 policy는 아무거나로 한다. 모든 액션을 uniform distribution에 따라 선택하는 policy로 해도 된다.</li>
