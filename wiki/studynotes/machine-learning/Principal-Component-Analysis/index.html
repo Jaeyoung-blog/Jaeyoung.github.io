@@ -19,7 +19,7 @@
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191219132645587.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200221092153746.png">
-<meta property="og:updated_time" content="2020-03-06T02:15:22.564Z">
+<meta property="og:updated_time" content="2020-03-06T02:16:46.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Principal Component Analysis">
 <meta name="twitter:description" content="Principal Component Analysis (PCA)데이터는 signal과 noise로 구성되어 있다. PCA의 핵심 목표는 데이터로부터 signal만 분리해 내는 것이다. PCA는 데이터 feature space를 회전시켜서 signal에 가까운 축과 noise에 가까운 축을 찾아준다. 그리고 데이터를 signal 축에 사영시킴으로써, 다른 축을">
@@ -423,7 +423,12 @@
 <ol>
 <li><p>데이터를 0-centered 한다. $Z = X - \mu_X$</p>
 </li>
-<li><p>$Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, <figure class="highlight plain"><figcaption><span>바로 계산</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. $\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, ```np.linalg.eig(cov_mat)```로 계산</span><br><span class="line"></span><br><span class="line">4. 데이터 $X$를 eigen vector에 사영시킨다. (정렬은 해도되고 안해도되는데, dimensionality reduction까지 하려면 정렬하고 $k$개만 뽑고 거기에 사영시킨다)</span><br><span class="line"></span><br><span class="line">   ```python</span><br><span class="line">   evalues, evectors = np.linalg.eig(cov_mat)</span><br><span class="line">   E = np.hstack(evectors)</span><br><span class="line">   X_transformed = np.matmul(X, E)</span><br></pre></td></tr></table></figure></p>
+<li><p>$Z$의 covariate matrix를 계산한다. $\Sigma = Z^TZ$ 또는, <code>np.cov(X)</code>로 바로 계산</p>
+</li>
+<li><p>$\Sigma$의 eigen decomposition을 계산한다. $V\Lambda V^T$, <code>np.linalg.eig(cov_mat)</code>로 계산</p>
+</li>
+<li><p>데이터 $X$를 eigen vector에 사영시킨다. (정렬은 해도되고 안해도되는데, dimensionality reduction까지 하려면 정렬하고 $k$개만 뽑고 거기에 사영시킨다)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">evalues, evectors = np.linalg.eig(cov_mat)</span><br><span class="line">E = np.hstack(evectors)</span><br><span class="line">X_transformed = np.matmul(X, E)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>얘네에다가 $\Lambda^{-\frac{1}{2}}$를 곱해준다. (Dimensionality reduction했으면 $k$개만 있는 diagonal matrix이다)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LAMBDA = np.sqrt(np.diag(evalues))</span><br><span class="line">X_whitened = np.matmul(LAMBDA, X_transformed)</span><br></pre></td></tr></table></figure>
