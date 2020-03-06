@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191230212326720.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200105142655161.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200105142946483.png">
-<meta property="og:updated_time" content="2020-03-05T03:47:11.443Z">
+<meta property="og:updated_time" content="2020-03-06T01:38:11.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="02. K-arm Bandits Problems">
 <meta name="twitter:description" content="K-arm Bandits Problems참고: Coursera Reinforcement Learning (Alberta Univ.) Reinforcement learning에서 가장 기본적인 문제로, K-arm bandit problem을 들 수 있다. K개의 arm이 있고, agent는 그 arm 중 하나를 골라야 하며, 하나를 골랐다면, environm">
@@ -412,7 +412,7 @@
 <li>이것을 각 액션에 대해서 반복하고 가장 높은 value 샘플을 가지는 액션을 취한다.</li>
 </ol>
 <h2 id="Action-value-Methods"><a href="#Action-value-Methods" class="headerlink" title="Action-value Methods"></a>Action-value Methods</h2><p>어떤 액션을 골라야 할 때, 지금 현재 가지고 있는 지식만으로 각 액션을 취했을 때의 얻어지는 기댓값을 각각 계산하고, 가장 높은 기댓값을 가지는 액션을 취하는 방식이다. 즉, value function을 “가장 큰 액션의 기댓값을 가지는 액션”이라고 정의하는 것이다.</p>
-<p>액션에 따른 reward의 기댓값 $Q_* (a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.<br>$$<br> Q_* (a) \approx \frac{ \sum_{i=1}^{t-1} R_i \cdot \mathbb{I}<em>{A_i=a} }{ \sum</em>{i=1}^{t-1} \mathbb{I}_{A_i=a} }<br>$$<br>즉, 이때까지 $a$라는 액션을 취했을 때, 얻었던 reward들의 평균값으로 $a$의 reward 기댓값이라고 삼는 것이다.</p>
+<p>액션에 따른 reward의 기댓값 $Q_* (a)$을 계산하는 방법은, 다음과 같이 할 수도 있고, 다른 방법을 사용할 수도 있다.<br>$$<br> Q_* (a) \approx \frac{ \sum_{i=1}^{t-1} R_i \cdot I_{A_i=a} }{ \sum_{i=1}^{t-1} I_{A_i=a} }<br>$$<br>즉, 이때까지 $a$라는 액션을 취했을 때, 얻었던 reward들의 평균값으로 $a$의 reward 기댓값이라고 삼는 것이다.</p>
 <p>그리고, 다음을 만족하는 액션 $A_t$를 선택한다.<br>$$<br>A_t = \text{argmax}_a ~ Q_t(a)<br>$$<br>Action-value methods는 greedy한 방식으로, $\epsilon$-greedy와 함께 사용해서 exploration과의 균형을 맞추려고 시도해 볼 수 있다.</p>
 <h2 id="Associative-Search-Contextual-Bandits"><a href="#Associative-Search-Contextual-Bandits" class="headerlink" title="Associative Search (Contextual Bandits)"></a>Associative Search (Contextual Bandits)</h2><p>K-arm bandit problem은 매우 간단한 reinforcement learning 예제이다. 보통 흔히 이야기하는 reinforcement learning에 다음과 같은 제약조건을 걸면 K-arm bandit problem이 된다.</p>
 <ul>
