@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Jaeyoung&#39;s Blog">
 <meta property="og:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Hidden Markov model(HMM)은 다음과 같이 maximum likelihood estimation을 이용해서 파라미터를 추정하게">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-03-06T02:30:32.329Z">
+<meta property="og:updated_time" content="2020-03-06T02:31:09.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Models 2">
 <meta name="twitter:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Hidden Markov model(HMM)은 다음과 같이 maximum likelihood estimation을 이용해서 파라미터를 추정하게">
@@ -384,7 +384,7 @@
 <p>를 만족하는 hidden states $z$의 joint distribution을 계산할 수 있어야 한다.</p>
 <p>그런데, 이때, 위 식은 다음처럼 정리가 가능하다.<br>$$<br>z^* = \underset{z}{ \text{argmax} } ~ p(z|x) = \underset{z}{ \text{argmax} } ~ \frac{p(x,z)}{p(x)} = \underset{z}{ \text{argmax} } ~ p(x, z)<br>$$<br>그런데, 여기서, $p(x, z)$는 $p(x)$를 구하는 식에서 marginalization만 빼면 된다. 즉,<br>$$<br>p(x, z) = p(z_1)p(x_1|z_1) \prod_{i=2}^T p(z_{t}|z_{t-1})p(x_t|z_t)<br>$$<br>이다. 하나의 joint probability를 계산하려면 $O(T)$시간이 걸리는 셈. 그러면, observations들에 맞게 가장 그럴듯한 hidden state들을 찾으려면, hidden state의 모든 조합을 저 식에 넣어보고 가장 큰 확률값을 주는 조합을 고르면 될 것이다. 그러나, 이 방법은 $O(TM^T)$가 걸린다.</p>
 <h3 id="Answer-to-Problem-2-Viterbi-Algorithm"><a href="#Answer-to-Problem-2-Viterbi-Algorithm" class="headerlink" title="Answer to Problem 2: Viterbi Algorithm"></a>Answer to Problem 2: Viterbi Algorithm</h3><p>지금, $p(x, z)$가 가장 큰 $z$조합을 구해야 한다. HMM은 Markov model이기 때문에 $t-1$까지 최적의 $z$ sequence를 구해놨다면, $t$에서의 $z_t$는 greedy하게 선택하면 $t$까지의 $z$ sequence는 optimal이다. 즉, $t=1$에서, $p(z_1)p(x_1|z_1)$이 최대가 되는 $z_1$를 구하고, $t=2$에서, $p(z_2|z_1)p(x_2|z_2)$이 최대가 되는 $z_2$를 구하고 이런식으로 앞에서부터 greedy하게 선택해도 된다는 것이다.</p>
-<h3 id="Problem-3-Training-HMM"><a href="#Problem-3-Training-HMM" class="headerlink" title="Problem 3: Training HMM"></a>Problem 3: Training HMM</h3><p>다음을 만족하는 parameter $$\pi, A, B$$를 계산한다.<br>$$<br>A^* , B^* , \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)<br>$$</p>
+<h3 id="Problem-3-Training-HMM"><a href="#Problem-3-Training-HMM" class="headerlink" title="Problem 3: Training HMM"></a>Problem 3: Training HMM</h3><p>다음을 만족하는 parameter $\pi, A, B$를 계산한다.<br>$$<br>A^* , B^* , \pi^* = \underset{A,B,\pi}{ \text{argmax} } ~ p(x|A,B,\pi)<br>$$</p>
 
             </div>
         
