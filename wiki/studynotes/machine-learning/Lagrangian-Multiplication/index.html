@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="Jaeyoung&#39;s Blog">
 <meta property="og:description" content="Lagrangian MultiplicationConstraint optimization. 어떤 objective function을 파라미터에 대해 최대화하거나 loss function을 최소화하려고 하는데, 파라미터가 가질 수 있는 값에 제약조건이 있는 경우, Lagrangian multiplication을 사용할 수 있다. BackgroundLagrang">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Lagrangian-Multiplication/Lagrangian-Multiplication.assets/image-20200206200220651.png">
-<meta property="og:updated_time" content="2020-03-06T02:57:20.901Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200206200220651.png">
+<meta property="og:updated_time" content="2020-03-06T02:58:42.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lagrangian Multiplication">
 <meta name="twitter:description" content="Lagrangian MultiplicationConstraint optimization. 어떤 objective function을 파라미터에 대해 최대화하거나 loss function을 최소화하려고 하는데, 파라미터가 가질 수 있는 값에 제약조건이 있는 경우, Lagrangian multiplication을 사용할 수 있다. BackgroundLagrang">
-<meta name="twitter:image" content="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Lagrangian-Multiplication/Lagrangian-Multiplication.assets/image-20200206200220651.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200206200220651.png">
     
 
     
@@ -367,7 +367,7 @@
 <p>이 경우는 매우 간단하게 contraint 식을 $F(x, y)$에 대입해주면 된다.<br>$$<br>F(x, y) = (1 - y)^2 + y^2<br>$$<br>따라서, 이를 미분하고 gradient vector가 0이 되는 지점을 찾으면 될 것이다.</p>
 <p>하지만, $F(x, y)$가 복잡하고, constaint 식 역시 복잡하며, 심지어 contraint가 여러개일 경우, 이렇게 closed form으로 구하는게 불가능해진다. 이를 좀 더 보편적으로 해결하기 위한 방법이 Lagrangian multiplication을 이용하는 것이다.</p>
 <h2 id="Lagrangian-Multiplication-1"><a href="#Lagrangian-Multiplication-1" class="headerlink" title="Lagrangian Multiplication"></a>Lagrangian Multiplication</h2><p>어떤 objective function $F(x, y)$가 있고, constraint 함수인 $g(x, y)$가 있을 때, $g(x, y)$를 만족하면서 $F(x, y)$를 최대화하는 지점 $(x’, y’)$에서는, $F$의 gradient vector $\nabla F(x’, y’)$와 $g$의 gradient vector $\nabla g(x’, y’)$의 방향은 같거나 180도 방향이다.</p>
-<p><img src="Lagrangian-Multiplication.assets/image-20200206200220651.png" alt="image-20200206200220651"></p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200206200220651.png" alt="image-20200206200220651"></p>
 <p>그리고, 그 외 지점에서는 이게 성립되지 않는다. 따라서, 다음을 만족하는 $(x’, y’)$은 maximum 또는 minimum point라고 볼 수 있다.<br>$$<br>\nabla F(x’, y’) = \lambda \nabla g(x’, y’)<br>$$<br>$\lambda$는 상수이며, 두 gradient vector가 반드시 같은 크기일 필요는 없다는 의미로 해석될 수 있다. 하지만, 방향은 반드시 평행하다.</p>
 <p>이 수식을 이용해서 constraint optimization을 해결하는 방식을 lagrangian multiplication이라고 부르며, $\lambda$는 lagrangian constant라고 부른다.</p>
 <p>예를들어, 다음을 만족하는 점을 찾는다고 가정한다.<br>$$<br>\underset{x, y}{ \text{min} } [F(x, y) = xy] ~ \text{ s.t } ~ x^2 + y^2 - 4 = 0<br>$$<br>즉, $g(x, y) = x^2 + y^2 - 4 = 0$이다.</p>
