@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191120062127996.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201145914442.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201151728545.png">
-<meta property="og:updated_time" content="2020-03-03T01:57:54.961Z">
+<meta property="og:updated_time" content="2020-03-06T02:27:39.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Models 1">
 <meta name="twitter:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Markov AssumptionMarkov property라고도 부르며, time-series 데이터나, 상태 기반 데이터에서, 현재의 상태는">
@@ -400,7 +400,7 @@
 <h2 id="Hidden-Markov-Models-1"><a href="#Hidden-Markov-Models-1" class="headerlink" title="Hidden Markov Models"></a>Hidden Markov Models</h2><p>마르코프 모델에서 hidden state상태를 추가한 형태. hidden state가 markov chain을 이루고 hidden unit에서 visible variable이 컨디셔닝 되어 나온다. 다음 그림은 markov chain과 hidden markov chain을 표현한 것인데, 노란색이 hidden unit들, 파란색이 visible unit을 표현한 것이다.</p>
 <p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201145914442.png" alt="image-20191201145914442"></p>
 <p>Hidden markov model에서는 observable state $o_t$가 이전 observable state $o_{t-1}$에 영향을 받지 않는다. 대신 같은 시간의 hidden state인 $h_t$에 의해서만 영향을 받는다는 가정을 한다.</p>
-<p>Markov model은 initial distributoin $$\pi$$와 transition probability matrix $A$가 존재하지만, hidden markov model에서는 initial distribution $$\pi$$와 hidden state transition matrix $A$, hidden state로부터 visible state로의 변환을 의미하는 transition matrix $B$가 존재한다.</p>
+<p>Markov model은 initial distributoin $\pi$와 transition probability matrix $A$가 존재하지만, hidden markov model에서는 initial distribution $\pi$와 hidden state transition matrix $A$, hidden state로부터 visible state로의 변환을 의미하는 transition matrix $B$가 존재한다.</p>
 <h3 id="Application-of-HMM"><a href="#Application-of-HMM" class="headerlink" title="Application of HMM"></a>Application of HMM</h3><p>다음과 같은 application이 존재할 수 있다.</p>
 <ul>
 <li>Parts of Speech (POS) Tagging Systems</li>
@@ -408,7 +408,7 @@
 </ul>
 <h4 id="Parts-of-Speech-POS-Tagging-Systems"><a href="#Parts-of-Speech-POS-Tagging-Systems" class="headerlink" title="Parts of Speech (POS) Tagging Systems"></a>Parts of Speech (POS) Tagging Systems</h4><p>각 단어를 visible unit으로, 명사인지 동사인지, 형용사인지 등을 hidden state로 삼아서 HMM을 모델링하는 것을 말한다.</p>
 <p>크게, 음성 시그널을 최외곽 visible variable, 단어를 hidden state로 삼아서 markov chain을 구성하는데, 이 애들이 다시 다른 HMM에 들어가는 방식이라고 생각하면 된다.</p>
-<h4 id="Stock-Price-Models"><a href="#Stock-Price-Models" class="headerlink" title="Stock Price Models"></a>Stock Price Models</h4><p>HMM이 hidden time series($$z$$들)를 캐치할 수 있다는 것에 주목해서 stock price의 hidden factor를 HMM으로 캐치하게 한 모델을 말한다.</p>
+<h4 id="Stock-Price-Models"><a href="#Stock-Price-Models" class="headerlink" title="Stock Price Models"></a>Stock Price Models</h4><p>HMM이 hidden time series($z$들)를 캐치할 수 있다는 것에 주목해서 stock price의 hidden factor를 HMM으로 캐치하게 한 모델을 말한다.</p>
 <p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20191201151728545.png" alt="image-20191201151728545"></p>
 <p>이때, visible variable은 deterministic한 것이 아니라 generative하게 distribution으로 모델링할 수도 있다(위 그림처럼).</p>
 
