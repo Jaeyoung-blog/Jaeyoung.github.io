@@ -18,7 +18,7 @@
 <meta property="og:description" content="Markov Chain Monte CarloMCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/1567820594976.png">
-<meta property="og:updated_time" content="2020-03-06T02:58:11.764Z">
+<meta property="og:updated_time" content="2020-03-06T02:59:57.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10. Markov Chain Monte Carlo">
 <meta name="twitter:description" content="Markov Chain Monte CarloMCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수">
@@ -360,7 +360,7 @@
 </li>
 <li><p>다음을 계산한다.<br>$$<br>\alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}<br>$$</p>
 </li>
-<li><p>$\alpha \geq 1$이면, $\theta_i \leftarrow \theta^<em>$로 accept한다. $0 \leq \alpha &lt; 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^</em>$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.</p>
+<li><p>$\alpha \geq 1$이면, $\theta_i \leftarrow \theta^* $로 accept한다. $0 \leq \alpha &lt; 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^* $로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.</p>
 </li>
 </ol>
 </li>
