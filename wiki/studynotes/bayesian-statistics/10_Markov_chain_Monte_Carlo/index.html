@@ -18,7 +18,7 @@
 <meta property="og:description" content="Markov Chain Monte CarloMCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/1567820594976.png">
-<meta property="og:updated_time" content="2020-03-03T01:55:33.288Z">
+<meta property="og:updated_time" content="2020-03-06T02:45:41.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10. Markov Chain Monte Carlo">
 <meta name="twitter:description" content="Markov Chain Monte CarloMCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수">
@@ -346,28 +346,28 @@
         
             <h1 id="Markov-Chain-Monte-Carlo"><a href="#Markov-Chain-Monte-Carlo" class="headerlink" title="Markov Chain Monte Carlo"></a>Markov Chain Monte Carlo</h1><p>MCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수 있기 때문에(특히, normalization constant) 대신, posterior를 추정하기로 한다. 이 posterior를 추정할때 쓰일 수 있는 알고리즘 중 하나가 MCMC이다.</p>
 <h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>우리가 추정하고자 하는 파라미터 $\theta$의 분포인 $\mathbb{p}(\theta)$를 추정하고자 한다. 그래서 $\theta$를 파라미터로 하는 어떤 데이터 분포 $y|\theta$로부터 $y_1,…y_k$를 샘플링했다. 이를 바탕으로 $\theta$의 prior $p(\theta)$를 설정하고, 데이터로 posterior $p(\theta|y_1,…y_k)$를 계산해서 $\mathbb{p}(\theta)$에 대한 베이지안 추론을 하고자 한다. 그런데, posterior인 $p(\theta|y_1,…,y_k)$를 계산하는게 매우 어렵거나 불가능한 경우가 있다. 이때, posterior 분포 $p(\theta|y_1,…,y_k)$를 추정하기 위한 방법으로 MCMC가 사용될 수 있다.</p>
-<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>MCMC는 posterior의 분포 $p(\theta|y_1,…y_k)$를 추정하기 위해 마치 이 posterior로부터 샘플링됬을 법한 샘플 $\theta^<em>_1,…,\theta^</em>_m$을 생성해 준다. 이들은 posterior로부터 샘플링 되었을 거라고 가정하고 posterior를 monte carlo estimation으로 추정한다.</p>
+<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>MCMC는 posterior의 분포 $p(\theta|y_1,…y_k)$를 추정하기 위해 마치 이 posterior로부터 샘플링됬을 법한 샘플 $\theta^* _1,…,\theta^* _m$을 생성해 준다. 이들은 posterior로부터 샘플링 되었을 거라고 가정하고 posterior를 monte carlo estimation으로 추정한다.</p>
 <p>MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Metropolis-Hastings 알고리즘이 있다.</p>
 <h2 id="Matropolis-Hastings-Algorithms"><a href="#Matropolis-Hastings-Algorithms" class="headerlink" title="Matropolis-Hastings Algorithms"></a>Matropolis-Hastings Algorithms</h2><p>알고리즘은 다음과 같다.</p>
 <ol>
 <li><p>시작하기에 앞서 posterior $p(\theta|y_1,…,y_k)$를 정확히 계산할 수는 없더라도, 이 posterior에 비례하는 어떤 함수는 알고 있어야 한다. 즉, 다음을 만족하는 $g(\theta)$는 알고 있어야 한다.<br>$$<br>p(\theta|y_1,…,y_k) \propto g(\theta)<br>$$</p>
 </li>
-<li><p>$\theta$와 도메인이 같거나 최대한 비슷한 분포 아무거나 고른다. 이 분포는 마르코프 체인을 만족하면 좋다. 즉, $q(\theta^*|\theta_{i-1})$.</p>
+<li><p>$\theta$와 도메인이 같거나 최대한 비슷한 분포 아무거나 고른다. 이 분포는 마르코프 체인을 만족하면 좋다. 즉, $q(\theta^* |\theta_{i-1})$.</p>
 </li>
 <li><p>적당히 큰 수 $m$번을 반복하는데, $m$개의 $\theta^*$를 1개씩 샘플링할 것이다.</p>
 <ol>
 <li><p>$\theta^<em>$를 $q(\theta^</em>|\theta_{i-1})$로부터 1개를 샘플링한다.</p>
 </li>
-<li><p>다음을 계산한다.<br>$$<br>\alpha = \frac{g(\theta^<em>)q(\theta^</em>|\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^*)}<br>$$</p>
+<li><p>다음을 계산한다.<br>$$<br>\alpha = \frac{g(\theta^* )q(\theta^* |\theta_{i-1})}{g(\theta_{i-1})q(\theta_{i-1}|\theta^* )}<br>$$</p>
 </li>
 <li><p>$\alpha \geq 1$이면, $\theta_i \leftarrow \theta<em>$로 accept한다. $0 \leq \alpha &lt; 1$이면, $\alpha$의 확률로 $\theta_i \leftarrow \theta^</em>$로 accept하고, reject되면 $\theta_i \leftarrow \theta_{i-1}$한다.</p>
 </li>
 </ol>
 </li>
 </ol>
-<p>분자에 $g(\theta^*)$가 있고, 분모에 $g(\theta_{i-1})$가 있어서, 이전에 뽑은 $\theta$보다 현재 뽑은 $\theta$가 더 $p(\theta|y_1,…,y_k)$에서 확률이 높다면, $\alpha \geq 1$이 되어서 accept된다. $g$가 $p$에 비례하기 때문에 그렇다.</p>
+<p>분자에 $g(\theta^* )$가 있고, 분모에 $g(\theta_{i-1})$가 있어서, 이전에 뽑은 $\theta$보다 현재 뽑은 $\theta$가 더 $p(\theta|y_1,…,y_k)$에서 확률이 높다면, $\alpha \geq 1$이 되어서 accept된다. $g$가 $p$에 비례하기 때문에 그렇다.</p>
 <p>이렇게 뽑은 $\theta^*$는 초반 샘플링된 놈들을 제외하면, posterior $p(\theta|y_1,…,y_k)$에서 샘플링된 것처럼 역할을 할 수 있다. 분포로부터 샘플링된 놈이 있으므로 posterior에 대해 monte carlo estimation이 가능해진다.</p>
-<h2 id="Random-Walk-Algorithm"><a href="#Random-Walk-Algorithm" class="headerlink" title="Random Walk Algorithm"></a>Random Walk Algorithm</h2><p>Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^<em>|\theta_{i-1})$를 $\theta_{i-1}$을 평균으로 하는 normal distribution으로 놓은 것을 말한다. Normal distribution은 대칭 분포이기 때문에, $\alpha=\frac{g(\theta^</em>)}{g(\theta_{i-1})}$이 된다.</p>
+<h2 id="Random-Walk-Algorithm"><a href="#Random-Walk-Algorithm" class="headerlink" title="Random Walk Algorithm"></a>Random Walk Algorithm</h2><p>Matropolis-hastings 알고리즘에서, proposal distribution $q(\theta^* |\theta_{i-1})$를 $\theta_{i-1}$을 평균으로 하는 normal distribution으로 놓은 것을 말한다. Normal distribution은 대칭 분포이기 때문에, $\alpha=\frac{g(\theta^* )}{g(\theta_{i-1})}$이 된다.</p>
 <h2 id="Gibbs-Sampling"><a href="#Gibbs-Sampling" class="headerlink" title="Gibbs Sampling"></a>Gibbs Sampling</h2><p>파라미터가 여러개라면, gibbs sampling이 Metropolis-hastings 알고리즘 보다 편할 수 있다. Metropolis-hastings 알고리즘에서는 파라미터 $\theta_1, …, \theta_k$에 대해 proposal distribution을 각 파라미터마다 정의하고, accept, reject과정을 거칠 테지만, gibbs sampling과정에서는 이 과정을 없앴다. 대신 다음의 과정이 있다.</p>
 <p>이때, parameter $\theta_1,…,\theta_k$를 모두 업데이트 1번씩 하는 과정을 1번의 iteration이라고 하자.</p>
 <ol>
@@ -386,7 +386,7 @@
 <li><p>업데이트 이전 값은 어디다가 저장해두자. 그 값들이 샘플들이다.</p>
 </li>
 </ol>
-<h2 id="Assessing-Convergence-of-MCMC"><a href="#Assessing-Convergence-of-MCMC" class="headerlink" title="Assessing Convergence of MCMC"></a>Assessing Convergence of MCMC</h2><p>MCMC알고리즘에서 샘플링한 샘플들 $\theta^<em>_1, …, \theta^</em>_k$의 평균값 $\bar{\theta^<em>}$이 $\theta$의 posterior 분포 $p(\theta|Y)$를 잘 추정하려면, 마르코프 체인이 충분히 수렴해야 하고, 수렴한 체인으로부터 $\theta^</em>$가 충분히 샘플링되어야 한다. 하지만, 마르코프 체인이 언제 수렴할지를 모르기 때문에 몇 개의 샘플까지가 수렴이 안된 상태의 샘플인지, 몇 개가 유용한 샘플인지 알 수가 없다.</p>
+<h2 id="Assessing-Convergence-of-MCMC"><a href="#Assessing-Convergence-of-MCMC" class="headerlink" title="Assessing Convergence of MCMC"></a>Assessing Convergence of MCMC</h2><p>MCMC알고리즘에서 샘플링한 샘플들 $\theta^* _1, …, \theta^* _k$의 평균값 $\bar{\theta^* }$이 $\theta$의 posterior 분포 $p(\theta|Y)$를 잘 추정하려면, 마르코프 체인이 충분히 수렴해야 하고, 수렴한 체인으로부터 $\theta^*$가 충분히 샘플링되어야 한다. 하지만, 마르코프 체인이 언제 수렴할지를 모르기 때문에 몇 개의 샘플까지가 수렴이 안된 상태의 샘플인지, 몇 개가 유용한 샘플인지 알 수가 없다.</p>
 <h3 id="Stationary-Distribution"><a href="#Stationary-Distribution" class="headerlink" title="Stationary Distribution"></a>Stationary Distribution</h3><p>마르코프 체인이 추정하고자 하는 target distribution(parameter의 posterior가 된다)을 최대한 추정한 distribution을 의미하며, 마르코프 체인이 충분히 수렴한 상태에서의 distribution을 의미한다. 당연히 알 수 없으며, 여기서 마르코프체인으로 샘플링만 가능하다.</p>
 <h3 id="Monte-Carlo-Effective-Sample-Size"><a href="#Monte-Carlo-Effective-Sample-Size" class="headerlink" title="Monte Carlo Effective Sample Size"></a>Monte Carlo Effective Sample Size</h3><p>진짜 Stationary distribution으로부터 독립적으로 샘플링한 샘플을 $\theta_{eff}$이라고 하자. 즉, 이들은 실제로 posterior로부터 샘플링한 샘플과 매우 유사할 것이다.</p>
 <p>우리가 마르코프 체인으로부터 샘플링한 샘플의 개수를 $n$이라고 하자. 하지만, 수렴이 제대로 되지 않은 상태에서 뽑은 것은 독립적인 샘플일 수가 없고, 마르코프 체인이기에, 완전히 독립적이기는 어렵다. 따라서, 유용한 샘플들은 일부일 것이다.</p>
