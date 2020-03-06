@@ -191,7 +191,7 @@
                             &nbsp;
                             Machine Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Lagrangian-Multiplication/">Lagrangian Multiplication</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -471,6 +471,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/reinforcement-learning/01_Introduction/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/machine-learning/Lagrangian-Multiplication" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Machine-Learning/">Machine Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MachineLearning/">MachineLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/machine-learning/Lagrangian-Multiplication/">
+            <time datetime="2020-03-01T23:51:55.000Z" itemprop="datePublished">2020-03-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/machine-learning/Lagrangian-Multiplication.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/machine-learning/Lagrangian-Multiplication.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/machine-learning/Lagrangian-Multiplication.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/machine-learning/Lagrangian-Multiplication/">Lagrangian Multiplication</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Lagrangian-Multiplication"><a href="#Lagrangian-Multiplication" class="headerlink" title="Lagrangian Multiplication"></a>Lagrangian Multiplication</h1><p>Constraint optimization.</p>
+<p>어떤 objective function을 파라미터에 대해 최대화하거나 loss function을 최소화하려고 하는데, 파라미터가 가질 수 있는 값에 제약조건이 있는 경우, Lagrangian multiplication을 사용할 수 있다.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Lagrangian multiplication은 gradient vector의 방향 특성을 이용한, constraint optimization을 푸는 방법론중 하나이다. Lagrangian을 알기 위해서는 gradient vector의 특성을 파악해야 한다.</p>
+<h3 id="Gradient-Vectors"><a href="#Gradient-Vectors" class="headerlink" title="Gradient Vectors"></a>Gradient Vectors</h3><p>원 함수 $F(x, y) = x^2 + y^2 - 4 = 0$을 생각해보자. 이 함수의 differential $d F(x, y)$는 다음과 같다.<br>$$<br>d F(x, y) = \frac{\partial F(x, y)}{\partial x} \Delta x + \frac{\partial F(x, y)}{\partial y} \Delta y<br>$$<br>왜냐하면, $\frac{\partial F(x, y)}{\partial x} \Delta x$만을 봤을 때, $\frac{\partial F(x, y)}{\partial x}$는 $y$가 고정되어 있고, $x$만 변화시켰을때의 $F(x, y)$의 변화량이다. 즉, $x$방향의 기울기이다. 즉, $\frac{\partial F(x, y)}{\partial x}$는 $\Delta x$ 양 만큼의 미세한 변화를 $x$축에 가했을 때, $F(x, y)$의 변화량이다. 이건 $\frac{\partial F(x, y)}{\partial y}$도 마찬가지로 해석이 가능하다. 따라서, $d F(x, y)$는 $x, y$방향으로 각각 $\Delta x, \Delta y$만큼 변화를 가했을 때의 $F(x, y)$의 변화량이라고 볼 수 있다.</p>
+<p>위 식은 다음처럼 표현할 수 있다.<br>$$<br>d F(x, y) = \begin{bmatrix}<br>\frac{\partial F(x, y)}{\partial x} \newline<br>\frac{\partial F(x, y)}{\partial y}<br>\end{bmatrix} \cdot \begin{bmatrix}<br>\Delta x \newline<br>\Delta y<br>\end{bmatrix} =<br>\nabla F(x, y) \cdot \Delta v<br>$$<br>이때, $$\cdot$$은 내적이고, $\nabla F(x, y)$는 gradient vector, $\Delta v$는 $x, y$가 변화하는 방향 벡터이다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/machine-learning/Lagrangian-Multiplication/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">
@@ -1199,110 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">
-            <time datetime="2020-03-01T13:08:10.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Markov-Chain-Monte-Carlo"><a href="#Markov-Chain-Monte-Carlo" class="headerlink" title="Markov Chain Monte Carlo"></a>Markov Chain Monte Carlo</h1><p>MCMC라고도 불린다. 파라미터 $\theta$의 분포 $p(\theta)$를 추정하고자 한다. 그러기 위해, bayesian inference를 하려고 하는데, 그러려면, 데이터를 수집한 후 posterior $p(\theta|Y)$를 계산해야 한다. 그러나, 이 posterior를 계산하기에 상당히 어려울 수 있기 때문에(특히, normalization constant) 대신, posterior를 추정하기로 한다. 이 posterior를 추정할때 쓰일 수 있는 알고리즘 중 하나가 MCMC이다.</p>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>우리가 추정하고자 하는 파라미터 $\theta$의 분포인 $\mathbb{p}(\theta)$를 추정하고자 한다. 그래서 $\theta$를 파라미터로 하는 어떤 데이터 분포 $y|\theta$로부터 $y_1,…y_k$를 샘플링했다. 이를 바탕으로 $\theta$의 prior $p(\theta)$를 설정하고, 데이터로 posterior $p(\theta|y_1,…y_k)$를 계산해서 $\mathbb{p}(\theta)$에 대한 베이지안 추론을 하고자 한다. 그런데, posterior인 $p(\theta|y_1,…,y_k)$를 계산하는게 매우 어렵거나 불가능한 경우가 있다. 이때, posterior 분포 $p(\theta|y_1,…,y_k)$를 추정하기 위한 방법으로 MCMC가 사용될 수 있다.</p>
-<h3 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h3><p>MCMC는 posterior의 분포 $p(\theta|y_1,…y_k)$를 추정하기 위해 마치 이 posterior로부터 샘플링됬을 법한 샘플 $\theta^* _1,…,\theta^* _m$을 생성해 준다. 이들은 posterior로부터 샘플링 되었을 거라고 가정하고 posterior를 monte carlo estimation으로 추정한다.</p>
-<p>MCMC의 알고리즘으로 여러 개가 있다고 하는데, 대표적으로 Metropolis-Hastings 알고리즘이 있다.</p>
-<h2 id="Matropolis-Hastings-Algorithms"><a href="#Matropolis-Hastings-Algorithms" class="headerlink" title="Matropolis-Hastings Algorithms"></a>Matropolis-Hastings Algorithms</h2><p>알고리즘은 다음과 같다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">
