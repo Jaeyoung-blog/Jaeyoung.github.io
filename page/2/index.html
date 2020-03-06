@@ -1188,10 +1188,10 @@
                     
                     <!-- Bug Exist: When start table html, crash main page. -->
                     <p><h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>선형 회귀라고도 불리며, 예측해야할 dependent variable이 continuous할때, 유용하다.</p>
-<p>선형 회귀는 다음과 같다.<br>$$<br>y_i \sim \mathbb{N}(\mu_i, \sigma^2) \<br>\mu_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k<br>$$<br>또는 다음과 같이 표현할 수 있다.<br>$$<br>y_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \epsilon \<br>\epsilon \sim \mathbb{N}(0, \sigma^2)<br>$$<br>즉, 예측값 $y_i$는 일직선 값에 오차값(residual) $\epsilon$을 더한 값이며, 이 residual값은 normal distribution을 따른다.</p>
-<p>베이지안 통계에서는 $\beta$들은 분포를 갖는 random variable들이다. 따라서, 선형 회귀를 학습시킬때, 각 $\beta$에 대해 prior를 설정하고 posterior를 계산하게 된다.</p>
-<p>각 $\beta$값에는 normal prior를 주는게 보통이지만, 다른 prior도 상관없다.</p>
-<p>단, 어떤 variable $x_i$가 $y_i$에 영향을 주는 놈인지 알고 싶다면, $\beta_i$의 prior로 <strong>Laplace prior</strong>를 설정하기도 한다. Laplace distribution은 double exponential 이라고도 불리며, 0점에서 뾰족한 모양이고 $y$축 대칭이다.</p><p>
+<p>선형 회귀는 다음과 같다.<br>$$<br>y_i \sim N(\mu_i, \sigma^2)<br>$$<br>$$<br>\mu_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k<br>$$</p>
+<p>또는 다음과 같이 표현할 수 있다.<br>$$<br>y_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \epsilon<br>$$<br>$$<br>\epsilon \sim N(0, \sigma^2)<br>$$</p>
+<p>즉, 예측값 $y_i$는 일직선 값에 오차값(residual) $\epsilon$을 더한 값이며, 이 residual값은 normal distribution을 따른다.</p>
+<p>베이지안 통계에서는 $\beta$들은 분포를 갖는 random variable들이다. 따라서, 선형 회귀를 학습시킬때, 각 $\beta$에 대해 prior를 설정하고 posterior를 계산하게 된다.</p><p>
                 
             
         
