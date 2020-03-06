@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/</loc>
+    
+    <lastmod>2020-03-06T02:34:38.895Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/</loc>
     
     <lastmod>2020-03-06T02:31:09.640Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/</loc>
     
     <lastmod>2020-03-03T04:25:37.222Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/</loc>
-    
-    <lastmod>2020-03-03T01:58:19.018Z</lastmod>
     
   </url>
   

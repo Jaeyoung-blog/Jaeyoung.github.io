@@ -18,8 +18,8 @@
 <meta property="og:description" content="My Interpretation of Machine Learning통계학을 분류하는 방법으로는 여러 가지가 있지만, 다음과 같이 통계학을 분류할 수도 있다.  Frequentist Statistics Bayesian Statistics  각 통계학에서 machine learning의 방법론은 약간씩 차이가 있는 듯 하다. 하지만, 기본적으로 각 통계학의 궁">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303084924874.png">
-<meta property="og:image" content="https://jaeyoung-blog.github.io/Notes/note-images/Principle_of_Machine_Learning/image-20200303084905099-1583192979660.png">
-<meta property="og:updated_time" content="2020-03-03T01:58:19.018Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303084905099.png">
+<meta property="og:updated_time" content="2020-03-06T02:34:38.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning">
 <meta name="twitter:description" content="My Interpretation of Machine Learning통계학을 분류하는 방법으로는 여러 가지가 있지만, 다음과 같이 통계학을 분류할 수도 있다.  Frequentist Statistics Bayesian Statistics  각 통계학에서 machine learning의 방법론은 약간씩 차이가 있는 듯 하다. 하지만, 기본적으로 각 통계학의 궁">
@@ -387,7 +387,7 @@
 <p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303084924874.png" alt="image-20200303084924874"></p>
 </li>
 <li><p>반대로, gradient가 (-)부호라는 것은 $\theta$를 감소시켜야 likelihood가 증가한다는 의미이다.</p>
-<p><img src="../../../../../../Notes/note-images/Principle_of_Machine_Learning/image-20200303084905099-1583192979660.png" alt="image-20200303084905099"></p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303084905099.png" alt="image-20200303084905099"></p>
 </li>
 </ol>
 <p>따라서 likelihood의 완전한 maximum 지점을 찾을 수는 없더라도 현재 위치에서 어느 방향으로 가야 likelihood를 증가시키는지 알 수 있다. gradient를 이용해서 likelihood 산을 오른다는 느낌으로, gradient ascent 라는 용어가 있을 수 있겠다. 하지만, 문제가 있다. Likelihood는 확률을 데이터 샘플 수만큼 곱한 것이다. 즉, 매우매우 0에 가까운 값으로, 일반적으로 데이터 샘플 수는 1만개, 10만개가 넘어가는 경우도 많다. 이들을 다 곱하면 컴퓨터에게는 그냥 0이다. 따라서 미분을 하기도 전에 이미 likelihood는 표현조차 불가능하다.</p>
@@ -395,12 +395,12 @@
 <p>좋은 예시로, $y=-(x-1)^2+1$를 최대화 하는 x값이나, $\text{log}[y] = \text{log}[-(x-1)^2+1]$를 최대화하는 x값은 똑같이 1이다.</p>
 <p>그런데, likelihood는 확률이므로, 0과 1사이 값이다. 따라서 log를 씌우면 무조건 0보다 작거나 같다. 이 모양이 조금 이상하니까, -1를 곱해서 negative log likelihood를 도입한다. 즉 다음과 같다.</p>
 <p>$$<br>\text{NLL} = -\text{log}[P(D|\theta)]​<br>$$<br>그런데, 정보 이론을 공부해보신 분이라면 어디서 많이 본 모양일 것이다. 정보 이론에서 entroy와 cross entropy라는 개념이 있다. 다음과 같다.</p>
-<p>$$<br>\text{Entropy} = \mathbb{E}_p[-\text{log}~p], \</p>
-<p>\text{Cross Entropy} = \mathbb{E}_p[-\text{log}~q]​<br>$$<br><strong>정보 이론에서 엔트로피란, 불확실성의 높고 낮음을 나타낸다.</strong> (다른 의미로 정보량이 적고 많음을 의미한다) 즉, 확률 분포 p가 uniform distribution과 같이 뭐가 샘플링될지 전혀 알 수 없을수록, 엔트로피는 증가한다. 반대로, 어느 지점에서 확률이 매우 높은(분산이 매우 작은 normal distribution을 떠올리자) 분포는 우리가 어느 정도 뭐가 나올지 알고, 여러개 샘플링해보면 데이터의 다양성이 떨어진다. 따라서 엔트로피가 감소한다.</p>
+<p>$$<br>\text{Entropy} = E_p[-\text{log} ~ p], \</p>
+<p>\text{Cross Entropy} = E_p[-\text{log} ~ q]​<br>$$<br><strong>정보 이론에서 엔트로피란, 불확실성의 높고 낮음을 나타낸다.</strong> (다른 의미로 정보량이 적고 많음을 의미한다) 즉, 확률 분포 p가 uniform distribution과 같이 뭐가 샘플링될지 전혀 알 수 없을수록, 엔트로피는 증가한다. 반대로, 어느 지점에서 확률이 매우 높은(분산이 매우 작은 normal distribution을 떠올리자) 분포는 우리가 어느 정도 뭐가 나올지 알고, 여러개 샘플링해보면 데이터의 다양성이 떨어진다. 따라서 엔트로피가 감소한다.</p>
 <p><strong>Cross entropy란, 어느 분포 p에 대해서 다른 분포 q의 기댓값이다.</strong> 무슨 의미냐면, p분포와 q분포가 많이 다르게 생기면 생길수록 cross entropy가 증가한다. 반면, p분포와 q분포가 비슷하게 생길수록 cross entropy가 감소한다. 이는 두 분포간의 거리를 계산한다는 KL-divergence의 개념과도 거의 유사하며, 사실상 다 이어져 있는 개념이다. KL-divergence는 실제로 entropy와 cross entropy의 합이다.</p>
 <p>왜 이 개념을 말했냐면, negative log likelihood에서, 모분포를 $\mathbb{P}$라고 했을 때, 우리 손에 들어온 모든 데이터 샘플이 나왔을 확률을 모두 같다고 가정해보자. 왜 모두 같다고 해도 되냐면, 데이터 샘플에는 중복되어 샘플링 된 샘플이 많을 것이다. 동전 던지기를 10번 해서 앞면이 7번 나왔다면, 그 10번 시행에 모두 같은 비중치를 뒀지만, 다 더해보면 앞면의 비중치는 0.7, 뒷면의 비중치는 0.3으로, 많이 샘플링된 얘들은 높은 비중치를 가지게 된다. 따라서, 모든 데이터 샘플들에 비중치를 같다고 둬도, 중복된 샘플들 덕분에 실제로 비중치는 데이터 확률 분포를 반영하게 되는 것이다.</p>
 <p>그렇게 되면 각 비중치 $\alpha$를 통해 다음과 같이 표현될 수 있다.</p>
-<p>$$<br>\text{NLL} = \Sigma_i-\alpha\text{log}P(d_i|\theta) = [\text{예시}]: \Sigma_i[-0.1<em>\text{log}\theta] = -0.7<em>\text{log}\theta - 0.3</em>\text{log}(1-\theta)<br>$$<br>각 비중치 위 모양은 cross entropy와 정확히 일치한다. 참고로 $\alpha$를 곱해준다고 해서 likelihood를 최대화시키는 $\hat{\theta}$값은 변하지 않는다. $-(x-1)^2$를 최대화 시키는 x나, $-0.1</em>(x-1)^2$을 최대화 시키는 x는 모두 1이다. 같은 이유이다.</p>
+<p>$$<br>\text{NLL} = \Sigma_i-\alpha\text{log}P(d_i|\theta) = [\text{예시}]: \Sigma_i[-0.1 \cdot \text{log} \theta] = -0.7 \cdot \text{log} \theta - 0.3 \cdot \text{log}(1-\theta)<br>$$<br>각 비중치 위 모양은 cross entropy와 정확히 일치한다. 참고로 $\alpha$를 곱해준다고 해서 likelihood를 최대화시키는 $\hat{\theta}$값은 변하지 않는다. $-(x-1)^2$를 최대화 시키는 x나, $-0.1*(x-1)^2$을 최대화 시키는 x는 모두 1이다. 같은 이유이다.</p>
 <p>따라서, negative log likelihood는 cross entropy라고도 부른다.</p>
 <p>종합해보면 다음 문장들은 모두 같은 의미이다.</p>
 <ul>
