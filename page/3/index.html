@@ -191,7 +191,7 @@
                             &nbsp;
                             Machine Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -276,6 +276,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/bayesian-statistics/09_Monte_Carlo_Estimation" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">
+            <time datetime="2020-03-01T13:08:09.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Monte-Carlo-Estimation"><a href="#Monte-Carlo-Estimation" class="headerlink" title="Monte Carlo Estimation"></a>Monte Carlo Estimation</h1><p>쉽게 말하면, 몬테 카를로 추정법이란, 어떤 특정한 파라미터를 얻기 위해서, 파라미터의 distribution으로부터 많은 샘플링 시뮬레이션을 한 후, 그 샘플들의 평균을 계산한 것을 파라미터의 기댓값으로 추정하는 것이다.</p>
+<p>예를 들어, 어떤 파라미터 $\theta$는 어떤 분포 $p(\theta)$를 따른다. 우리는 파라미터 $\theta$의 기댓값 $E[\theta]$를 계산하고 싶다. 이를 계산하기 위해서는 원래 $E[\theta] = \int p(\theta) \cdot \theta ~~ d\theta$를 계산해야 한다. 하지만, 이 계산은 불가능하거나 매우 힘들 수 있다.</p>
+<p>$E[\theta]$를 계산하는 대신 추정하는 방법으로 몬테 카를로 추정법을 이용한다. 우선, 컴퓨터로 $p(\theta)$로부터 $\theta$를 많이 샘플링한다. 그리고 그들의 평균 $\bar{\theta} = \frac{1}{m}\sum_i^m \theta_i$를 계산하고 $\bar{\theta}$를 $E[\theta]$로 추정하는 것이다.</p>
+<p>분포 $p(\theta)$로부터 높은 확률의 $\theta$가 많이 샘플링되고 낮은 확률의 $\theta$는 적게 샘플링 되었을 것이다. 따라서 이 추정법은 유효할 수 있다. 다른 방식으로 해석하면, central limit theorem에 의해 샘플평균 $\bar{\theta}$는 실제 평균인 $E[\theta]$를 평균으로 하고 $\frac{1}{m}Var[\theta]$를 분산으로 하는 normal distribution을 따른다. 특히, 샘플수가 많아질수록, 계산한 샘플평균은 실제 평균값과 매우 유사할 확률이 높다.</p>
+<p>$h(\theta)$의 기댓값 $E[h(\theta)]$를 추정하고 싶다. 그러면, $\theta$를 많이 샘플링해서 각 샘플로 $h(\theta)$를 계산하고 평균을 내면 $E[h(\theta)]$의 추정값이 된다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/bayesian-statistics/08_Bayesian_Modeling" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">
+            <time datetime="2020-03-01T13:08:08.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/08_Bayesian_Modeling.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Bayesian-Modeling"><a href="#Bayesian-Modeling" class="headerlink" title="Bayesian Modeling"></a>Bayesian Modeling</h1><h2 id="Statistical-Modeling"><a href="#Statistical-Modeling" class="headerlink" title="Statistical Modeling"></a>Statistical Modeling</h2><p>Bayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다.</p>
+<p>Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적인 모델링 프로세스는 bayesian modeling이나 frequentist modeling이나 같다.</p>
+<ol>
+<li>문제 이해</li>
+<li>데이터 수집</li><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/bayesian-statistics/07_Priors" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1097,112 +1305,8 @@
 
 
     
-        <article id="post-studynotes/machine-learning/My-interpretation-of-Machine-Learning" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Machine-Learning/">Machine Learning</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MachineLearning/">MachineLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">
-            <time datetime="2020-02-29T23:51:55.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/machine-learning/My-interpretation-of-Machine-Learning.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/machine-learning/My-interpretation-of-Machine-Learning.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/machine-learning/My-interpretation-of-Machine-Learning.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="My-Interpretation-of-Machine-Learning"><a href="#My-Interpretation-of-Machine-Learning" class="headerlink" title="My Interpretation of Machine Learning"></a>My Interpretation of Machine Learning</h1><p>통계학을 분류하는 방법으로는 여러 가지가 있지만, 다음과 같이 통계학을 분류할 수도 있다.</p>
-<ul>
-<li><strong>Frequentist Statistics</strong></li>
-<li><strong>Bayesian Statistics</strong></li>
-</ul><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 이전</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 이전</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">다음 &raquo;</a>
         </nav>
     
 </section>

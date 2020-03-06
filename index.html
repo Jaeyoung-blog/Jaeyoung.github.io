@@ -191,7 +191,7 @@
                             &nbsp;
                             Machine Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -575,6 +575,214 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Machine-Learning/">Machine Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MachineLearning/">MachineLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">
+            <time datetime="2020-03-03T13:28:53.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Restrict-Boltzmann-Machine"><a href="#Restrict-Boltzmann-Machine" class="headerlink" title="Restrict Boltzmann Machine"></a>Restrict Boltzmann Machine</h1><p>이번에는 RBM의 학습, 즉, weight를 수정하는 방법을 알아보고자 한다. RBM의 학습 역시 MLE 방식을 이용하게 된다. 즉, 데이터에 대한 likelihood를 최대화하게 된다.<br>$$<br>\hat{W}, \hat{b}, \hat{c} = \underset{W,b,c}{ \text{argmax} } ~ p(v)<br>$$<br>데이터는 visible unit에 들어가게 되므로, $$p(v)$$를 최대화하게 된다.</p>
+<p>그런데 왜 $$p(v)$$를 최대화하는게 RBM의 학습일까. 그 이유는, 현재 데이터가 얻어진 이유는 상대적으로 높은 확률을 가지기 때문에 얻어진 것일 것이고, 왠만하면 불안정 상태보다 안정 상태의 데이터일 가능성이 높다.</p>
+<p>그런데, $$p(v)$$는 intractable하다.<br>$$<br>p(v) = \sum_h p(v,h) = \sum_h \frac{1}{Z} \text{exp} { \sum_i \sum_j W_{i,j} v_i h_j + \sum_i b_i v_i + \sum_j c_j h_j }<br>$$<br>여기서, normalizaiton constant는 모델 크기가 매우 작지 않는 이상 intractable하다.</p>
+<h2 id="Free-Energy"><a href="#Free-Energy" class="headerlink" title="Free Energy"></a>Free Energy</h2><p>일단 미분을 위해 다음을 정의한다.<br>$$<br>F(v) = -\text{log} \sum_h e^{-E(v,h)}<br>$$<br>$F(v)$를 Free energy라고 정의한다. 특별한 의미가 있는것은 아니라고 한다. 편의상 정의하는 것 같다.</p>
+<p>Free energy식을 조금만 변형한다.<br>$$<br>e^{-F(v)} = \sum_h e^{-E(v, h)}<br>$$<br>Free energy를 이용해서 $p(v)$를 $F(v)$에 대한 식으로 정리해보면,<br>$$<br>p(v) = \sum_h p(v,h) = \sum_h \frac{1}{Z} e^{-E(v,h)} \<br>p(v) = \frac{1}{Z} e^{-F(v)}<br>$$<br>따라서, normalization constant는 다음과 같다고도 할 수 있다.<br>$$<br>Z = \sum_{v’} e^{-F(v’)}<br>$$<br>이제, $\text{log} ~ p(v)$를 미분해보면,<br>$$<br>\frac{d \text{log} <del>p(v)}{d\theta} = \frac{d}{d\theta}[\text{log} \frac{1}{Z}e^{-F(v)}]<br>$$<br>$$<br>= \frac{d}{d\theta} [\text{log} ~e^{-F(v)} - \text{log}</del>Z]<br>$$</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-studynotes/machine-learning/Restrict-Boltzmann-Machines-1st" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Machine-Learning/">Machine Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MachineLearning/">MachineLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">
+            <time datetime="2020-03-03T13:28:52.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Restrict-Boltzmann-Machines"><a href="#Restrict-Boltzmann-Machines" class="headerlink" title="Restrict Boltzmann Machines"></a>Restrict Boltzmann Machines</h1><p>Restrict Boltzmann machines은 Boltzmann machine에다가 일종의 제약조건을 추가한 형태의 neural network를 말한다.</p>
+<p>보통 Boltzmann machine이라고 하면 각 뉴런이 bernoulli random variable인 경우가 많다.</p>
+<h2 id="From-Boltzmann-Machine-to-RBM"><a href="#From-Boltzmann-Machine-to-RBM" class="headerlink" title="From Boltzmann Machine to RBM"></a>From Boltzmann Machine to RBM</h2><h3 id="Statistical-Mechanics"><a href="#Statistical-Mechanics" class="headerlink" title="Statistical Mechanics"></a>Statistical Mechanics</h3><p>입자가 매우 많은 환경에서 입자의 운동을 deterministic하게 정의할 수 없을떄, 통계적으로 물리적 현상을 해석하는 학문을 의미한다.</p>
+<p>Boltzmann machine은 statistical mechanics의 영향을 많이 받은 neural network이다. Statistical mechanics에서는 <strong>평형 상태(Equilibrium)</strong>를 중요하게 여기는데, 자연계의 모든 것은 평형 상태로 가기를 원한다. 평형 상태에서는 에너지가 한곳에 치우치지 않고 고루 분포되어 있고, 시스템 전체의 에너지를 낮출 수 있으면 낮은 에너지를 갖게 된다.</p>
+<p>Statistical mechanics에서는 어떤 상태 $s_i$가 될 확률은, 그 상태가 가지는 에너지 $\epsilon_i$와 그 상태에서의 온도 $T_i$에 의해 결정된다고 한다. $k$는 Boltzmann constant이다.<br>$$<br>p(s_i) = \frac{exp{\epsilon_i/(kT_i)}}{\sum_j exp{\epsilon_j/(kT_j)}}<br>$$<br>위 수식을 <strong>Boltzmann Distribution</strong> 또는 <strong>Maxwell-Boltzmann Distribution</strong>이라고 부른다. 통계 역학에서 물리적 특성에 따른 각 상태의 확률 분포를 정의한다. 분자에는 하나의 상태에 대한 식이 들어가며, 분모에는 모든 상태의 식을 합한 normalization constant가 있다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">
@@ -1108,216 +1316,8 @@
 
 
     
-        <article id="post-studynotes/reinforcement-learning/02-K-arm-Bandits-Problems" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">
-            <time datetime="2020-03-03T01:00:01.000Z" itemprop="datePublished">2020-03-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="K-arm-Bandits-Problems"><a href="#K-arm-Bandits-Problems" class="headerlink" title="K-arm Bandits Problems"></a>K-arm Bandits Problems</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
-<p>Reinforcement learning에서 가장 기본적인 문제로, K-arm bandit problem을 들 수 있다. K개의 arm이 있고, agent는 그 arm 중 하나를 골라야 하며, 하나를 골랐다면, environment는 그 arm의 reward를 반환한다.</p>
-<h3 id="Multi-armed-Bandits-Problem"><a href="#Multi-armed-Bandits-Problem" class="headerlink" title="Multi-armed Bandits Problem"></a>Multi-armed Bandits Problem</h3><p>슬롯 머신문제, 의사의 치료법 선택 문제 등을 통칭해서 multi-armed bandits 종류의 문제라고 부른다.</p>
-<ul>
-<li><p>슬롯 머신 문제</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/reinforcement-learning/01_Introduction" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">
-            <time datetime="2020-03-03T01:00:00.000Z" itemprop="datePublished">2020-03-03</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/01_Introduction.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Reinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다.</p>
-<p>Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.</p>
-<ul>
-<li>Trails &amp; erros search</li>
-<li>Delayed rewards</li><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/reinforcement-learning/01_Introduction/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">다음 &raquo;</a>
         </nav>
     
 </section>

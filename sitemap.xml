@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/</loc>
+    
+    <lastmod>2020-03-06T01:56:06.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/</loc>
+    
+    <lastmod>2020-03-06T01:50:12.794Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</loc>
     
     <lastmod>2020-03-06T01:41:05.504Z</lastmod>
