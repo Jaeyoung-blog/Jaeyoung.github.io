@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/</loc>
+    
+    <lastmod>2020-03-06T02:42:13.001Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/</loc>
     
     <lastmod>2020-03-06T02:40:51.378Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/</loc>
     
     <lastmod>2020-03-06T02:39:35.036Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/</loc>
-    
-    <lastmod>2020-03-06T02:36:14.371Z</lastmod>
     
   </url>
   

@@ -668,10 +668,10 @@
                     
                     <!-- Bug Exist: When start table html, crash main page. -->
                     <p><h1 id="Empirical-Bayes"><a href="#Empirical-Bayes" class="headerlink" title="Empirical Bayes"></a>Empirical Bayes</h1><p><strong>하이퍼파라미터 또한 데이터로 구하자.</strong></p>
-<p>베이지안 모델링을 하게 되면, likelihood를 모델링하고, 그 파라미터를 prior로 모델링을 하게 된다.<br>$$<br>D \sim \text{Lieklihood} ( \theta ) <del>~</del> [ P(D|\theta) ]<br>$$<br>$$<br>\theta \sim \text{prior} ( \lambda )<br>$$</p>
+<p>베이지안 모델링을 하게 되면, likelihood를 모델링하고, 그 파라미터를 prior로 모델링을 하게 된다.<br>$$<br>D \sim \text{Lieklihood} ( \theta ) ~ [ P(D|\theta) ]<br>$$<br>$$<br>\theta \sim \text{prior} ( \lambda )<br>$$</p>
 <p>그런데, 이때, prior의 파라미터(위에서는 $\lambda$)는 하이퍼파라미터로, 사용자가 직접 constant로 세팅해 주게 된다. Empirical bayes는 이 하이퍼파라미터를 사용자 대신, 데이터를 이용해서 MAP으로 추론하는 것을 말한다(point estimation).</p>
-<p>즉,<br>$$<br>\hat{\lambda} = \underset{\lambda}{\text{argmax}} ~ P(\lambda|D)<br>$$<br>하이퍼파라미터의 posterior를 구하는 방법은 다음과 같다.<br>$$<br>P(\lambda|D) \approx P(\lambda) \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$<br>그런데, 이때, $\lambda$의 prior가 필요해지는데, 그냥 uniform prior로 둔다. 그럼 다음과 같다.<br>$$<br>P(\lambda|D) \approx \int P(D|\theta)P(\theta|\lambda) d\theta \approx P(D|\lambda)<br>$$<br> 그리고, 이놈을 최대화하는 $\lambda$를 구하는 것이다.<br>$$<br>\hat{\lambda} = \underset{\lambda}{\text{argmax}} ~ \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$</p>
-<h2 id="Examples-beta-binomial-Model"><a href="#Examples-beta-binomial-Model" class="headerlink" title="Examples: beta-binomial Model"></a>Examples: beta-binomial Model</h2><p>어떤 데이터에 대해 다음처럼 모델링했다 치자.<br>$$<br>x_i \sim \text{binom}(x_i|N_i, \theta_i) \<br>\theta_i \sim \text{beta}(\theta_i|a, b)<br>$$<br>이때, 각 데이터 샘플이 서로 다른 binomial distribution에서 왔다는 것에 주목한다. 즉, $N_i, \theta_i$가 데이터마다 모두 다르다.</p><p>
+<p>즉,<br>$$<br>\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ P(\lambda|D)<br>$$<br>하이퍼파라미터의 posterior를 구하는 방법은 다음과 같다.<br>$$<br>P(\lambda|D) \approx P(\lambda) \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$<br>그런데, 이때, $\lambda$의 prior가 필요해지는데, 그냥 uniform prior로 둔다. 그럼 다음과 같다.<br>$$<br>P(\lambda|D) \approx \int P(D|\theta)P(\theta|\lambda) d\theta \approx P(D|\lambda)<br>$$<br> 그리고, 이놈을 최대화하는 $\lambda$를 구하는 것이다.<br>$$<br>\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$</p>
+<h2 id="Examples-beta-binomial-Model"><a href="#Examples-beta-binomial-Model" class="headerlink" title="Examples: beta-binomial Model"></a>Examples: beta-binomial Model</h2><p>어떤 데이터에 대해 다음처럼 모델링했다 치자.<br>$$<br>x_i \sim \text{binom}(x_i|N_i, \theta_i)<br>$$<br>$$<br>\theta_i \sim \text{beta}(\theta_i|a, b)<br>$$</p><p>
                 
             
         
