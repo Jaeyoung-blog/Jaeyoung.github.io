@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Jaeyoung&#39;s Blog">
 <meta property="og:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Hidden Markov model(HMM)은 다음과 같이 maximum likelihood estimation을 이용해서 파라미터를 추정하게">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2020-03-06T02:26:27.128Z">
+<meta property="og:updated_time" content="2020-03-06T02:29:40.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Models 2">
 <meta name="twitter:description" content="Hidden Markov ModelsUdemy 강좌: https://www.udemy.com/course/unsupervised-machine-learning-hidden-markov-models-in-python Hidden Markov model(HMM)은 다음과 같이 maximum likelihood estimation을 이용해서 파라미터를 추정하게">
@@ -367,19 +367,10 @@
 <p>파라미터는 수식의 모든 term에 존재하므로, 생략한다. 먼저, likelihood는 다음과 같다. $T$는 전체 sequence 길이이다. 이 likelihood를 파라미터에 대한 식으로 바꿔주어야 한다.<br>$$<br>p(x) = p(x_1, x_2, …, x_T)<br>$$<br>이것을 hidden Markov model 구조(확률 그래프 모델이니까)에 따라 factorize하기 위해, hidden variable $z$를 삽입한다 (Marginalize).<br>$$<br>p(x) = \sum_{z_1} \sum_{z_2} \cdots \sum_{z_T}p(x_1, x_2, …, x_T, z_1, z_2, …, z_T)<br>$$<br>이제 factorize한다.<br>$$<br>p(x) = \sum_{z_1} \sum_{z_2} \cdots \sum_{z_T} p(z_1) p(x_1|z_1) \prod_{t=2}^{T} p(z_{t}|z_{t-1})p(x_t|z_t)<br>$$<br>이제 parameter에 대한 식으로 바꿀 수 있다.<br>$$<br>p(x) = \sum_{z_1} \sum_{z_2} \cdots \sum_{z_T} \pi(z_1) B(z_1, x_1) \prod_{t=2}^T A(z_{t-1}, z_t) B(z_t, x_t)<br>$$<br>그런데, 이 식의 time complexity를 봐야 한다. 위 식은 결국, 모든 hidden state 조합을 더하는 것이다. Hidden state의 개수는 $M$개이고, 이게 $T$-time 만큼 있으므로, $M^T$개의 hidden state조합이 존재한다. 또한, 하나의 hidden state 조합을 구하기 위해서는 $O(T)$시간이 걸리며, 총 $O(TM^T)$ 시간이 걸리게 된다. 이것은 exponential한 time으로, 매우 비효율적이다.</p>
 <h3 id="Answer-to-Problem-1-Forward-Backward-Algorithm"><a href="#Answer-to-Problem-1-Forward-Backward-Algorithm" class="headerlink" title="Answer to Problem 1: Forward/Backward Algorithm"></a>Answer to Problem 1: Forward/Backward Algorithm</h3><p>그런데, 위 $p(x)$에는 겹치는 연산이 상당히 많다. 이것을 factorize해서(인수분해) 좀 더 효율적으로 $p(x)$를 계산할 수 있을 것 같다.</p>
 <p>우선, $T=2, M=2$인 경우를 생각해본다.<br>$$<br>p(x) = \sum_{z_1} \sum_{z_2} \pi(z_1)B(z_1, x_1)\prod_{t=2}^T A(z_{t-1}, z_t)B(z_t, x_t)<br>$$</p>
-<p>$$<br>= \pi(1)B(1, x_1)A(1, 1)B(1, x_2)<br>$$</p>
-<p>$$</p>
-<ul>
-<li>\pi(1)B(1, x_1)A(1, 2)B(2, x_2)<br>$$</li>
-</ul>
-<p>$$</p>
-<ul>
-<li>\pi(2)B(2, x_1)A(2, 1)B(1, x_2)<br>$$</li>
-</ul>
-<p>$$</p>
-<ul>
-<li>\pi(2)B(2, x_1)A(2, 2)B(2, x_2)<br>$$</li>
-</ul>
+<p>$$<br>= \pi(1)B(1, x_1)A(1, 1)B(1, x_2) +<br>$$</p>
+<p>$$<br>\pi(1)B(1, x_1)A(1, 2)B(2, x_2) +<br>$$</p>
+<p>$$<br>\pi(2)B(2, x_1)A(2, 1)B(1, x_2) +<br>$$</p>
+<p>$$<br>\pi(2)B(2, x_1)A(2, 2)B(2, x_2) +<br>$$</p>
 <p>그런데, 중복된 연산이 너무 많다. 따라서, factorize를 해 주자.<br>$$<br>p(x) =<br>$$<br>$$<br>\pi(1)B(1, x_1)[A(1, 1)B(1, x_2) + A(1, 2)B(2, x_2)]<br>$$</p>
 <p>$$<br>\pi(2)B(2, x_1)[A(2, 1)B(1, x_2) + A(2, 2)B(2, x_2)]<br>$$</p>
 <p>$T=3, M=2$인 경우도 마찬가지로 할 수 있다. 수식으로 보면 다음처럼 표현할 수 있다.<br>$$<br>p(x) = \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1) p(x_1|z_1) \prod_{t=2}^3 p(z_t|z_{t-1})p(x_t|z_t)<br>$$<br>$$<br>= \sum_{z_1} \sum_{z_2} \sum_{z_3} p(z_1)p(x_1|z_1)p(z_2|z_1)p(x_2|z_2)p(z_3|z_2)p(x_3|z_3)<br>$$</p>
