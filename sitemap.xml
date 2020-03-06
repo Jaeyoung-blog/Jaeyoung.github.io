@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/</loc>
+    
+    <lastmod>2020-03-06T02:37:33.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/</loc>
+    
+    <lastmod>2020-03-06T02:36:14.371Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/</loc>
     
     <lastmod>2020-03-06T02:34:38.895Z</lastmod>
@@ -100,23 +114,9 @@
   </url>
   
   <url>
-    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/</loc>
-    
-    <lastmod>2020-03-03T01:57:15.622Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/</loc>
     
     <lastmod>2020-03-03T01:57:13.055Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/</loc>
-    
-    <lastmod>2020-03-03T01:55:44.758Z</lastmod>
     
   </url>
   
