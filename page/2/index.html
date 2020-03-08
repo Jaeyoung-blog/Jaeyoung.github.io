@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,6 +276,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/reinforcement-learning/03-Markov-Decision-Process" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">
+            <time datetime="2020-03-03T01:00:02.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/03-Markov-Decision-Process.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Markov-Decision-Process"><a href="#Markov-Decision-Process" class="headerlink" title="Markov Decision Process"></a>Markov Decision Process</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>마르코드 결정 과정.</p>
+<p>이름에서 유추할수 있다시피, Markov assumption에 기반한 decision process로, $t+1$에서의 상태 $s_{t+1}$는 오직 현재 $t$에서의 상태인 $s_{t}$에 있을 때, agent의 decision인 $a_{t}$에 의해서만 결정된다는 것이다.</p>
+<h3 id="Markov-Decisoin-Process-vs-K-arm-Bandit-Problems"><a href="#Markov-Decisoin-Process-vs-K-arm-Bandit-Problems" class="headerlink" title="Markov Decisoin Process vs K-arm Bandit Problems"></a>Markov Decisoin Process vs K-arm Bandit Problems</h3><p>Markov decision process에서는 K-arm bandit에서 가정했던 여러가지 조건을 해제한 application에 적용이 가능하다.</p>
+<ul><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/reinforcement-learning/02-K-arm-Bandits-Problems" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1199,110 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/11_Linear_Regression" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">
-            <time datetime="2020-03-01T13:08:11.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/11_Linear_Regression.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/11_Linear_Regression.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/11_Linear_Regression.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>선형 회귀라고도 불리며, 예측해야할 dependent variable이 continuous할때, 유용하다.</p>
-<p>선형 회귀는 다음과 같다.<br>$$<br>y_i \sim N(\mu_i, \sigma^2)<br>$$<br>$$<br>\mu_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k<br>$$</p>
-<p>또는 다음과 같이 표현할 수 있다.<br>$$<br>y_i = \beta_0 + \beta_1 x_1 + \cdots + \beta_k x_k + \epsilon<br>$$<br>$$<br>\epsilon \sim N(0, \sigma^2)<br>$$</p>
-<p>즉, 예측값 $y_i$는 일직선 값에 오차값(residual) $\epsilon$을 더한 값이며, 이 residual값은 normal distribution을 따른다.</p>
-<p>베이지안 통계에서는 $\beta$들은 분포를 갖는 random variable들이다. 따라서, 선형 회귀를 학습시킬때, 각 $\beta$에 대해 prior를 설정하고 posterior를 계산하게 된다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">
