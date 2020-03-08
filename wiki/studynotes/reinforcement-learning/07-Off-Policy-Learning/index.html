@@ -18,7 +18,7 @@
 <meta property="og:description" content="Off Policy Learning참고: Coursera Reinforcement Learning (Alberta Univ.) 학습 데이터를 수집할때, agent가 action을 취할 policy와 학습과정에서 업데이트할 policy를 따로 구분해 놓은 경우를 off-policy learning이라고 부른다. 반대로, 그냥 하나의 policy를 두고, ag">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200129145429486.png">
-<meta property="og:updated_time" content="2020-03-08T11:50:26.712Z">
+<meta property="og:updated_time" content="2020-03-08T11:53:43.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="07. Off-policy Learning">
 <meta name="twitter:description" content="Off Policy Learning참고: Coursera Reinforcement Learning (Alberta Univ.) 학습 데이터를 수집할때, agent가 action을 취할 policy와 학습과정에서 업데이트할 policy를 따로 구분해 놓은 경우를 off-policy learning이라고 부른다. 반대로, 그냥 하나의 policy를 두고, ag">
@@ -364,7 +364,7 @@
 <h2 id="Importance-Sampling"><a href="#Importance-Sampling" class="headerlink" title="Importance Sampling"></a>Importance Sampling</h2><p>그런데, Off-policy learning에 문제가 있다. 만약, Monte Carlo estimation을 시행한다고 하면, 많은 샘플을 모으고 그 샘플들의 단순 평균을 계산하여 기댓값을 계산한다. 샘플 $(S_t, A_t, R_t)$을 모을 때, agent는 behavior policy에 따라 action을 취하고 샘플을 얻게 된다. 따라서, 그 샘플들의 평균은 behavior policy $b$에 대한 기댓값 $E_b[G]$가 되지, $E_{\pi}[G]$가 되지 않는다.</p>
 <p>따라서, policy evaluation을 할 때, $b$에서 샘플링한 샘플로 $\pi$에 대한 기댓값을 추정하도록 해야 한다.</p>
 <p><strong>Importance sampling</strong>이란, Monte Carlo estimation을 할 때, <strong>다른 분포</strong>에서 샘플링한 샘플을 이용해서 분포의 기댓값을 추정하는 것을 말한다. 분포 $b$를 따르는 random variable $X$와 그 샘플 $x$에 대해, 분포 $b$에 대한 $X$의 기댓값은 다음처럼 계산할 수 있다.<br>$$<br>x_i \sim b<br>$$<br>$$<br>E_b[X] \approx \sum_{i=1}^n x_i \cdot b(x_i)<br>$$</p>
-<p>그리고, 여기서 약간의 수정을 가해서 다른 분포 $$\pi$$에 대한 $$X$$의 기댓값을 계산하도록 할 수 있다.<br>$$<br>E_{\pi}[X] = \sum_X X \cdot \pi(X)<br>$$<br>$$<br>= \sum_X X \cdot \pi(X) \cdot \frac{b(X)}{b(X)}<br>$$</p>
+<p>그리고, 여기서 약간의 수정을 가해서 다른 분포 $\pi$에 대한 $X$의 기댓값을 계산하도록 할 수 있다.<br>$$<br>E_{\pi}[X] = \sum_X X \cdot \pi(X)<br>$$<br>$$<br>= \sum_X X \cdot \pi(X) \cdot \frac{b(X)}{b(X)}<br>$$</p>
 <p>$$<br>= \sum_X X \cdot b(X) \cdot \frac{\pi(X)}{b(X)}<br>$$</p>
 <p>$$<br>= \sum_X X \cdot \rho(X) \cdot b(x), ~ (\rho(X) = \frac{\pi(X)}{b(X)})<br>$$</p>
 <p>$$<br>= E_b[X\rho(X)] \approx \frac{1}{n}\sum_{i=1}^n x_i \cdot \rho(x_i)<br>$$</p>
