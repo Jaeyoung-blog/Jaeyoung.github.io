@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,6 +276,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">
+            <time datetime="2020-03-01T13:08:12.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Prior-Sensitivity-Analysis"><a href="#Prior-Sensitivity-Analysis" class="headerlink" title="Prior Sensitivity Analysis"></a>Prior Sensitivity Analysis</h1><p>Prior sensitivity analysis란, 하나의 파라미터에 대해 여러가지 prior 분포를 적용해보고 만든 여러 모델의 성능을 분석하는 과정을 말한다.</p>
+<p>여러가지 prior를 적용해서 여러 모델을 만들었다고 하자. 그럼 여러 모델들이 내놓는 결과를 바탕으로 다음과 같이 해석할 수 있다. (Prior sensitivity analysis의 결과로 다음 두 가지의 경우가 나온다)</p>
+<ul>
+<li><p>결과가 prior-sensitive하다.</p>
+<p>어떤 prior를 선택하느냐에 따라 추정 성능 및 결과가 크게 달라지는 경우를 말한다. 즉, 데이터보다는 prior가 결과에 영향을 많이 미치는 경우이다. 이 경우, 내가 왜 이 prior를 선택해야 하고 이 모델을 선택해야 하는지 팀에게 설명할 필요가 있다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/bayesian-statistics/11_Linear_Regression" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1199,110 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/02_Distribution" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">
-            <time datetime="2020-03-01T12:08:01.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/02_Distribution.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/02_Distribution.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/02_Distribution.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Indicator-Function"><a href="#Indicator-Function" class="headerlink" title="Indicator Function"></a>Indicator Function</h3><p>어떤 조건이 만족했을때, 1을 반환하고, 만족하지 못하면 0을 반환하는 함수이다.<br>$$<br>\mathbb{I}<em>{\text{cond}(x)}(x) = \begin{cases} 1 &amp; \text{if cond(x) is True} \ 0 &amp; \text{if cond(x) is False} \end{cases}<br>$$<br>Indicator function은 다음과 같이 동전 던지기에 대한 확률같은 것을 표현할 때 용이하다.<br>$$<br>P(X|\theta) = \theta \cdot \mathbb{I}</em>{\text{head}} + (1 - \theta) \cdot \mathbb{I}_{\text{tail}}<br>$$</p>
-<h3 id="Expected-Values"><a href="#Expected-Values" class="headerlink" title="Expected Values"></a>Expected Values</h3><p><strong>기댓값</strong>이라고도 불리며, 확률적인 관점에서 본 <strong>“평균”</strong>이다.<br>$$<br>E[X] = \sum\limits_{x} p_x x<br>$$<br>각 샘플들에 비중치를 곱해서 모두 더한 것이다.</p>
-<p>일반적으로 생각할 수 있는 평균값은 모든 샘플들에 같은 비중치를 둔 기댓값과 같다.</p>
-<h3 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h3><p><strong>분산</strong>이라고도 불리며, 샘플들이 평균 또는 기댓값으로부터 얼마나 떨어져서 분포하는가, 즉, <strong>샘플들이 얼마나 넓게 퍼져있는가</strong>를 나타낸다.<br>$$<br>\text{Var}[X] = E[(X-\mu)^2] = \sum\limits_{x} p_x(x - \mu)^2<br>$$<br>평균과의 거리의 제곱을 평균한 것인데, 단위가 제곱이 된다. 따라서 단위를 일치시키기 위해 제곱근을 씌우는데, 이를 <strong>standard deviation(표준편차)</strong>라고 부른다.<br>$$<br>\text{Std.}[X] = \sigma(X) = \sqrt{\text{Var}[X]}<br>$$</p>
-<h3 id="Scaling-Random-Variable-vs-Many-Random-Variables"><a href="#Scaling-Random-Variable-vs-Many-Random-Variables" class="headerlink" title="Scaling Random Variable vs Many Random Variables"></a>Scaling Random Variable vs Many Random Variables</h3><p>Random variable을 scaling 한다는 것은, 분포를 넓게 피는것을 의미한다. random variable $$X$$를 $$c$$배 scaling하는 것은 $$cX$$로 표기한다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/02_Distribution/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">

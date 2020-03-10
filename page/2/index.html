@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,6 +276,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/reinforcement-learning/04-Policies-and-Value-Functions" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">
+            <time datetime="2020-03-03T01:00:03.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/04-Policies-and-Value-Functions.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Policies-and-Value-Functions"><a href="#Policies-and-Value-Functions" class="headerlink" title="Policies and Value Functions"></a>Policies and Value Functions</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>RL에서의 학습이란, action을 결정하는 policy와 value function을 추정하는 과정이라고 볼 수 있을 만큼, 두 과정의 RL에의 영향은 절대적이다.</p>
+<h3 id="Policies"><a href="#Policies" class="headerlink" title="Policies"></a>Policies</h3><p>우리말로, <strong>정책</strong>이라고 하며, 말 그대로, 주어진 현재 상황에서 agent가 어떤 action을 선택할지 결정해주는 정책을 의미한다.</p>
+<p><strong>Policy는 각 state에서 가능한 action들의 probability distribution이다.</strong></p>
+<p>Value function과 그 의미가 매우 유사해보인다. 하지만, Value function은 reward의 기댓값을 계산해주는 것일 뿐, action을 결정하는 것은 policy에게 달려 있다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/reinforcement-learning/03-Markov-Decision-Process" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1199,110 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">
-            <time datetime="2020-03-01T13:08:12.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Prior-Sensitivity-Analysis"><a href="#Prior-Sensitivity-Analysis" class="headerlink" title="Prior Sensitivity Analysis"></a>Prior Sensitivity Analysis</h1><p>Prior sensitivity analysis란, 하나의 파라미터에 대해 여러가지 prior 분포를 적용해보고 만든 여러 모델의 성능을 분석하는 과정을 말한다.</p>
-<p>여러가지 prior를 적용해서 여러 모델을 만들었다고 하자. 그럼 여러 모델들이 내놓는 결과를 바탕으로 다음과 같이 해석할 수 있다. (Prior sensitivity analysis의 결과로 다음 두 가지의 경우가 나온다)</p>
-<ul>
-<li><p>결과가 prior-sensitive하다.</p>
-<p>어떤 prior를 선택하느냐에 따라 추정 성능 및 결과가 크게 달라지는 경우를 말한다. 즉, 데이터보다는 prior가 결과에 영향을 많이 미치는 경우이다. 이 경우, 내가 왜 이 prior를 선택해야 하고 이 모델을 선택해야 하는지 팀에게 설명할 필요가 있다.</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">
