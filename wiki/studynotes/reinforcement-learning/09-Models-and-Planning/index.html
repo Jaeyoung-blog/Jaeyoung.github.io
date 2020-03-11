@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>09. Models and Planning | Jaeyoung&#39;s Blog</title>
+    
+    
+        <meta name="keywords" content="StudyNotes,ReinforcementLearning">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Models and Planning참고: Coursera Reinforcement Learning (Alberta Univ.) 지금까지, 두 가지 경우를 보았다.  Agent가 environment를 알고 있어서 실제 action을 취하지 않고, value function을 계산하고 optimal policy를 찾을 수 있다. (Dynamic program">
+<meta name="keywords" content="StudyNotes,ReinforcementLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="09. Models and Planning">
+<meta property="og:url" content="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/index.html">
+<meta property="og:site_name" content="Jaeyoung&#39;s Blog">
+<meta property="og:description" content="Models and Planning참고: Coursera Reinforcement Learning (Alberta Univ.) 지금까지, 두 가지 경우를 보았다.  Agent가 environment를 알고 있어서 실제 action을 취하지 않고, value function을 계산하고 optimal policy를 찾을 수 있다. (Dynamic program">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217150229429.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217204140527.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217204928616.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217205755986.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217211340623.png">
+<meta property="og:updated_time" content="2020-03-11T08:54:43.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="09. Models and Planning">
+<meta name="twitter:description" content="Models and Planning참고: Coursera Reinforcement Learning (Alberta Univ.) 지금까지, 두 가지 경우를 보았다.  Agent가 environment를 알고 있어서 실제 action을 취하지 않고, value function을 계산하고 optimal policy를 찾을 수 있다. (Dynamic program">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217150229429.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Jaeyoung&#39;s Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jaeyoung&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">Main</a>
+                
+                    <a class="main-nav-link" href="/archives">TimeLine</a>
+                
+                    <a class="main-nav-link" href="/categories">Category</a>
+                
+                    <a class="main-nav-link" href="/tags">Tag</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">Main</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">TimeLine</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Category</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tag</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>카테고리</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Log
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Blog-Init/">Init Blog</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Study Notes
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Bayesian Statistics
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/01_Probability/">01. Probability</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/02_Distribution/">02. Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/03_Frequentist_inference/">03. Frequentist Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/04_Bayesian_inference/">04. Bayesian Inference</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/05_Credible_Intervals/">05. Credible Intervals</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/07_Priors/">07. Priors</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/08_Bayesian_Modeling/">08. Bayesian Modeling</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/">09. Monte Carlo Estimation</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/">10. Markov Chain Monte Carlo</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/11_Linear_Regression/">11. Linear Regression</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/">12. Prior Sensitivity Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/13_Hierarchical_models/">13. Hierarchical Models</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/14_Predictive_Simulation/">14. Predictive Simulations</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-1-MAP/">Appendix 1. Maximize a Posterior</a></li>  <li class="file"><a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/">Appendix 2. Empirical Bayes</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Machine Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/machine-learning/My-interpretation-of-Machine-Learning/">Machine Learning</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/">Principal Component Analysis</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Lagrangian-Multiplication/">Lagrangian Multiplication</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Distillation-Methods/">Distillation Methods</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/">Restrict Boltzmann Machines 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/">Restrict Boltzmann Machines 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/">Hidden Markov Models 1</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/">Hidden Markov Models 2</a></li>  <li class="file"><a href="/wiki/studynotes/machine-learning/KL Divergence/">KL Divergence</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Reinforcement Learning
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  <li class="file active"><a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">09. Models and Planning</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-studynotes/reinforcement-learning/09-Models-and-Planning" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">
+            <time datetime="2020-03-11T01:00:08.000Z" itemprop="datePublished">2020-03-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/09-Models-and-Planning.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/09-Models-and-Planning.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/09-Models-and-Planning.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            09. Models and Planning
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">카탈로그</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Models-and-Planning"><span class="toc-number">1.</span> <span class="toc-text">Models and Planning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Models"><span class="toc-number">1.1.</span> <span class="toc-text">Models</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Models"><span class="toc-number">1.1.1.</span> <span class="toc-text">Sample Models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distribution-Models"><span class="toc-number">1.1.2.</span> <span class="toc-text">Distribution Models</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planning"><span class="toc-number">1.2.</span> <span class="toc-text">Planning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-sample-One-step-Tabular-Q-Learning"><span class="toc-number">1.2.1.</span> <span class="toc-text">Random-sample One-step Tabular Q-Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Advantage-of-Planning"><span class="toc-number">1.2.2.</span> <span class="toc-text">Advantage of Planning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dyna-Architecture"><span class="toc-number">1.3.</span> <span class="toc-text">Dyna Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tabular-Dyna-Q-Algorithm"><span class="toc-number">1.3.1.</span> <span class="toc-text">Tabular Dyna-Q Algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-Search-in-Dyna-Q"><span class="toc-number">1.3.2.</span> <span class="toc-text">Random Search in Dyna-Q</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inaccurate-Models"><span class="toc-number">1.3.3.</span> <span class="toc-text">Inaccurate Models</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exploration-Exploitation-Trade-off-in-Chaning-Environment"><span class="toc-number">1.3.4.</span> <span class="toc-text">Exploration-Exploitation Trade-off in Chaning Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dyna-Q-Algorithm"><span class="toc-number">1.3.5.</span> <span class="toc-text">Dyna-Q+ Algorithm</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h1 id="Models-and-Planning"><a href="#Models-and-Planning" class="headerlink" title="Models and Planning"></a>Models and Planning</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>지금까지, 두 가지 경우를 보았다.</p>
+<ol>
+<li>Agent가 environment를 알고 있어서 실제 action을 취하지 않고, value function을 계산하고 optimal policy를 찾을 수 있다. (<strong>Dynamic programming</strong>)</li>
+<li>Agent가 environment를 알 수 없어서, 오직 action을 취해서 얻은 sample들로만 value function을 추정했다. (<strong>Sample-based</strong>)</li>
+</ol>
+<p>하지만, 이번에는 environment도 같이 추정해서 value function을 더 정확히 추정하고 더 나아가 더 나은 policy를  추정하는 방법을 찾고자 한다.</p>
+<p>(즉, 두 가지 방법을 합친 것)</p>
+<h2 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h2><p>Environment를 모델링한 것이라고 보면 된다.</p>
+<p>Environment를 모델링함으로써,</p>
+<ul>
+<li>Experiment를 통한 sampling이 가능하다.</li>
+<li>각 event(action, reward가 생기는)의 확률을 알고, likelihood를 계산할 수 있다. 또는 marginalization 등 확률적인 계산들이 가능하다.</li>
+</ul>
+<p>Model에는 <strong>sample model</strong>과 <strong>distribution model</strong> 두 가지가 있을 수 있다.</p>
+<p>모델은 반드시 정확히 environment를 향해 가도록 모델링해야 한다. Bias되면 답이 없다.</p>
+<h3 id="Sample-Models"><a href="#Sample-Models" class="headerlink" title="Sample Models"></a>Sample Models</h3><p>이 모델은 experiment를 통한 샘플링이 가능하도록 모델링한 것이다. 다음의 특징이 있다.</p>
+<ul>
+<li><p>모델링하기 간단하다. 크기가 작다. Joint 확률까지는 필요없다.</p>
+<p>“주사위 5개의 결과”를 예로 들어보면, 주사위 1개의 확률분포만 모델링하면 된다.</p>
+</li>
+</ul>
+<h3 id="Distribution-Models"><a href="#Distribution-Models" class="headerlink" title="Distribution Models"></a>Distribution Models</h3><p>이 모델은 각 state가 될 확률, reward의 확률분포를 알 수 있도록 모델링한 것이다.</p>
+<ul>
+<li><p>모델링하기 복잡하고 크기가 크다. 가능한 경우의 수에 대해서 (joint)확률을 매겨야 한다.</p>
+<p>“주사위 5개의 결과”를 예로 들어보면, distribution model은 $6^5$개의 확률을 계산할 수 있어야 한다.</p>
+</li>
+</ul>
+<h2 id="Planning"><a href="#Planning" class="headerlink" title="Planning"></a>Planning</h2><p>Model을 통해 experiment를 시행해서 episode를 만들고(샘플링), 그것을 이용해서 value function을 업데이트하는 과정을 의미한다.</p>
+<p>Model은 sample model에 해당한다.</p>
+<h3 id="Random-sample-One-step-Tabular-Q-Learning"><a href="#Random-sample-One-step-Tabular-Q-Learning" class="headerlink" title="Random-sample One-step Tabular Q-Learning"></a>Random-sample One-step Tabular Q-Learning</h3><p>이 방법은 planning중 하나의 방법으로, state transition dynamic을 sample model로 알고 있다고 가정한다. 또한, (시뮬레이션 중에)action을 어떻게 선택할지에 대한 전략도 있을 것이라고 가정한다.</p>
+<p>다음과 같은 과정으로 이루어진다.</p>
+<ol>
+<li><p>첫 state와 action을 선택</p>
+</li>
+<li><p>Model로부터 다음 state를 샘플링하고(given current state, action), action 선택 전략에 따라 action을 뽑음</p>
+</li>
+<li><p>Q-learning 알고리즘에 따라 value function을 업데이트<br>$$<br>Q(S_t, A_t) = Q(S_t, A_t) + \alpha \cdot (R_{t+1} + \gamma \cdot \text{max} ~ Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t))<br>$$</p>
+</li>
+<li><p>2,3번 반복</p>
+</li>
+<li><p>Value function이 수렴했으면, policy update<br>$$<br>\pi_* = \underset{a}{ \text{max} } ~ Q(s,a)<br>$$</p>
+<p>$$<br>\pi \leftarrow \pi_*<br>$$</p>
+</li>
+</ol>
+<h3 id="Advantage-of-Planning"><a href="#Advantage-of-Planning" class="headerlink" title="Advantage of Planning"></a>Advantage of Planning</h3><p>Planning의 1-step 속도는 당연히 현실에서 1-step 가는것보다 빠르다. 따라서, 현실에서 action을 취하고 다음 action을 취하는 그 사이 간격에서 planning을 수행해줌으로써, value function의 효율적인 수렴이 가능할 수도 있다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217150229429.png" alt="image-20200217150229429"></p>
+<h2 id="Dyna-Architecture"><a href="#Dyna-Architecture" class="headerlink" title="Dyna Architecture"></a>Dyna Architecture</h2><ul>
+<li>Direct RL: Environment와 상호작용하면서 얻은 샘플로 value function을 업데이트하는 것.</li>
+<li>Planning: Environment를 모델링한 모델을 통해 얻은 샘플로 value function을 업데이트하는 것.</li>
+</ul>
+<p>이라고 정의해보면(공식적인 정의는 아닌 듯 하다), 결국, 이 두 가지를 적절히 섞어서 value function을 업데이트하면, environment와 상호작용한 샘플이 적어도 효율적인 업데이트가 가능할 것이다.</p>
+<p>이것을 구현한 것 중 하나로, <strong>Dyna architecture</strong>가 있다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217204140527.png" alt="image-20200217204140527"></p>
+<p>Dyna architecture는 environment와 상호작용하면서 얻은 진짜 샘플로 value function을 업데이트함과 동시에 model도 학습해야 한다. 모델은 진짜 샘플로 학습된 이후, 시뮬레이션 sequence를 생성해서 value function 학습에 이용되게 한다.</p>
+<p>결국 이 모든건, environment를 추정하는 과정이라고 볼 수 있다. 어찌됬든, environment를 경험해서 배우고 그 environment에서 각 state의 최적 액션을 배우고자 함이니까.</p>
+<p>다만, 첫 번째 episode에서는 큰 효과를 발휘하지 못할 수도 있다. 모든 state가 처음이고, value function이 0으로 초기화되어있기 때문.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217204928616.png" alt="image-20200217204928616"></p>
+<p>하지만, 첫 번째 episode를 마치고나면, reward로 인해 value function이 조금 업데이트되고, model이 학습되면서 planning에 의해 value function이 업데이트가 시작된다. 첫 번째 episode에서 방문했던 모든 state가 사실상 업데이트가 될 수 있으며, 이에 따라, 매우 소수의 episode만을 가지고도 상당히 정확한 policy를 얻을 수 있다.</p>
+<h3 id="Tabular-Dyna-Q-Algorithm"><a href="#Tabular-Dyna-Q-Algorithm" class="headerlink" title="Tabular Dyna-Q Algorithm"></a>Tabular Dyna-Q Algorithm</h3><p>Environment가 deterministic하다고 가정한 Dyna architecture.</p>
+<p>Dyna-Q란, Dyna architecture에서 Q-learning을 채용한 알고리즘을 말한다.</p>
+<p>다음은 Dyna 알고리즘의 일종인 <strong>tabular Dyna-Q 알고리즘</strong>의 pseudo code.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217205755986.png" alt="image-20200217205755986"></p>
+<p>이때, $Model(S,A) \leftarrow R, S’$의 의미는, model에다가 $S$상태일때, $A$를 취하면 무조건 $R$의 리워드를 얻고 $S’$상태로 간다고 매핑해 두라는 의미이다. (Tabular Dyna-Q 알고리즘은 deterministic environment라고 가정한다. 물론, 알고리즘을 수정하면 non-deterministic하게도 할 수 있겠지)</p>
+<p>한번의 step을 할 때 마다 여러번(여기서는 $$n$$번)의 planning이 일어날 수 있다. Planning은 많이많이 해야 한다.</p>
+<p>Planning은 랜덤으로 start state를 고르고 1 step만 간다.</p>
+<h3 id="Random-Search-in-Dyna-Q"><a href="#Random-Search-in-Dyna-Q" class="headerlink" title="Random Search in Dyna-Q"></a>Random Search in Dyna-Q</h3><p>문제가 있다. 위에서 본 Dyna-Q에서는 planning을 랜덤으로 고른 state에서 진행하고 있다. 만약, 미로찾기에서, 모든 step의 reward는 0이고, final state에서만 +1일 경우, 1회의 episode를 마친 후면, final state의 바로 앞의 state의 value만 업데이트된다(TD종류의 알고리즘을 사용했다면). 그리고, planning은 반드시 아래 사진의 위치를 골라야 value가 업데이트될 것이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200217211340623.png" alt="image-20200217211340623"></p>
+<p>업데이트 가능 위치가 저기 하나뿐이다.</p>
+<p>이것은 매우 많은 planning이 업데이트를 실패하게끔 만들며, environment 크기가 클수록 상황은 더 심각해진다.</p>
+<p>다음의 개선책이 있겠다.</p>
+<ul>
+<li>Model이 value의 변화를 관찰하고 있다가, value가 변하는 state와 그  action을 기록한다. 그 state로 오게 만들었던 과거 state와 action을 업데이트하기 위해 backward로 간다.</li>
+<li>Update되고 있는 state, action pair가 있는 queue를 관리한다. (위 사진에선 state, action pair가 1개만 queue에 있겠지). 이 queue는 priority queue로, 어느 한쪽의 state만 업데이트되게 하는 것을 막아주는 목적이다. Priority가 높은 놈이 선택되어 그 놈부터 backward로 planning이 이루어지게 된다. 만약, 한 state가 일정 이상 업데이트가 이루어지면 priority를 낮춘다.</li>
+</ul>
+<h3 id="Inaccurate-Models"><a href="#Inaccurate-Models" class="headerlink" title="Inaccurate Models"></a>Inaccurate Models</h3><p>모델이 environment를 반영못하는 경우는 두 가지가 있을 수 있다. 알고리즘은 제대로 되있다고 가정한다.</p>
+<ul>
+<li>학습 초기. Environment와의 interaction 횟수가 매우 적을 때</li>
+<li>Environment가 변할때</li>
+</ul>
+<p>이때는 문제가 될 수 있는게, planning이 잘못된 모델로부터 얻은 transition으로 value를 학습하게 된다.</p>
+<p>첫번째 문제는 어쩔 수 없다. 그러나, 두번째 문제는 대처해야할 필요가 있다.</p>
+<h3 id="Exploration-Exploitation-Trade-off-in-Chaning-Environment"><a href="#Exploration-Exploitation-Trade-off-in-Chaning-Environment" class="headerlink" title="Exploration-Exploitation Trade-off in Chaning Environment"></a>Exploration-Exploitation Trade-off in Chaning Environment</h3><p>Environment가 변하는 것에 대처하기 위해서는 모델도 exploration을 해야 한다. 그저 옛 모델에 머물 수는 없다. 따라서, 모델이 모델링하고 있는 가상의 environment또한 exploration-exploitation dilema가 생기게 된다. Environment가 언제 변할지 알수 없고, 변하지 않는다면, exploration은 손해를 낳는다.</p>
+<p>Exploration을 모델에서 직접 할 수는 없고, policy 학습에 영향을 주어 environment에서 exploration을 하도록 유도하는 방식으로 이루어진다. 모델을 수정하지 않는 이상 모델의 가상 environment가 고정되어 있기 때문에 거기서 exploration해봤자 아무 의미가 없다.</p>
+<p>즉, Planning 또한 exploration을 유도해야 한다. 아예 environment에서 bahavior policy의 exploration에만 의존하면 모델로 인한 planning이 너무 잘못된 방향으로 policy를 유도한다.</p>
+<h3 id="Dyna-Q-Algorithm"><a href="#Dyna-Q-Algorithm" class="headerlink" title="Dyna-Q+ Algorithm"></a>Dyna-Q+ Algorithm</h3><p>Environment가 변할때를 반영하기 위해 Dyna-Q를 변형한 알고리즘이다. Dyna architecture에서 planning은 과거에 방문한 state만 업데이트하게 되는데, 문제는 environment가 변함으로써, 방문한 놈들의 reward, next state 분포가 변할 수 있다는 것. 따라서, 방문한 지 오래된 state에 대해서는 보너스 reward를 <strong>모델에서</strong> 할당한다. 그리고 그 보너스 reward를 value를 계산할 때 반영하게 된다.<br>$$<br>R \leftarrow R + \kappa \sqrt{\tau}<br>$$<br>이때, $\kappa$는 작은 상수이며, $\tau$는 방문한지 얼마나 됬는지에 대한 time step이다. 즉, 방문한 지 오래된 놈이면 reward를 증가시킨다.</p>
+<p>(Value에다가 더하지 말고, action에 따른 결과 reward에다가 더하자.)</p>
+<p>그럼 취한 지 오래된 action으로 인한 transition이 장려될 것이다.</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/studynotes/machine-learning/KL Divergence/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">이전 글</strong>
+            <div class="article-nav-title">KL Divergence</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+    <script src="https://utteranc.es/client.js"
+        repo="taeuk-gang/taeuk-gang.github.io"
+        issue-term="title"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            Lee Jaeyoung &copy; 2020 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <!-- <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a> -->
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
