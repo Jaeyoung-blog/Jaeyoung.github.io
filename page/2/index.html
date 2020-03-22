@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">09. Models and Planning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/">10. Prediction and Control with Function Approximation</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/11-Feature-Construction/">11. Feature Construction</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">09. Models and Planning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/">10. Prediction and Control with Function Approximation</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/11-Feature-Construction/">11. Feature Construction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/">12. Controls with Approximation</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,6 +276,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/reinforcement-learning/08-Temporal-Difference-Learning" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ReinforcementLearning/">ReinforcementLearning</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">
+            <time datetime="2020-03-03T01:00:07.000Z" itemprop="datePublished">2020-03-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/reinforcement-learning/08-Temporal-Difference-Learning.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/reinforcement-learning/08-Temporal-Difference-Learning.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/reinforcement-learning/08-Temporal-Difference-Learning.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Temporal-Difference-Learning"><a href="#Temporal-Difference-Learning" class="headerlink" title="Temporal Difference Learning"></a>Temporal Difference Learning</h1><p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>지금까지 봐 왔던 RL 학습법은, 일단 한 episode를 다 플레이하고 value function을 업데이트했으나, TD(Temporal difference) learning 방식은, episode를 플레이함과 동시에 value function을 업데이트한다. $t-1$일때의 state $s_{t-1}$에서, 액션 $a_{t-1}$을 취해서 reward $R_{t}$를 얻었다면, $v(s_{t-1})$은 즉시 업데이트 가능하다. 결국, value function은 Bellman equation에서 보다시피 next state에서의 reward와  value에 의해서 계산될 수 있기 때문.<br>$$<br>v(s_{t}) = E[G_t|s=s_t]<br>$$<br>$$<br>v(s_t) = E[R_t + \gamma G_{t+1}|s=s_t]<br>$$</p>
+<p>또한, Monte Carlo estimation을 통해 기댓값을 추정한다면,<br>$$<br>v(s_t) \approx \frac{1}{n}\sum_{i} [R_t + \gamma G_t]<br>$$<br>일 것인데, 이러면, 모든 샘플을 저장하고 있어야 한다. 따라서, 샘플 하나 모으고 반영하고 하나 모으고 반영하기 위해, incremental 하게 구현하려면 다음과 같이 value function 식을 수정할 수 있다.<br>$$<br>v(s_t) = v(s_t) + \alpha(G_t - v(s_t))<br>$$<br>$$<br>v(s_t) = v(s_t) + \alpha(R_{t+1} + \gamma G_{t+1} - v(s_t))<br>$$</p>
+<p>여기서 $\alpha$는 step size이며, $\frac{1}{n}$이 들어간다고 보면 된다.</p>
+<h3 id="Temporal-Difference-Error"><a href="#Temporal-Difference-Error" class="headerlink" title="Temporal Difference Error"></a>Temporal Difference Error</h3><p>$R_{t+1} + \gamma G_{t+1} - v(s_t)$부분을 말한다. 원래의 평균치인 $v(s_t)$로부터 얼만큼 업데이트 될 것인지를 나타내기도 하며, 원래 기댓값와 새로운 기댓값의 오차 정도로 이해하면 될듯.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/reinforcement-learning/07-Off-Policy-Learning" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1199,110 +1303,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/studynotes/machine-learning/Principal-Component-Analysis/#more">자세히 보기</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/">
-            <time datetime="2020-03-01T13:08:16.000Z" itemprop="datePublished">2020-03-01</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/">Appendix 2. Empirical Bayes</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <!-- Bug Exist: When start table html, crash main page. -->
-                    <p><h1 id="Empirical-Bayes"><a href="#Empirical-Bayes" class="headerlink" title="Empirical Bayes"></a>Empirical Bayes</h1><p><strong>하이퍼파라미터 또한 데이터로 구하자.</strong></p>
-<p>베이지안 모델링을 하게 되면, likelihood를 모델링하고, 그 파라미터를 prior로 모델링을 하게 된다.<br>$$<br>D \sim \text{Lieklihood} ( \theta ) ~ [ P(D|\theta) ]<br>$$<br>$$<br>\theta \sim \text{prior} ( \lambda )<br>$$</p>
-<p>그런데, 이때, prior의 파라미터(위에서는 $\lambda$)는 하이퍼파라미터로, 사용자가 직접 constant로 세팅해 주게 된다. Empirical bayes는 이 하이퍼파라미터를 사용자 대신, 데이터를 이용해서 MAP으로 추론하는 것을 말한다(point estimation).</p>
-<p>즉,<br>$$<br>\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ P(\lambda|D)<br>$$<br>하이퍼파라미터의 posterior를 구하는 방법은 다음과 같다.<br>$$<br>P(\lambda|D) \approx P(\lambda) \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$<br>그런데, 이때, $\lambda$의 prior가 필요해지는데, 그냥 uniform prior로 둔다. 그럼 다음과 같다.<br>$$<br>P(\lambda|D) \approx \int P(D|\theta)P(\theta|\lambda) d\theta \approx P(D|\lambda)<br>$$<br> 그리고, 이놈을 최대화하는 $\lambda$를 구하는 것이다.<br>$$<br>\hat{\lambda} = \underset{\lambda}{ \text{argmax} } ~ \int P(D|\theta)P(\theta|\lambda) d\theta<br>$$</p>
-<h2 id="Examples-beta-binomial-Model"><a href="#Examples-beta-binomial-Model" class="headerlink" title="Examples: beta-binomial Model"></a>Examples: beta-binomial Model</h2><p>어떤 데이터에 대해 다음처럼 모델링했다 치자.<br>$$<br>x_i \sim \text{binom}(x_i|N_i, \theta_i)<br>$$<br>$$<br>\theta_i \sim \text{beta}(\theta_i|a, b)<br>$$</p><p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/#more">자세히 보기</a>
             </div>
         
         <footer class="article-footer">

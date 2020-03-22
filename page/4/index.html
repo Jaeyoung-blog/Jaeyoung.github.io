@@ -200,7 +200,7 @@
                             &nbsp;
                             Reinforcement Learning
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">09. Models and Planning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/">10. Prediction and Control with Function Approximation</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/11-Feature-Construction/">11. Feature Construction</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/01_Introduction/">01. Introduction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/">02. K-arm Bandits Problems</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/">03. Markov Decision Process</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/">04. Policies and Value Functions</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/">05. Policy Evaluation & Control</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/">06. Sample-based Reinforcement Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/">07. Off-policy Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/">08. Temporal Difference Learning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/">09. Models and Planning</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/">10. Prediction and Control with Function Approximation</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/11-Feature-Construction/">11. Feature Construction</a></li>  <li class="file"><a href="/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/">12. Controls with Approximation</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -276,6 +276,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-studynotes/bayesian-statistics/06_Prior_Posterior_predictive" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Study-Notes/">Study Notes</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/BayesianStatistics/">BayesianStatistics</a>, <a class="tag-link" href="/tags/StudyNotes/">StudyNotes</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">
+            <time datetime="2020-03-01T12:08:06.000Z" itemprop="datePublished">2020-03-01</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/raw/writing/source/_posts/studynotes/bayesian-statistics/06_Prior_Posterior_predictive.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/edit/writing/source/_posts/studynotes/bayesian-statistics/06_Prior_Posterior_predictive.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/taeuk-gang/taeuk-gang.github.io/commits/writing/source/_posts/studynotes/bayesian-statistics/06_Prior_Posterior_predictive.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/">06. Prior Predictive Distribution</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <!-- Bug Exist: When start table html, crash main page. -->
+                    <p><h1 id="Prior-Predictive-Distribution"><a href="#Prior-Predictive-Distribution" class="headerlink" title="Prior Predictive Distribution"></a>Prior Predictive Distribution</h1><p>Prior정보만으로, 즉, 데이터 없이 데이터가 어떻게 분포할지,즉 $p(D)$를 추정해본 분포이다.</p>
+<p>데이터 분포 $p(D)$는 다음과 같이 쓸 수 있다.<br>$$<br>p(d) = \int_0^1 p(d|\theta)p(\theta) ~d\theta<br>$$<br>이때, 데이터 없이 사전 정보만으로 $p(D)$를 추정하는데, 사전정보로 추정한 데이터 분포 $p(D)$를 추정한 것을 prior predictive distribution이라고 부른다.</p>
+<p>Prior predictive distribution은 데이터 수집 전에, prior정보만을 이용해서 데이터 sample space distribution을 추정한 것이라고 할 수 있다.</p>
+<h1 id="Posterior-Predictive-Distribution"><a href="#Posterior-Predictive-Distribution" class="headerlink" title="Posterior Predictive Distribution"></a>Posterior Predictive Distribution</h1><p>데이터를 수집한 후, 데이터의 분포를 추정한 분포를 말한다.</p>
+<p>데이터 $d_1$를 수집했다고 치자. 그럼 다음에 샘플링될 $d_2$의 확률분포는 다음과 같다.<br>$$<br>p(d_2|d_1) = \int_0^1 p(d_2|d_1,\theta)p(\theta|d_1)d\theta<br>$$<br>이때, $d_1 \perp d_2$이므로, 다음과 같다.<br>$$<br>p(d_2|d_1) = \int_0^1 p(d_2|\theta)p(\theta|d_1)d\theta<br>$$<br>Prior predictive distribution과 다른 점은 prior 자리에 posterior가 들어갔다는 점이다.</p><p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/#more">자세히 보기</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-studynotes/bayesian-statistics/05_Credible_Intervals" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/</loc>
+    
+    <lastmod>2020-03-22T00:20:14.840Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/11-Feature-Construction/</loc>
     
     <lastmod>2020-03-22T00:17:30.274Z</lastmod>
