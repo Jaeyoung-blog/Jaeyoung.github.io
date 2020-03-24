@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/</loc>
+    
+    <lastmod>2020-03-24T04:32:35.321Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/13-Policy-Gradient/</loc>
     
     <lastmod>2020-03-23T00:13:37.659Z</lastmod>
