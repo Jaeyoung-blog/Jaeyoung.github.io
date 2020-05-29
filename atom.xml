@@ -5,9 +5,9 @@
   <subtitle>Jaeyoung&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://jaeyoung-blog.github.io/"/>
-  <updated>2020-05-29T07:38:43.482Z</updated>
-  <id>https://jaeyoung-blog.github.io/</id>
+  <link href="https://wayexists02.github.io/"/>
+  <updated>2020-05-29T07:48:59.441Z</updated>
+  <id>https://wayexists02.github.io/</id>
   
   <author>
     <name>Lee Jaeyoung</name>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>About Me</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/index/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/index/</id>
+    <title>Home</title>
+    <link href="https://wayexists02.github.io/wiki/index/"/>
+    <id>https://wayexists02.github.io/wiki/index/</id>
     <published>2020-05-29T07:32:00.000Z</published>
-    <updated>2020-05-29T07:38:43.482Z</updated>
+    <updated>2020-05-29T07:48:59.441Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Lee-Jaeyoung"><a href="#Lee-Jaeyoung" class="headerlink" title="Lee, Jaeyoung"></a>Lee, Jaeyoung</h1><p>I’m M.S student in Hanyang university ERICA.</p><p><img src="https://user-images.githubusercontent.com/26294469/74609940-0b6b0880-5132-11ea-9616-d6f8293cc8aa.gif" alt="개장!"></p><p>(Thanks to Taeuk)</p><h2 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h2><ul><li><p>Machine Learning</p></li><li><p>Bayesian Statistics</p></li><li><p>Reinforcement Learning</p></li></ul>]]></content>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>Appendix 01. Which Algorithm Should be selected</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/</id>
     <published>2020-03-24T00:12:08.000Z</published>
     <updated>2020-03-24T04:32:35.321Z</updated>
     
@@ -55,21 +55,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>13. Policy Gradient</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/13-Policy-Gradient/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/13-Policy-Gradient/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/13-Policy-Gradient/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/13-Policy-Gradient/</id>
     <published>2020-03-23T00:12:08.000Z</published>
     <updated>2020-03-23T00:13:37.659Z</updated>
     
@@ -84,21 +84,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>12. Controls with Approximation</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/12-Controls-with-Approximation/</id>
     <published>2020-03-22T00:22:08.000Z</published>
     <updated>2020-03-22T00:20:14.840Z</updated>
     
@@ -113,21 +113,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>11. Feature Construction</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/11-Feature-Construction/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/11-Feature-Construction/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/11-Feature-Construction/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/11-Feature-Construction/</id>
     <published>2020-03-22T00:00:08.000Z</published>
     <updated>2020-03-22T00:17:30.274Z</updated>
     
@@ -142,21 +142,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>10. Prediction and Control with Function Approximation</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/</id>
     <published>2020-03-18T00:00:08.000Z</published>
     <updated>2020-03-18T00:39:57.400Z</updated>
     
@@ -171,21 +171,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>09. Models and Planning</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/09-Models-and-Planning/</id>
     <published>2020-03-11T01:00:08.000Z</published>
     <updated>2020-03-11T08:54:43.654Z</updated>
     
@@ -200,21 +200,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>KL Divergence</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/KL%20Divergence/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/KL Divergence/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/KL%20Divergence/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/KL Divergence/</id>
     <published>2020-03-03T13:28:59.000Z</published>
     <updated>2020-03-03T01:58:11.178Z</updated>
     
@@ -229,21 +229,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>Hidden Markov Models 2</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-2/</id>
     <published>2020-03-03T13:28:57.000Z</published>
     <updated>2020-03-06T02:31:09.640Z</updated>
     
@@ -258,21 +258,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>Hidden Markov Models 1</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/Hidden_Markov_Models-1/</id>
     <published>2020-03-03T13:28:55.000Z</published>
     <updated>2020-03-06T02:27:39.666Z</updated>
     
@@ -287,21 +287,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>Restrict Boltzmann Machines 2</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/</id>
     <published>2020-03-03T13:28:53.000Z</published>
     <updated>2020-03-06T02:01:07.815Z</updated>
     
@@ -316,21 +316,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>Restrict Boltzmann Machines 1</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/</id>
     <published>2020-03-03T13:28:52.000Z</published>
     <updated>2020-03-06T01:56:06.290Z</updated>
     
@@ -345,21 +345,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>Distillation Methods</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Distillation-Methods/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/machine-learning/Distillation-Methods/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/machine-learning/Distillation-Methods/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/machine-learning/Distillation-Methods/</id>
     <published>2020-03-03T13:07:01.000Z</published>
     <updated>2020-03-03T01:57:49.423Z</updated>
     
@@ -374,21 +374,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Machine Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Machine-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="MachineLearning" scheme="https://jaeyoung-blog.github.io/tags/MachineLearning/"/>
+      <category term="MachineLearning" scheme="https://wayexists02.github.io/tags/MachineLearning/"/>
     
   </entry>
   
   <entry>
     <title>08. Temporal Difference Learning</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/</id>
     <published>2020-03-03T01:00:07.000Z</published>
     <updated>2020-03-10T04:14:33.911Z</updated>
     
@@ -403,21 +403,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>07. Off-policy Learning</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/07-Off-Policy-Learning/</id>
     <published>2020-03-03T01:00:06.000Z</published>
     <updated>2020-03-08T11:53:43.071Z</updated>
     
@@ -432,21 +432,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>06. Sample-based Reinforcement Learning</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/</id>
     <published>2020-03-03T01:00:05.000Z</published>
     <updated>2020-03-03T04:25:37.222Z</updated>
     
@@ -461,21 +461,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>05. Policy Evaluation &amp; Control</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/</id>
     <published>2020-03-03T01:00:04.000Z</published>
     <updated>2020-03-05T03:45:14.440Z</updated>
     
@@ -490,21 +490,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>04. Policies and Value Functions</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</id>
     <published>2020-03-03T01:00:03.000Z</published>
     <updated>2020-03-06T01:41:05.504Z</updated>
     
@@ -519,21 +519,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>03. Markov Decision Process</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/03-Markov-Decision-Process/</id>
     <published>2020-03-03T01:00:02.000Z</published>
     <updated>2020-03-05T03:46:15.575Z</updated>
     
@@ -548,21 +548,21 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
   <entry>
     <title>02. K-arm Bandits Problems</title>
-    <link href="https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/"/>
-    <id>https://jaeyoung-blog.github.io/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/</id>
+    <link href="https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/"/>
+    <id>https://wayexists02.github.io/wiki/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/</id>
     <published>2020-03-03T01:00:01.000Z</published>
     <updated>2020-03-06T01:38:11.998Z</updated>
     
@@ -577,14 +577,14 @@
     
     </summary>
     
-      <category term="Study Notes" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/"/>
+      <category term="Study Notes" scheme="https://wayexists02.github.io/categories/Study-Notes/"/>
     
-      <category term="Reinforcement Learning" scheme="https://jaeyoung-blog.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
+      <category term="Reinforcement Learning" scheme="https://wayexists02.github.io/categories/Study-Notes/Reinforcement-Learning/"/>
     
     
-      <category term="StudyNotes" scheme="https://jaeyoung-blog.github.io/tags/StudyNotes/"/>
+      <category term="StudyNotes" scheme="https://wayexists02.github.io/tags/StudyNotes/"/>
     
-      <category term="ReinforcementLearning" scheme="https://jaeyoung-blog.github.io/tags/ReinforcementLearning/"/>
+      <category term="ReinforcementLearning" scheme="https://wayexists02.github.io/tags/ReinforcementLearning/"/>
     
   </entry>
   
