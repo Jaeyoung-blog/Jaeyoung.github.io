@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          08. Bayesian Modeling - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Bayesian Modeling</h1>
+<h2 id="Statistical-Modeling">Statistical Modeling</h2>
+<p>Bayesian modeling은 statistical modeling의 일종이다. Statistical modeling이란, 데이터가 생성/샘플링되는 프로세스를 모델링하는 것을 의미한다.</p>
+<p>Bayesian modeling은 이러한 모델링을 할때, 베이지안 방법론을 적용한 것을 말한다. 전체적인 모델링 프로세스는 bayesian modeling이나 frequentist modeling이나 같다.</p>
+<ol>
+<li>문제 이해</li>
+<li>데이터 수집</li>
+<li>데이터 관찰</li>
+<li>모델 구성</li>
+<li>모델의 구현 및 fit</li>
+<li>샘플공간 분포 파라미터 추정</li>
+<li>테스트 및 예측성능 검사</li>
+<li>5~7번 반복</li>
+<li>모델의 이용.</li>
+</ol>
+<p>이때, frequentist modeling과 bayesian modeling에서의 차이는 모델의 구현과 fit, 파라미터 추정에 있다.</p>
+<h2 id="Model-Specification-모델-구성">Model Specification - 모델 구성</h2>
+<p>모델의 구성은 계층적으로 적어 내려가면서 파악하는게 어느정도 쉽다. 일단, likelihood를 적고 likelihood에 영향을 미치는 random variable 또는 parameter를 찾는다.</p>
+<p>어느 학교의 학생들의 키(height)의 분포를 예로 들자. 키의 분포는 normal distribution을 따른다고 가정하고 likelihood를 만든다.<br>
+$$<br>
+f(y|\theta) = \mathbb{N}(\mu, \sigma^2)<br>
+$$<br>
+그리고 $\mu$, $\sigma^2$의 분포가 필요한데, 이들의 prior를 정한다.<br>
+$$<br>
+\mu \approx \mathbb{N}(\mu_0, \sigma_0^2)<br>
+$$<br>
+$$<br>
+\sigma^2 \approx \mathbb{IG}(\nu_0, \beta_0)<br>
+$$</p>
+<p>여기서 $\mathbb{IG}$는 inverse-gamma distribution을 뜻한다. 그리고 각 prior는 독립이라고 가정하면, $p(\mu,\sigma^2) = p(\mu)p(\sigma^2)$일 것이다. 모델로 그려보면 다음과 같다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303093449313.png" alt="image-20200303093449313"></p>
+<p>이렇게, 우선 데이터가 어떻게 생성되었을지에 대해 그 생성 과정을 모델링하는데, likelihood부터 적고, 아래 파라미터까지 노드를 뻗어 나간다.</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="L"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-03-01</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+
+      <a class="tag-link" href="/tags/BayesianStatistics/">#BayesianStatistics</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          06. Prior Predictive Distribution - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Prior Predictive Distribution</h1>
+<p>Prior정보만으로, 즉, 데이터 없이 데이터가 어떻게 분포할지,즉 $p(D)$를 추정해본 분포이다.</p>
+<p>데이터 분포 $p(D)$는 다음과 같이 쓸 수 있다.<br>
+$$<br>
+p(d) = \int_0^1 p(d|\theta)p(\theta) ~d\theta<br>
+$$<br>
+이때, 데이터 없이 사전 정보만으로 $p(D)$를 추정하는데, 사전정보로 추정한 데이터 분포 $p(D)$를 추정한 것을 prior predictive distribution이라고 부른다.</p>
+<p>Prior predictive distribution은 데이터 수집 전에, prior정보만을 이용해서 데이터 sample space distribution을 추정한 것이라고 할 수 있다.</p>
+<h1>Posterior Predictive Distribution</h1>
+<p>데이터를 수집한 후, 데이터의 분포를 추정한 분포를 말한다.</p>
+<p>데이터 $d_1$를 수집했다고 치자. 그럼 다음에 샘플링될 $d_2$의 확률분포는 다음과 같다.<br>
+$$<br>
+p(d_2|d_1) = \int_0^1 p(d_2|d_1,\theta)p(\theta|d_1)d\theta<br>
+$$<br>
+이때, $d_1 \perp d_2$이므로, 다음과 같다.<br>
+$$<br>
+p(d_2|d_1) = \int_0^1 p(d_2|\theta)p(\theta|d_1)d\theta<br>
+$$<br>
+Prior predictive distribution과 다른 점은 prior 자리에 posterior가 들어갔다는 점이다.</p>
+<p>Posterior predictive distribution은 데이터를 관찰한 후, 그 정보를 이용해서 데이터 sample space 분포를 추정한 것이라고 할 수 있다.</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="L"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-03-01</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+
+      <a class="tag-link" href="/tags/BayesianStatistics/">#BayesianStatistics</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>

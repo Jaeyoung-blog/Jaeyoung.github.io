@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          Appendix 1. Maximize a Posterior - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Maximize a Posterior</h1>
+<p><strong>사후확률 최대화 추정법(MAP Estimation).</strong></p>
+<p>Likelihood를 최대화하는 추정법(MLE - Maximum Likelihood Estimation)은 오직 데이터만을 이용해서 파라미터를 point estimation하는 방법이다. 하지만, MAP는 선행 지식 또는 개인의 믿음을 파라미터 추정에 집어 넣고, 데이터의 정보와 합해서 파라미터를 point estimation하는 방법이다.</p>
+<p>방법은 다음과 같다.</p>
+<ol>
+<li>
+<p>데이터에 대한 likelihood $P(D|\theta)$를 모델링한다.</p>
+</li>
+<li>
+<p>Likelihood $P(D|\theta)$의 파라미터 $\theta$의 prior $P(\theta)$를 모델링한다.</p>
+</li>
+<li>
+<p>Prior $P(\theta)$와 likelihood $P(D|\theta)$를 이용해서 posterior $P(\theta|D)$를 직접 계산할 수 있으면 계산하되, 불가능하다면, posterior와 비례하는 함수 $g(\theta|D)$를 계산한<br>
+$$<br>
+P(\theta|D) = \frac{P(D|\theta)P(\theta)}{\sum_{\theta’}P(D|\theta’)P(\theta’)}<br>
+$$<br>
+분모인 normalization constant가 계산 불가능할 수도 있다. 그럼, $g(\theta|D)$를 대신 구한다.<br>
+$$<br>
+P(\theta|D) \approx g(\theta|D) = P(D|\theta)P(\theta)<br>
+$$<br>
+보통, 파라미터의 prior $P(\theta)$가 likelihood $P(D|\theta)$와 conjugate를 이루면, posterior를 직접 계산할 수 있을 것이다. 그렇지 못하면서 가능한 $\theta$의 개수가 많다면, $g(\theta|D)$를 계산해야 하는 경우가 많다.</p>
+</li>
+<li>
+<p>Posterior $P(\theta|D)$가 가장 커지는 $\theta$를 구한다.<br>
+$$<br>
+\hat{\theta} = \underset{\theta}{\text{argmax}} ~ P(\theta|D)<br>
+$$<br>
+또는 $g(\theta|D)$가 가장 커지는 $\theta$를 구한다.<br>
+$$<br>
+\hat{\theta} = \underset{\theta}{\text{argmax}} ~ g(\theta|D)<br>
+$$<br>
+미분을 통한 극점을 이용하자. (Gradient descent 같은)</p>
+</li>
+</ol>
+<h3 id="Is-MAP-a-Bayesian-Method">Is MAP a Bayesian Method?</h3>
+<p>Bayes 통계의 특징은, 파라미터를 하나의 값이 아닌 분포로 본다는 것이다. 하지만, MAP는 파라미터의 분포를 추정하는게 최종 목표가 아니라 파라미터를 <strong>point estimation</strong>하는 것이 최종 목표이다.</p>
+<p>MAP의 계산 과정상 파라미터의 posterior를 계산하게 되지만, 결국은 point estimation으로, 파라미터를 하나의 값으로 본다는 점에서 완전한 베이지안 통계적 방법이라고 보지 않는 경우가 많다고 한다.</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure
+          class="avatar avatar-lg"
+          data-initial="L"
+          style="background-color: #3b4351;">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-03-01</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Bayesian-Statistics/">Bayesian Statistics</a>
+
+      <a class="tag-link" href="/tags/BayesianStatistics/">#BayesianStatistics</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>
