@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          01. Introduction - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h1 id="Home"><strong>Home</strong></h1>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/Blog-Init">블로그 개장</a></li>
+</ul>
+<h1 id="Study-Notes"><strong>Study Notes</strong></h1>
+<h2 id="Machine-Learning">Machine Learning</h2>
+<ul>
+<li><a href="/studynotes/machine-learning/Machine-Learning">Machine Learning</a></li>
+<li><a href="/studynotes/machine-learning/KL-Divergence">KL Divergence</a></li>
+<li><a href="/studynotes/machine-learning/Principal-Component-Analysis">Principal Component Analysis</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st">Restrict Boltzmann Machine 1</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd">Restrict Boltzmann Machine 2</a></li>
+<li><a href="/studynotes/machine-learning/Lagrangian-Multiplier">Lagrangian Multiplier</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-1">Hidden Markov Models 1</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-2">Hidden Markov Models 2</a></li>
+</ul>
+<h2 id="Bayesian-Statistics">Bayesian Statistics</h2>
+<ul>
+<li><a href="/studynotes/bayesian-statistics/01_Probability">01. Probability</a></li>
+<li><a href="/studynotes/bayesian-statistics/02_Distribution">02. Distribution</a></li>
+<li><a href="/studynotes/bayesian-statistics/03-Frequentist-Inference">03. Frequentist Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/04-Bayesian-Inference">04. Bayesian Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/05-Credible-Intervals">05. Credible Intervals</a></li>
+<li><a href="/studynotes/bayesian-statistics/06_Prior_Posterior_predictive">06. Prior &amp; Posterior Predictive</a></li>
+<li><a href="/studynotes/bayesian-statistics/07_Priors">07. Priors</a></li>
+</ul>
+<h2 id="Reinforcement-Learning">Reinforcement Learning</h2>
+<ul>
+<li><a href="/studynotes/reinforcement-learning/01_Introduction">01. Introduction</a></li>
+<li><a href="/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems">02. K-arm Bandits Problems</a></li>
+<li><a href="/studynotes/reinforcement-learning/03-Markov-Decision-Process">03. Markov Decision Process</a></li>
+<li><a href="/studynotes/reinforcement-learning/04-Policies-and-Value-Functions">04. Policies and Value Functions</a></li>
+</ul>
+
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="Introduction">Introduction</h1>
+<p>Reinforcement Learning이란, 무엇을 할지에 대해 학습하는 것이다. 다르게 말하면, 어떤 상황이 입력으로 들어가서 어떤 액션이 출력되는 함수를 학습하는 것이다.</p>
+<p>Reinforcement learning에선, 두 가지 중요한 특징이 있는데, 다음과 같다.</p>
+<ul>
+<li>Trails &amp; erros search</li>
+<li>Delayed rewards</li>
+</ul>
+<p>물론 그 전에 environment를 인지할 수 있는 센서가 있어서 상황을 바탕으로 위 두 가지 특징이 발현된다.</p>
+<h2 id="Overview-of-Reinforcement-Learning">Overview of Reinforcement Learning</h2>
+<p>Supervised learning과 unsupervised learning은 다음과 같은 특성을 지닌다.</p>
+<ul>
+<li>숫자로된 테이블 형태의 데이터가 존재한다. (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>:</mo><mi>N</mi><mo>×</mo><mi>D</mi></mrow><annotation encoding="application/x-tex">X: N × D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi><mo>:</mo><mi>N</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Y: N × 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>) 이 두가지 데이터를 모두 넣고 모델을 학습하게 된다.</li>
+<li>Static한 학습만 가능하다. 데이터를 추가하려면, 기존 데이터도 모두 넣고 fine-tuning 해야 하는 경우가 많다. 따라서, online-learning에 매우 불리하다.</li>
+<li>시간이라는 개념이 없다(Sequence라는 개념은 있어도…). 그저 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span>를 받으면 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>를 줄 뿐.</li>
+<li>Supervised learning의 경우, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>가 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 동시에 주어지기에, 즉각적인 피드백이 있다.</li>
+</ul>
+<p>반면, reinforcement learning은 다음과 같은 차이점이 있다.</p>
+<ul>
+<li>데이터가 매우 비정형적이다. 로봇의 경우, environment로부터 받은 카메라 정보와 여라가지 센서 정보나 environment representation 정보 등이 있을 수 있다.</li>
+<li>Dynamic하게 학습한다. Reinforcement learning은 데이터를 모아서 데이터셋을 만들어서 학습하는 형태가 아니라, environment에서 action을 취한 결과 피드백을 얻고 학습하는 형태이다. 즉, 그 자체가 그냥 online learning이다.</li>
+<li>어떤 액션을 취하면 즉각적인 피드백이 없을 수 있고, 게임이 끝날 때 까지 피드백을 얻지 못할 수도 있다. 따라서, 상대적으로 시간이라는 개념이 존재한다. 즉, 액션과 리워드가 동시에 주어지지 않고 중간에 일정 시간이 있을 수 있다.</li>
+</ul>
+<h3 id="Unusual-Unexpected-Stretagy-in-RL">Unusual &amp; Unexpected Stretagy in RL</h3>
+<p>Reinforcement learning은 최종 value를 최대화하면서 학습한다. 그리고, 최종 value를 가장 높게 하는 방법을 알아서 찾아나가는데, 이때, 그 방법이 소위 말해서 수단과 방법을 가리지 않는 방법일 수  있다. 또한, agent가 취하는 액션은 나중에 보면 최대 reward를 받는 방법이었다는 것이 드러나지만, 액션 하나하나를 보면 인간이 전혀 이해하지 못하는 방향의 액션일 수도 있다.</p>
+<h3 id="Supervised-Learning-as-Reinforcement-Learning">Supervised Learning as Reinforcement Learning?</h3>
+<p>액션을 취하고 리워드를 얻는다는 것은 어떻게 보면 supervised learning과 연관지을 수도 있을 것이다. Environment가 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span>가 되고 그에 적절한 optimal action이 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>가 되는 것이다.</p>
+<p>하지만, supervised learning을 쓰지 않고 reinforcement learning을 쓰는 이유가 있다.</p>
+<ul>
+<li>계산 불가능할 정도로 많은 environment/state 경우의 수</li>
+<li>Supervised learning은 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span>와 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>를 동시에 필요로 하지만, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>가 있긴 한데, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 동시에 주지 못하는 경우가 있다. 이때는 supervised learning을 할 수 없다.</li>
+</ul>
+<h2 id="Exploitation-Exploration-Dilema">Exploitation-Exploration Dilema</h2>
+<p>Reinforcement learning에서의 agent는 최대한 많은 reward를 얻으면서 문제를 해결해야 한다. 이미 알고 있는 문제 해결 방법중에서 가장 큰 reward를 얻을 수 있는 방법을 선택해서 문제를 해결하는 것이 합리적일 것이다(exploitation). 그러나, agent는 새로운 길을 탐색해 나가면서 더 나은 길을 찾을 필요가 있다(exploration). 하지만, exploration과정은 많은 비용이 들 수도 있고 탐험 결과가 좋은 reward를 주는 경로가 아닐 수도 있다. 그럼에도 exploration은 필요하다.</p>
+<ul>
+<li>
+<p>Exploitation</p>
+<p>이미 찾은 문제 해결 방법중에서 가장 나은 방법을 선택하는 것. 즉, 최대 reward를 찾아가는 것.</p>
+</li>
+<li>
+<p>Exploration</p>
+<p>새로운 길을 탐색하는 것. 많은 비용이 들지만, 새로운 길이 지금까지 가지고 있었던 해결 방법들 보다 더 나은 reward를 줄 수도 있다.</p>
+</li>
+</ul>
+<p>Exploration은 많은 비용이 들기 때문에, 당장은 reward를 얻지 못할 수도 있다. Exploitation을 하면 당장은 많은 reward를 얻을 수 있다. 이를 exploitaiton-exploration dilema라고 부른다.</p>
+<h2 id="Elements-of-Reinforcement-Learning">Elements of Reinforcement Learning</h2>
+<p>크게 4가지로 나눌 수 있다.</p>
+<ul>
+<li>
+<p>Policy</p>
+<p>어떤 주어진 환경/상황에서 어떤 동작을 취해야 하는지에 대한 규칙 또는 정책, 또는 매핑 함수이다. RL에서 핵심 역할을 하며, 단순한 매핑 테이블일수도, 아주 복잡한 함수나 확률적인 모델일 수도 있다.</p>
+</li>
+<li>
+<p>Reward signal</p>
+<p>액션에 대한 결과적인 상황에 따라 agent가 어떤 reward를 받을지에 대한, 즉, 시스템의 목표를 어떻게 할 것인지에 대한 것이다.</p>
+</li>
+<li>
+<p>Value</p>
+<p>Reward는 액션마다 주어질 수 있는 것으로, 이것만 있으면 greedy하게 갈 수 있다. 이를 방지하기 위해 reward를 누적하고 시스템 전체의 reward를 바라볼 수 있게 하는 것이 value이다. 즉, 어떤 state <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>에 대한 value <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">value(s_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">u</span><span class="mord mathdefault">e</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>는 그 상태 이후, 미래의 상태들 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>s</mi><mrow><mi>i</mi><mo>+</mo><mn>2</mn></mrow></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">s_{i+1}, s_{i+2},...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span></span></span></span>로부터 얻을 수 있는 reward 기댓값이다. 즉, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtext>argmax </mtext><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{argmax} ~ value(s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">argmax</span></span><span class="mspace nobreak"> </span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">u</span><span class="mord mathdefault">e</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>라 함은, 당장 greedy한 선택이 아니라, 미래에 총 reward가 높은 방향으로 액션을 선택할 수 있게 해 준다.</p>
+<p>value-function은 당장 앞에 놓인 action에 대해 value를 계산해주는 함수?</p>
+<p>Reinforcement learning의 주요 task는 이 value function을 추정하는 것이다. agent는 value function이 가장 높은 value를 리턴해주는 액션을 선택하면 되니까.</p>
+</li>
+<li>
+<p>Model of environment</p>
+<p>Agent가 상호작용하는 환경을 정의한 것.</p>
+</li>
+</ul>
+<p>이외에, episode라는 것이 있다. episode란, agent가 게임을 시작하고 끝날 때 까지의 기간, 즉, 한 게임을 의미한다. 다만, 게임같이 &quot;한 게임&quot;이라는 개념이 존재하는 episodic task가 있는 반면(바둑, 스타크래프트), &quot;한 게임&quot;을 정의할 수 없는, continuous task도 존재한다(로봇은 수명이 다할 때 까지 끊임없이 환경과 통신함). 이 경우에는 episode가 없다.</p>
+<p>Reinforcement learning은 궁극적으로 reward를 최대화하는 것이지만, agent는 어떤 상황에서 높은 reward를 고르는게 아니라 value가 높은 쪽을 골라야 한다.</p>
+<p>이 value function을 정의하는 방법은 두 가지가 있을 수 있다.</p>
+<ul>
+<li>
+<p>Tabular solution method</p>
+<p>Value function은 deterministic하다. 보통 deterministic한 함수들은 입력과 출력 매핑을 테이블 형태로 표현가능하다. 따라서, deterministic한 방법을 tabular method라고 부른다.</p>
+<ul>
+<li>Markov Decision Process</li>
+</ul>
+</li>
+<li>
+<p>Approximate solution method</p>
+<p>Value function은 확률적이다.</p>
+</li>
+</ul>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/log.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-03-03</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+
+      <a class="tag-link" href="/tags/ReinforcementLearning/">#ReinforcementLearning</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>

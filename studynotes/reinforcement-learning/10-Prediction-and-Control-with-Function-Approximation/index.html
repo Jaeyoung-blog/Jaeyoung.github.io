@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          10. Prediction and Control with Function Approximation - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h1 id="Home"><strong>Home</strong></h1>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/Blog-Init">블로그 개장</a></li>
+</ul>
+<h1 id="Study-Notes"><strong>Study Notes</strong></h1>
+<h2 id="Machine-Learning">Machine Learning</h2>
+<ul>
+<li><a href="/studynotes/machine-learning/Machine-Learning">Machine Learning</a></li>
+<li><a href="/studynotes/machine-learning/KL-Divergence">KL Divergence</a></li>
+<li><a href="/studynotes/machine-learning/Principal-Component-Analysis">Principal Component Analysis</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st">Restrict Boltzmann Machine 1</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd">Restrict Boltzmann Machine 2</a></li>
+<li><a href="/studynotes/machine-learning/Lagrangian-Multiplier">Lagrangian Multiplier</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-1">Hidden Markov Models 1</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-2">Hidden Markov Models 2</a></li>
+</ul>
+<h2 id="Bayesian-Statistics">Bayesian Statistics</h2>
+<ul>
+<li><a href="/studynotes/bayesian-statistics/01_Probability">01. Probability</a></li>
+<li><a href="/studynotes/bayesian-statistics/02_Distribution">02. Distribution</a></li>
+<li><a href="/studynotes/bayesian-statistics/03-Frequentist-Inference">03. Frequentist Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/04-Bayesian-Inference">04. Bayesian Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/05-Credible-Intervals">05. Credible Intervals</a></li>
+<li><a href="/studynotes/bayesian-statistics/06_Prior_Posterior_predictive">06. Prior &amp; Posterior Predictive</a></li>
+<li><a href="/studynotes/bayesian-statistics/07_Priors">07. Priors</a></li>
+</ul>
+<h2 id="Reinforcement-Learning">Reinforcement Learning</h2>
+<ul>
+<li><a href="/studynotes/reinforcement-learning/01_Introduction">01. Introduction</a></li>
+<li><a href="/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems">02. K-arm Bandits Problems</a></li>
+<li><a href="/studynotes/reinforcement-learning/03-Markov-Decision-Process">03. Markov Decision Process</a></li>
+<li><a href="/studynotes/reinforcement-learning/04-Policies-and-Value-Functions">04. Policies and Value Functions</a></li>
+</ul>
+
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1>Prediction and Control with Function Approximation</h1>
+<p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>지금까지, state와 action이 discrete하며, (state, action) pair의 value가 deterministic한, tabular method를 보았다. 하지만, 이건 실생활에서 매우 한정적일 수 밖에 없다.</p>
+<p>Value function을 table로 표현하지 말고, function으로 추정하자는게 지금부터 다룰 내용이다.<br>
+$$<br>
+V(s) = f_W(s)<br>
+$$</p>
+<p>Function은 어떤 파라미터 $W$로 parameterized되어 있으며, function은 linear 형태의 function이나, 인공신경망과 같이 non-linear한 형태도 가능하다.</p>
+<h2 id="Tabular-Method-is-a-Linear-Function">Tabular Method is a Linear Function</h2>
+<p>Tabular method는 linear function approximation의 한 방법이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200224100627139.png" alt="image-20200224100627139"></p>
+<p>state의 개수만큼 feature가 있고, feature는 각 state를 나타내는 indicator가 된다. 그러면, 각 state의 value는 그 state의 weight가 된다.<br>
+$$<br>
+V(s_i) = \begin{pmatrix}<br>
+0 \newline<br>
+\cdots \newline<br>
+0 \newline<br>
+1 \newline<br>
+0 \newline<br>
+\cdots \newline<br>
+0<br>
+\end{pmatrix} \cdot<br>
+\begin{pmatrix}<br>
+w_1 \newline<br>
+\cdots \newline<br>
+w_{i-1} \newline<br>
+w_i \newline<br>
+w_{i+1} \newline<br>
+\cdots \newline<br>
+w_{16}<br>
+\end{pmatrix} = w_i<br>
+$$<br>
+즉, tabular method는 위와 같이 indicator feature를 이용해서 linear function으로 표현이 가능하다. 따라서, tabular method는 linear function approximation의 한 instance이다.</p>
+<h2 id="Generalization-and-Discrimination">Generalization and Discrimination</h2>
+<p>Generalization과 discrminiation은 reinforcement learning에서 상당히 중요하다.</p>
+<ul>
+<li>
+<p>Generalization</p>
+<p>Generalizaiton은 어떤 state를 학습(value를 추정)했다면, 비슷한 다른 state까지 영향을 미쳐서 학습되는 것을 의미한다.</p>
+</li>
+<li>
+<p>Discrimination</p>
+<p>Discrimination은 서로 다른 state끼리는 학습 또는 추정시, 영향을 미치지 않아야 함을 의미한다. 즉, 어떤 state끼리는 독립적으로 value가 추정되어야 한다는 것이다.</p>
+</li>
+</ul>
+<p>Tabular method는 generalization을 전혀 하지 못하고, discrimination을 100% 수행하는 방법이다. 반면, 모든 state를 똑같은 value를 두도록 설정하면, discrimination을 전혀 수행하지 못하고 generalization을 100% 수행하게 된다. RL에서는 generalization과 discrimination을 동시에 높여야 하며, trade-off관계라서, 적절히 조정하는게 필요하다.</p>
+<h2 id="Value-Estimation-as-Supervised-Learning">Value Estimation as Supervised Learning</h2>
+<p>True reward 리턴값이 있다면, reward를 target label로 삼아서 $f_W(s)$를 학습할 수 있지 않을까.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200225104841408.png" alt="image-20200225104841408"></p>
+<p>하지만, reinforcement learning에서는 각 데이터 샘플(하나의 state-action pair)이 서로 correlate되어 iid에 위반되므로, 모든 supervised learning technique이 다 잘 적용될 수 있는 것은 아니다. 또한, TD의 경우, target 자체가 estimation값(다음 state의 value는 또 다른 estimation 값임)이므로, target이 학습이 지속되면서 변한다. 이는, supervised learning이랑 상당히 다른 환경이다.</p>
+<h2 id="The-Objective-for-On-policy-Prediction">The Objective for On-policy Prediction</h2>
+<p>Function approximation을 하기 위해서는, target value와 얼만큼 가까운지 판단할 수 있는 objective function이 필요하다.</p>
+<h3 id="The-Value-Error-Objective">The Value Error Objective</h3>
+<p>다음은 Mean squared error를 이용한 objective function이다.<br>
+$$<br>
+\text{VE} = \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s, W)]^2<br>
+$$<br>
+이때, 각 state마다 서로 다른 가중치 $\mu(s)$를 주어서, 상대적으로 중요한 state에게는 높은 가중치를, 덜 중요한 state에게는 낮은 가중치를 주도록 한다. Policy에 의해 자주 방문하는 state에 대해서는 높은 가중치를 줄 수도 있겠다.</p>
+<h3 id="Gradient-Monte-Carlo-for-Policy-Evaluation">Gradient Monte Carlo for Policy Evaluation</h3>
+<p>Gradient descent를 Monte Carlo RL에 맞게 수정한 것. Stochastic gradient descent.</p>
+<p>Value error식은 때때로 state개수가 너무 많아서 계산이 불가능하다. 대신, gradient를 approximation한다. 원래 Gradient descent식은 다음과 같다. 이때, $x(s)$는 state $s$의 feature vector이다.<br>
+$$<br>
+W \leftarrow W + \alpha \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s,W)] \nabla \hat{v}(s, W)<br>
+$$<br>
+그런데, 이 식을 쓰지 말고, 다음처럼 gradient를 approximate해서 쓰자는 것이 된다.<br>
+$$<br>
+W \leftarrow W + \alpha [V_{\pi}(S_t) - \hat{v}(S_t, W)] \nabla \hat{v}(S_t, W)<br>
+$$<br>
+왜냐하면 다음이 성립하기 떄문. 즉, 위 gradient는 원래 gradient의 추정치라고 볼 수 있다.<br>
+$$<br>
+E[V_{\pi}(S_t) - \hat{v}(S_t,W)] = \sum_s \mu(s)[V_{\pi}(s) - \hat{v}(s,W)]<br>
+$$<br>
+이는, 샘플 하나 (state-action pair 1개)씩 보면서 한 번 업데이트하는 stochastic gradient descent 방식이다.</p>
+<p>하지만, 이 경우는 target value function인 $V_{\pi}(s)$를 알아야 한다. 얘네도 $G_t$를 이용해 approximation한다.<br>
+$$<br>
+W \leftarrow W + \alpha [G_t - \hat{v}(S_t,W)] \nabla \hat{v}(S_t,W)<br>
+$$<br>
+역시 다음을 추정한 것이다.<br>
+$$<br>
+E[V(S_t)] = E[G_t|S_t]<br>
+$$<br>
+다음은 pseudo code.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200225135449599.png" alt="image-20200225135449599"></p>
+<h3 id="State-Aggregation">State Aggregation</h3>
+<p>State개수가 너무 많아서 모든 state를 따로 업데이트하기 힘들 때, 비슷한 state끼리는 묶어서 하나의 state로 보는 것을 말한다. 따라서, 하나의 state가 업데이트되면 같은 그룹의 다른 state도 같은 값으로 업데이트된다.</p>
+<h2 id="The-Objective-for-TD">The Objective for TD</h2>
+<p>On-policy learning인 Gradient Monte Carlo의 objective로 squared error를 사용했었다. 하지만, TD는 $G_t$가 다음의 특성을 가진다.<br>
+$$<br>
+v(S_t, W) = R_{t+1} + \gamma v(S_{t+1}, W)<br>
+$$<br>
+($G_t = \hat{v}(S_t, A_t)$이다. ) 즉, 다음의 gradient 수식에서,<br>
+$$<br>
+(G_t - \hat{v}(S_{t}, W)) \nabla \hat{v}(S_{t}, W)<br>
+$$<br>
+$G_t$부분은 실제 value의 추정값이므로, TD learning에서는 $v(S_t,W)$와 대체해야 한다. 그런데, 이놈은 $v(S_{t+1}, W)$를 참조하고 있으며, 이 $v(S_{t+1}, W)$는 true value의 estimation이기 보단 현재의 value estimation이다. 따라서, biased된 추정값이며, $v(S_t, W)$를 미분해도 이 식이 $W$를 가지고 있으므로, Gradient Monte Carlo의 gradient 수식과 같게 나오지 않는다. 하지만, 그냥 $v(S_t, W)$는 상수처럼 간주해버리고 쓰게 되는데(즉, $W$에 대한 함수가 아니라고 간주), 이를 semi-gradient 방법이라고 부른다.</p>
+<p>최종적으로 $W$의 업데이트 식은 다음과 같이 쓴다.<br>
+$$<br>
+W \leftarrow W + \alpha(R_{t+1} + \gamma v(S_{t+1}, W) - \hat{v}(S_t,W)) \nabla \hat{v}(S_t, W)<br>
+$$</p>
+<h2 id="TD-vs-Monte-Carlo">TD vs Monte Carlo</h2>
+<p>Function approximation에서, TD와 Monte Carlo 방식의 차이점은 다음과 같다.</p>
+<p><strong>TD</strong></p>
+<ul>
+<li>장점
+<ul>
+<li>에피소드가 끝나기 전에 바로바로 학습하므로 빠른 학습 속도(loss가 빠르게 줄어듬)</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>Estimation이 최종 reward를 반영하지 않은, 현재의 value estimation을 true estimation으로 삼기 때문에 biased된 학습. 즉, 부정확할 수 있다. Local minimum의 근처까지밖에 못갈 수 있다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Monte Carlo</strong></p>
+<ul>
+<li>장점
+<ul>
+<li>에피소드의 최종 reward를 반영한 true value의 estimation을 사용하기에 TD보단 unbiased된 학습. 즉, local minimum을 다소 정확하게 찾는다.</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>느리다. step size를 작게 줘야 한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Linear-TD">Linear TD</h2>
+<p>Value function을 linear하게 모델링한 것을말하며, 간단하고 쉽지만, 잘 정제된 feature가 있다면, 매우 강력한 성능을 발휘한다.</p>
+<p>Tabular TD(0)는 linear TD의 한 종류인데, 다음처럼 feature가 생겼다고 가정한다면, 완벽히 linear TD이다.<br>
+$$<br>
+w = \begin{pmatrix}<br>
+w_0 \newline<br>
+w_1 \newline<br>
+w_2 \newline<br>
+w_3 \newline<br>
+\cdots \newline<br>
+w_d<br>
+\end{pmatrix},<br>
+x(s_i) = \begin{pmatrix}<br>
+0 \newline<br>
+0 \newline<br>
+1 \newline<br>
+0 \newline<br>
+\cdots \newline<br>
+0<br>
+\end{pmatrix},<br>
+\hat{v}(s,w) = w \cdot x<br>
+$$<br>
+feature는 어떤 state인지 나타내는 indicator이고, weight가 각각 상응하는 state들의 value가 되는 셈. Feature $x$를 어떤 aggregation인지를 나타낸다고 하면, aggregation tabular TD(0)역시 linear TD의 모양이 되므로, aggregation tabular TD(0)역시, linear TD의 한 종류이다.</p>
+<p>만약, squared error를 사용하는 linear TD라면, 다음 식으로 $w$가 업데이트된다.<br>
+$$<br>
+w \leftarrow w + \alpha (R_{t+1} + \gamma \hat{v}(S_{t+1}, w) - \hat{v}(S_t, w)) X(S_t)<br>
+$$</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/log.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-03-18</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+
+      <a class="tag-link" href="/tags/ReinforcementLearning/">#ReinforcementLearning</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>
