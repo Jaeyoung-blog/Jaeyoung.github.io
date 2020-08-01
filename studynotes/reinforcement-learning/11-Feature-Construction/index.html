@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <title>
+        
+          11. Feature Construction - Jaeyoung&#39;s Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    <link rel="stylesheet" href="/css/book.css">
+    <script src="/js/book.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+    
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+</head>
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>JAEYOUNG&#39;S BLOG</span>
+  </a>
+</div>
+    <div class="book-menu">
+  <h1 id="Home"><strong>Home</strong></h1>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://www.notion.so/wayexists/Lee-Jaeyoung-b21d5cf478d545b99ade627b8154963f" target="_blank" rel="noopener">About Me</a></li>
+<li><a href="/Blog-Init">Commemoration</a></li>
+</ul>
+<h1 id="Study-Notes"><strong>Study Notes</strong></h1>
+<h2 id="Machine-Learning">Machine Learning</h2>
+<ul>
+<li><a href="/studynotes/machine-learning/Machine-Learning">Machine Learning</a></li>
+<li><a href="/studynotes/machine-learning/KL-Divergence">KL Divergence</a></li>
+<li><a href="/studynotes/machine-learning/Principal-Component-Analysis">Principal Component Analysis</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st">Restrict Boltzmann Machine 1</a></li>
+<li><a href="/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd">Restrict Boltzmann Machine 2</a></li>
+<li><a href="/studynotes/machine-learning/Lagrangian-Multiplier">Lagrangian Multiplier</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-1">Hidden Markov Models 1</a></li>
+<li><a href="/studynotes/machine-learning/Hidden-Markov-Models-2">Hidden Markov Models 2</a></li>
+</ul>
+<h2 id="Bayesian-Statistics">Bayesian Statistics</h2>
+<ul>
+<li><a href="/studynotes/bayesian-statistics/01_Probability">01. Probability</a></li>
+<li><a href="/studynotes/bayesian-statistics/02_Distribution">02. Distribution</a></li>
+<li><a href="/studynotes/bayesian-statistics/03-Frequentist-Inference">03. Frequentist Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/04-Bayesian-Inference">04. Bayesian Inference</a></li>
+<li><a href="/studynotes/bayesian-statistics/05-Credible-Intervals">05. Credible Intervals</a></li>
+<li><a href="/studynotes/bayesian-statistics/06_Prior_Posterior_predictive">06. Prior &amp; Posterior Predictive</a></li>
+<li><a href="/studynotes/bayesian-statistics/07_Priors">07. Priors</a></li>
+<li><a href="/studynotes/bayesian-statistics/08_Bayesian_Modeling">08. Bayesian Modeling</a></li>
+<li><a href="/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation">09. Monte Carlo Estimation</a></li>
+<li><a href="/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo">10. Markov Chain Monte Carlo</a></li>
+<li><a href="/studynotes/bayesian-statistics/11_Linear_Regression">11. Linear Regression</a></li>
+<li><a href="/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis">12. Prior Sensitivity Analysis</a></li>
+<li><a href="/studynotes/bayesian-statistics/13_Hierarchical_models">13. Hierarchical Models</a></li>
+<li><a href="/studynotes/bayesian-statistics/14_Predictive_Simulation">14. Predictive Simulation</a></li>
+<li><a href="/studynotes/bayesian-statistics/APPENDIX-1-MAP">Appendix 01. Maximize a Posterior (MAP)</a></li>
+<li><a href="/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes">Appendix 02. Empirical Bayes (MAP)</a></li>
+</ul>
+<h2 id="Reinforcement-Learning">Reinforcement Learning</h2>
+<ul>
+<li><a href="/studynotes/reinforcement-learning/01_Introduction">01. Introduction</a></li>
+<li><a href="/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems">02. K-arm Bandits Problems</a></li>
+<li><a href="/studynotes/reinforcement-learning/03-Markov-Decision-Process">03. Markov Decision Process</a></li>
+<li><a href="/studynotes/reinforcement-learning/04-Policies-and-Value-Functions">04. Policies and Value Functions</a></li>
+<li><a href="/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control">05. Policy Evaluation &amp; Control</a></li>
+<li><a href="/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning">06. Sample-based Reinforcement Learning</a></li>
+<li><a href="/studynotes/reinforcement-learning/07-Off-Policy-Learning">07. Off-Policy Learning</a></li>
+<li><a href="/studynotes/reinforcement-learning/08-Temporal-Difference-Learning">08. Temporal Difference Learning</a></li>
+<li><a href="/studynotes/reinforcement-learning/09-Models-and-Planning">09. Models and Planning</a></li>
+<li><a href="/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation">10. Prediction and Control with Function Approximation</a></li>
+<li><a href="/studynotes/reinforcement-learning/11-Feature-Construction">11. Feature Construction</a></li>
+</ul>
+
+</div>
+
+<script src="/js/book-menu.js"></script>
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')  
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <h1 id="Feature-Construction">Feature Construction</h1>
+<p>참고: Coursera Reinforcement Learning (Alberta Univ.)</p>
+<p>Value function을 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>v</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat{v}(s, w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>로 function approximation 한다고 하자. 이때, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>는 어떤 state, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>는 이 value function의 weight parameter이며, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>v</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat{v}(s, w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>는 value function을 parameterize한 함수이다.</p>
+<p>만약, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>v</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>w</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat{v}(s, w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span>가 linear model이라면, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>v</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>w</mi><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo><mo>⋅</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">\hat{v}(s, w) = x(s) \cdot w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.22222em;">^</span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span></span></span></span>가 될 것이다. 여기서, tabular method는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x(s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>가 state개수만큼의 길이를 가진 one-hot vector였다. 즉, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x(s_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>번째 원소가 1이고 나머지는 0인 벡터였다.</p>
+<p>하지만, 이것은 feature의 매우 한정적인 예시일 뿐, feature를 꼭 one-hot vector로 할 필요는 없을 것이다.</p>
+<p>Feature를 제대로 선택하는 것은 매우 중요하다. Feature를 제대로 선택한다면, 간단한 linear model에서도 강력한 성능을 발휘할 가능성이 높다. 때로는 feature를 선택할 때, 어떤 분야의 domain 지식이 들어가기도 한다.</p>
+<p>지금, feature를 어떻게 만들지에 대해서 정리하고자 한다.</p>
+<h2 id="Coarse-Coding">Coarse Coding</h2>
+<p>어떤 2차원 공간이 있다고 해 본다. 2차원 공간 속에서 어느 위치에 있는지를 하나의 state라고 해 본다. 그럼 state의 개수는 무한대이고, 이것을 tabular method로 나타내기는 불가능하다. 하지만, state aggregation을 한다면 이야기가 달라진다. 공간을 몇 등분으로 나누어서 각 공간에 들어가는 것을 하나의 상태로 표현하는 것이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303011108051.png" alt="image-20200303011108051"></p>
+<p>그리고, state aggregation은 기본적으로, 각 state가 겹치지 않는다. 또한, feature vector도 one-hot vector의 형태를 띄게 된다.</p>
+<p>Coarse coding이란, aggregation을 겹치게 하도록 허용하는 방식으로, state aggregation를 조금 개선한 것이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303011256015.png" alt="image-20200303011256015"></p>
+<p>이때, agent는 동시에 여러개의 aggregation에 들어갈 수 있고, feature vector는 하나만 1인 벡터 형태가 아닌, 여러 원소가 1을 가지는 벡터 형태가 된다.</p>
+<p>Coarse coding은 state aggregation의 generalization 형태라고 볼 수 있겠다.</p>
+<h3 id="Generalization-Discrimination-of-Coarse-Coding">Generalization &amp; Discrimination of Coarse Coding</h3>
+<p>Coarse coding에서, aggregation의 모양, 사이즈, 개수, 커버리지 범위 모양 등에 따라 generalization, discrimination이 크게 달라질 수 있다. aggregation이 겹친 상태에서 전체 state가 몇 개의 조각으로 나뉘는지 보면 discrimination이 얼마나 되는지 확인할 수 있다. 많은 개수로 나뉘면 discrimination이 많이 이뤄진다. 하나의 커버리지 범위가 넓고 개수가 많다면 discrimination이 또 증가하고, generalization또한 증가하는 경향이 있으나, 상황에 따라 다르기 때문에 적절히 결정할 필요가 있다.</p>
+<h2 id="Tile-Coding">Tile Coding</h2>
+<p>Coarse coding의 한 종류로써, aggregation 모양이 그리드이다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303014339315.png" alt="image-20200303014339315"></p>
+<p>이 그리드를 약간의 offset으로 여러번 움직인다.</p>
+<p><img src="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image/image-20200303014409374.png" alt="image-20200303014409374"></p>
+<p>만약, 타일 1개가 넓으면, generalization도 상당히 넓어지고, offset의 크기와 방향, 그리드가 몇개냐에 따라 discrimination 정도도 달라진다. tile coding은 그리드로 나누고, 각 타일이 동일한 크기의 정/직사각형이기 때문에 현재 state가 어느 타일에 들어가는지 <strong>매우 효율적으로 계산이 가능하다.</strong></p>
+<p>다만, dimension이 증가할수록 tile개수는 exponential하게 증가하게 된다.</p>
+<h2 id="Neural-Network-for-Feature-Construction">Neural Network for Feature Construction</h2>
+<p>Neural network는 feature를 입력으로 받아서, hidden layer로 feature를 representation한 뒤, 최종 output을 낼 수 있는 복잡하고 유연한 parameterized function이다.</p>
+<p>Neural network를 function approximation에 사용할 때의 장점은 feature construction을 인간이 아닌, 컴퓨터에게 맞김과 동시에 매우 유연하게 feature를 뽑아낼 수 있다는 것이다.</p>
+<p>Neural network는 policy, value function, model 등, parameterized function이 필요한 모든 곳에 응용될 수 있다.</p>
+
+</div>
+
+
+  <div class="book-comments">
+    
+
+
+
+
+  </div>
+
+
+<script src="/js/book-post.js"></script>
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/log.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>Lee Jaeyoung</div>
+      <div>2020-06-15</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Study-Notes/">Study Notes</a> <a class="category-link" href="/categories/Study-Notes/Reinforcement-Learning/">Reinforcement Learning</a>
+
+      <a class="tag-link" href="/tags/ReinforcementLearning/">#ReinforcementLearning</a> <a class="tag-link" href="/tags/StudyNotes/">#StudyNotes</a>
+    </div>
+    
+  
+
+  <div class="divider"></div>
+</div>
+  
+
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+<script src="/js/book-toc.js"></script>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+</body>
+</html>
+
+<script src="/js/book.js"></script>
