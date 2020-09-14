@@ -18,7 +18,7 @@
 <meta property="og:description" content="15. Definition of Mixture ModelsNormal distribution, poisson distribution, exponential distribution 등 여러가지 기본 distribution들로 모델링이 가능한 데이터가 있고, 그렇지 않은 데이터가 있다. 예를 들어, 남자와 여자의 키의 분포를 생각해보면, 여자의 키는 160근처">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="https://raw.githubusercontent.com/wayexists02/my-study-note/image/typora/image1.png">
-<meta property="og:updated_time" content="2020-09-14T10:54:50.800Z">
+<meta property="og:updated_time" content="2020-09-14T10:57:46.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="15. Definition of Mixture Models">
 <meta name="twitter:description" content="15. Definition of Mixture ModelsNormal distribution, poisson distribution, exponential distribution 등 여러가지 기본 distribution들로 모델링이 가능한 데이터가 있고, 그렇지 않은 데이터가 있다. 예를 들어, 남자와 여자의 키의 분포를 생각해보면, 여자의 키는 160근처">
@@ -365,9 +365,9 @@
 <p>이 예제에서는 남, 여의 키 분포의 분산 $\sigma^2$이 같다고 가정했다. 그러나, $\sigma$도 다르게 둘 수도 있다.</p>
 <h2 id="Expectation-of-Mixture-Models"><a href="#Expectation-of-Mixture-Models" class="headerlink" title="Expectation of Mixture Models"></a>Expectation of Mixture Models</h2><p>분포의 기댓값은 분포의 특성을 파악하는 데 있어서 가장 중요한 statistics 중 하나이다.</p>
 <p>Mixture model의 기댓값은 다음과 같이 정의될 수 있다.</p>
-<p>$$<br>\mathbb{E}<em>f[X] = \int</em>{-{\infty}}^{\infty}xf(x) dx<br>$$</p>
+<p>$$<br>\mathbb{E}<em>f[X] = \int</em>{ -{\infty} }^{ \infty } xf(x) dx<br>$$</p>
 <p>이때, $f(x)$를 mixture density로 치환해보면 다음과 같다.</p>
-<p>$$<br>\mathbb{E}<em>f[X] = \int</em>{-\infty}^{\infty}x \sum_{k=1}^K \omega_k g_k(x) dx \<br>= \sum_{k=1}^K \omega_k \int_{-\infty}^{\infty}x  g_k(x) dx \<br>= \sum_{k=1}^K \omega_k \mathbb{E}_g[X]<br>$$</p>
+<p>$$<br>\mathbb{E}<em>f[X] = \int</em>{ -\infty }^{ \infty }x \sum_{k=1}^K \omega_k g_k(x) dx \<br>= \sum_{k=1}^K \omega_k \int_{ -\infty }^{ \infty }x  g_k(x) dx \<br>= \sum_{k=1}^K \omega_k \mathbb{E}_g[X]<br>$$</p>
 <p>즉, mixture density의 기댓값은 각 구성원 분포 기댓값의 weighted sum과 같다.</p>
 <h2 id="Variance-of-Mixture-Models"><a href="#Variance-of-Mixture-Models" class="headerlink" title="Variance of Mixture Models"></a>Variance of Mixture Models</h2><p>분포의 분산또한 평균과 마찬가지로 분포의 특성을 파악하는데 아주 중요하다.</p>
 <p>Mixture model의 분산은 다음과 같다.</p>
