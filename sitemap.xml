@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/01_Probability/</loc>
+    
+    <lastmod>2020-09-14T11:45:25.058Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/15-definition-of-mixture-models/</loc>
     
     <lastmod>2020-09-14T11:42:44.934Z</lastmod>
@@ -208,13 +215,6 @@
     <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/05-Credible-Intervals/</loc>
     
     <lastmod>2020-06-05T13:25:25.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/01_Probability/</loc>
-    
-    <lastmod>2020-06-05T13:19:45.864Z</lastmod>
     
   </url>
   
