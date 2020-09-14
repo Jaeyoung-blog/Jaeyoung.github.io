@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://wayexists02.github.io/index/</loc>
+    
+    <lastmod>2020-09-14T10:24:43.536Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/Blog-Init/</loc>
+    
+    <lastmod>2020-09-14T10:24:39.778Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/16-Likelihood-for-Mixture-Models/</loc>
+    
+    <lastmod>2020-09-14T10:05:57.227Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/15-definition-of-mixture-models/</loc>
+    
+    <lastmod>2020-08-01T06:12:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/01_Introduction/</loc>
+    
+    <lastmod>2020-06-15T01:16:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/11-Feature-Construction/</loc>
+    
+    <lastmod>2020-06-14T23:09:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/10-Prediction-and-Control-with-Function-Approximation/</loc>
+    
+    <lastmod>2020-06-14T23:08:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/09-Models-and-Planning/</loc>
+    
+    <lastmod>2020-06-14T23:01:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/02_Distribution/</loc>
+    
+    <lastmod>2020-06-13T16:12:15.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/APPENDIX-2-Empirical-Bayes/</loc>
+    
+    <lastmod>2020-06-06T13:10:18.898Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/APPENDIX-1-MAP/</loc>
+    
+    <lastmod>2020-06-06T13:09:40.591Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/14_Predictive_Simulation/</loc>
+    
+    <lastmod>2020-06-06T12:52:54.006Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/13_Hierarchical_models/</loc>
+    
+    <lastmod>2020-06-06T12:52:35.849Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/11_Linear_Regression/</loc>
+    
+    <lastmod>2020-06-06T12:52:23.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/10_Markov_chain_Monte_Carlo/</loc>
+    
+    <lastmod>2020-06-06T12:51:57.680Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/09_Monte_Carlo_Estimation/</loc>
+    
+    <lastmod>2020-06-06T12:51:26.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/08_Bayesian_Modeling/</loc>
+    
+    <lastmod>2020-06-06T12:45:28.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/08-Temporal-Difference-Learning/</loc>
+    
+    <lastmod>2020-06-06T04:01:58.221Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/07-Off-Policy-Learning/</loc>
+    
+    <lastmod>2020-06-06T03:59:33.156Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/06-Sample-based-Reinforcement-Learning/</loc>
+    
+    <lastmod>2020-06-06T03:57:55.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/05-Policy-Evaluation-vs-Control/</loc>
+    
+    <lastmod>2020-06-06T03:14:16.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/04-Policies-and-Value-Functions/</loc>
+    
+    <lastmod>2020-06-05T16:06:35.548Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/03-Markov-Decision-Process/</loc>
+    
+    <lastmod>2020-06-05T15:59:46.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/02-K-arm-Bandits-Problems/</loc>
+    
+    <lastmod>2020-06-05T15:58:58.900Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/07_Priors/</loc>
+    
+    <lastmod>2020-06-05T13:50:47.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/04-Bayesian-Inference/</loc>
+    
+    <lastmod>2020-06-05T13:48:04.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/03-Frequentist-Inference/</loc>
+    
+    <lastmod>2020-06-05T13:48:02.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/06_Prior_Posterior_predictive/</loc>
+    
+    <lastmod>2020-06-05T13:41:29.822Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/05-Credible-Intervals/</loc>
+    
+    <lastmod>2020-06-05T13:25:25.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/01_Probability/</loc>
+    
+    <lastmod>2020-06-05T13:19:45.864Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Lagrangian-Multiplier/</loc>
+    
+    <lastmod>2020-06-05T13:00:04.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Principal-Component-Analysis/</loc>
+    
+    <lastmod>2020-06-05T12:31:15.717Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Machine-Learning/</loc>
+    
+    <lastmod>2020-06-05T11:57:46.655Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/Appendix-1-RL-Cheatsheet/</loc>
+    
+    <lastmod>2020-03-24T04:32:35.321Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/13-Policy-Gradient/</loc>
+    
+    <lastmod>2020-03-23T00:13:37.659Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/reinforcement-learning/12-Controls-with-Approximation/</loc>
+    
+    <lastmod>2020-03-22T00:47:59.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Hidden-Markov-Models-2/</loc>
+    
+    <lastmod>2020-03-06T02:31:09.640Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Hidden-Markov-Models-1/</loc>
+    
+    <lastmod>2020-03-06T02:27:39.666Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Restrict-Boltzmann-Machines-2nd/</loc>
+    
+    <lastmod>2020-03-06T02:01:07.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Restrict-Boltzmann-Machines-1st/</loc>
+    
+    <lastmod>2020-03-06T01:56:06.290Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/KL-Divergence/</loc>
+    
+    <lastmod>2020-03-03T01:58:11.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/machine-learning/Distillation-Methods/</loc>
+    
+    <lastmod>2020-03-03T01:57:49.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/studynotes/bayesian-statistics/12_Prior_Sensitivity_Analysis/</loc>
+    
+    <lastmod>2020-03-03T01:55:38.746Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-03-03T00:54:07.090Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-03-03T00:54:07.089Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wayexists02.github.io/about/index.html</loc>
+    
+    <lastmod>2020-03-03T00:54:07.088Z</lastmod>
+    
+  </url>
+  
+</urlset>
